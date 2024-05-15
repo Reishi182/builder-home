@@ -6,7 +6,7 @@ import { SiGmail } from "react-icons/si";
 export default function Footer() {
   return (
     <footer className=" bg-[#95B26F] ">
-      <div className="space-y-9 md:pl-[10rem] pr-[8rem] pl-[4rem] py-[5rem]">
+      <div className="space-y-9 md:pl-[10rem] pr-[2rem] sm:pr-[8rem] pl-[4rem] py-[5rem]">
         <div className="flex justify-between items-center ">
           <ul className="text-white flex gap-8 text-lg flex-col md:flex-row tracking-wide font-semibold">
             <li>Tentang Kami</li>
@@ -15,7 +15,7 @@ export default function Footer() {
             <li>Syarat dan Ketentuan</li>
             <li>FAQ</li>
           </ul>
-          <div className="flex  space-x-10">
+          <div className="flex space-x-7 ">
             <Icon>
               <FaFacebookF size={20} color="#95B26F" />
             </Icon>

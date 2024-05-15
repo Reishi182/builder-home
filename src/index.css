@@ -14,3 +14,8 @@
     font-size: 43%;
   }
 }
+@media (max-width: 424px) {
+  :root {
+    font-size: 35%;
+  }
+}
