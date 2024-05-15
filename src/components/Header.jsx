@@ -45,8 +45,8 @@ export default function Header() {
           <UserAvatar />
         ) : (
           <>
-            <ButtonLink to="/daftar">Daftar</ButtonLink>
-            <Link to="/masuk">Masuk</Link>
+            <ButtonLink to="/register">Daftar</ButtonLink>
+            <Link to="/login">Masuk</Link>
           </>
         )}
       </div>
