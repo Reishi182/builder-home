@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div className=" w-full z-0 ">
           <h1 className="text-[#5E8451] text-[6rem] font-semibold text-wrap ">
             <span className="block">Temukan Desain</span>
-            <span className="block -mt-10">Rumah Impianmu!</span>
+            <span className="block">Rumah Impianmu!</span>
           </h1>
           <span className="text-[2.3rem] block">
             Bangun rumah lebih mudah bersama Builder Home
