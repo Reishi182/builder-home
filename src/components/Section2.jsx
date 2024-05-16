@@ -25,17 +25,15 @@ export default function Section2() {
   };
 
   return (
-    <section className="bg-[#F4F4F4] flex flex-col items-center">
-      <div className="flex justify-between items-center px-16 py-9 w-full max-w-screen-xl flex-col sm:flex-row">
+    <section className="bg-[#F4F4F4] flex flex-col px-20 py-20">
+      <div className="flex justify-between items-center flex-col sm:flex-row">
         <h1 className="text-[4rem] font-semibold">Rekomendasi Desain</h1>
         <ButtonLink to="/service">
-          <span>Lihat Semua</span>
-          <span>
-            <FaChevronCircleRight />
-          </span>
+          Lihat Semua
+          <FaChevronCircleRight />
         </ButtonLink>
       </div>
-      <div className="w-full max-w-screen-xl px-20 pb-20 ">
+      <div className="mt-10">
         <Slider {...settings}>
           {houseItems.map((item) => (
             <ItemCard

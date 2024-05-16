@@ -37,10 +37,10 @@ export default function UserCard() {
           </h1>
         </div>
         <div className="mt-6 flex items-center space-x-4">
-          <Link className="px-7 flex items-center justify-center gap-3 text-lg py-3 bg-[#5E8451] text-white rounded-xl">
-            <IoMdMail size={22} />
+          <ButtonLink>
+            <IoMdMail />
             Send Message
-          </Link>
+          </ButtonLink>
         </div>
       </div>
     </div>

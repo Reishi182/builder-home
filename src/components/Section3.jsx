@@ -2,7 +2,7 @@ import { Card, CardHeader, CardBody, Avatar } from "@nextui-org/react";
 export default function Section3() {
   return (
     <section className="-[#FCFCFC]  px-20 py-20 pb-20">
-      <div className="">
+      <div>
         <h1 className="text-[4rem] font-semibold">Testimoni Klien</h1>
       </div>
       <div className="mt-9 flex space-x-24 flex-col lg:flex-row lg:space-y-0 space-y-12 justify-center items-center ">

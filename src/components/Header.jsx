@@ -20,7 +20,7 @@ export default function Header() {
     <nav className="flex px-[4.4rem]  py-[2rem] relative justify-between lg:py-[2.5rem] text-[1.4rem] shadow-md">
       <div className="flex gap-[1rem]">
         <div className="lg:hidden flex justify-center items-center">
-          <Hamburger size={25} toggled={isOpen} toggle={setIsOpen} />
+          <Hamburger size={20} toggled={isOpen} toggle={setIsOpen} />
         </div>
 
         <div className="flex gap-[5rem]  items-center">

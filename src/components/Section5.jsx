@@ -1,6 +1,7 @@
 import { FaArrowCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
+import ButtonLink from "./ButtonLink";
 
 export default function Section5() {
   return (
@@ -15,12 +16,10 @@ export default function Section5() {
               Bahan bacaan Anda sebelum membangun rumah
             </span>
           </h1>
-          <Link className="bg-[#5E8451] items-center text-xl  py-3 rounded-lg gap-6 px-4 flex w-52 font-medium text-white">
+          <ButtonLink>
             Lihat Semua
-            <span className="inline-block">
-              <FaArrowCircleRight size={15} />
-            </span>
-          </Link>
+            <FaArrowCircleRight />
+          </ButtonLink>
         </div>
         <div>
           <ArticleCard />
