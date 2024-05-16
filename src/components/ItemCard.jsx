@@ -16,7 +16,7 @@ export default function ItemCard({ title, designer, img }) {
         </div>
         <div className="mt-6 flex items-center space-x-4">
           <span>
-            <BsArrowsFullscreen size={20} />
+            <BsArrowsFullscreen className="text-[2rem]" />
           </span>
           <h1 className="">
             <span className="block font-light text-sm">Lahan Minimal</span>
@@ -27,7 +27,7 @@ export default function ItemCard({ title, designer, img }) {
         </div>
         <div className="mt-3 flex items-center space-x-4">
           <span>
-            <HiOutlineCash size={20} />
+            <HiOutlineCash className="text-[2.3rem]" />
           </span>
           <h1 className="">
             <span className="block font-light text-sm"> Biaya Konstruksi</span>
