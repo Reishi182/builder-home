@@ -39,7 +39,7 @@ export default function Login() {
   return (
     <div className="flex px-12 py-6 h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] w-[50%] rounded-xl h-full px-10 py-60 hidden md:flex  relative">
+        <div className="bg-[#5E8451] w-[50%] rounded-xl  px-10 py-60 hidden md:flex  relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
