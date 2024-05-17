@@ -5,7 +5,7 @@ export default function Section3() {
       <div>
         <h1 className="text-[4rem] font-semibold">Testimoni Klien</h1>
       </div>
-      <div className="mt-9 flex space-x-24 flex-col lg:flex-row lg:space-y-0 space-y-12 justify-center items-center ">
+      <div className="mt-9 flex lg:space-x-24 space-x-0 flex-col lg:flex-row lg:space-y-0 space-y-12 justify-center items-center ">
         <img src="/img/frame.png" className="w-[60rem]" />
         <Card className=" w-[28rem] px-9 py-4">
           <CardHeader className="flex gap-3">
