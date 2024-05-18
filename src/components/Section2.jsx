@@ -35,25 +35,24 @@ export default function Section2() {
           <FaChevronCircleRight />
         </ButtonLink>
       </div>
-      <div className="">
-        <Carousel
-          responsive={responsive}
-          containerClass="carousel-container"
-          itemClass="carousel-item-padding-40-px"
-          customTransition="transform 250ms ease 0s"
-          customTransitionDuration={500}
-          customTransitionTimingFunction="ease"
-        >
-          {houseItems.map((item) => (
-            <ItemCard
-              title={item.title}
-              key={item.img}
-              img={item.img}
-              designer={item.designer}
-            />
-          ))}
-        </Carousel>
-      </div>
+
+      <Carousel
+        responsive={responsive}
+        containerClass="carousel-container"
+        customTransition="transform 250ms ease 0s"
+        customTransitionDuration={500}
+        customTransitionTimingFunction="ease"
+        partialVisible={false}
+      >
+        {houseItems.map((item) => (
+          <ItemCard
+            title={item.title}
+            key={item.img}
+            img={item.img}
+            designer={item.designer}
+          />
+        ))}
+      </Carousel>
     </section>
   );
 }
