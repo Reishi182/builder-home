@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -9,7 +10,13 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
-  } = useForm();
+    watch,
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
+
+  const password = watch("password");
 
   function onSubmit(data) {
     navigate("/");
@@ -36,20 +43,20 @@ export default function Register() {
             alt="Person"
           />
         </div>
-        <div className="flex flex-col items-center w-full md:w-[50%] py-20 md:pl-40 pl-0 md:pr-10 pr-0">
+        <div className="flex flex-col items-center w-full md:w-[50%] py-6 md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
             <div className="space-y-8 w-full text-center md:text-start">
               <h1 className="text-2xl">
                 <span className="block">Selamat Datang !</span>
               </h1>
               <h1 className="space-y-3">
-                <span className="block text-3xl font-bold">Sign In</span>
+                <span className="block text-3xl font-bold">Sign Up</span>
                 <span className="block text-[#7C7C7C] text-xl">
                   Silahkan masukkan email dan password kamu
                 </span>
               </h1>
             </div>
-            <div className="space-y-10 w-full">
+            <div className="space-y-5 w-full">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                 <Input
                   label="Email"
@@ -64,19 +71,30 @@ export default function Register() {
                   error={errors.email}
                 />
                 <Input
-                  label="Kata Sandi"
+                  label="Password"
                   placeholder="Password kamu"
                   register={register("password", {
                     required: "Password wajib diisi",
                   })}
                   error={errors.password}
                 />
-                <div className="flex justify-between items-center">
+                <Input
+                  label="Confirm Password"
+                  placeholder="Tulis Kembali passwordmu"
+                  register={register("confirmPassword", {
+                    required: "Konfirmasi password wajib diisi",
+                    validate: (value) =>
+                      value === password ||
+                      "Password dan konfirmasi password tidak sama",
+                  })}
+                  error={errors.confirmPassword}
+                />
+                <div>
                   <Checkbox
-                    label="Remember Me"
-                    register={register("rememberMe")}
+                    label="By signing up you agree to our Terms & Condition 
+                    and Privacy Policy.*"
+                    register={register("policy")}
                   />
-                  <Link className="text-[#2083C6] text-xl">Lupa Password?</Link>
                 </div>
                 <button
                   disabled={!isDirty || !isValid}
@@ -92,8 +110,10 @@ export default function Register() {
               </form>
               <div className="flex flex-col justify-center items-center">
                 <h1 className="flex justify-center space-x-5 text-xl">
-                  <span className="text-[#7D7D7D]">Belum punya akun ?</span>
-                  <Link className="text-[#164520] font-bold">Sign Up</Link>
+                  <span className="text-[#7D7D7D]">Sudah punya akun ?</span>
+                  <Link to="/login" className="text-[#164520] font-bold">
+                    Sign In
+                  </Link>
                 </h1>
               </div>
               <div className="flex items-center">

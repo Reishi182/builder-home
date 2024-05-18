@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from "./../hooks/useLocalStorage";
 import { useEffect } from "react";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [data, setData, removeData] = useLocalStorage("loginData", {});
   const checked = Boolean(data.email);
   const {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
-    trigger,
     setValue,
   } = useForm({
     defaultValues: {
@@ -21,20 +21,21 @@ export default function Login() {
   });
   useEffect(() => {
     if (data) {
-      setValue("email", data.email || "");
-      setValue("password", data.password || "");
-      trigger();
+      setValue("email", data.email || "", { shouldValidate: true });
+      setValue("password", data.password || "", { shouldValidate: true });
     }
-  }, [data, setValue, trigger]);
+  }, [data, setValue]);
 
   function onSubmit(data) {
     if (data.rememberMe) {
       setData({ email: data.email, password: data.password });
     } else if (!data.rememberMe) {
-      setData({});
+      removeData();
     }
+    navigate("/");
     alert(JSON.stringify(data));
   }
+  console.log({ isDirty, isValid });
 
   return (
     <div className="flex px-12 py-6 h-screen">

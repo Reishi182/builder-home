@@ -2,26 +2,31 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import { houseItems } from "../utils/data";
 import ButtonLink from "./ButtonLink";
 import ItemCard from "./ItemCard";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-import Slider from "react-slick";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useMediaQuery } from "react-responsive";
-
 export default function Section2() {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
-  const isPhone = useMediaQuery({ query: "(max-width: 468px)" });
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "17px",
-    speed: 500,
-    slidesToShow: isPhone ? 1 : isMobile ? 2 : isTabletOrMobile ? 3 : 4,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    initialSlide: "0",
+  const isMobile = useMediaQuery({ query: "(max-width: 438px)" });
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 2000, min: 1224 },
+      items: 4,
+    },
+    laptop: {
+      breakpoint: { max: 1224, min: 611 },
+      items: 3,
+    },
+
+    tablet: {
+      breakpoint: { max: 611, min: 438 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 438, min: 0 },
+      items: 1,
+    },
   };
 
   return (
@@ -34,7 +39,12 @@ export default function Section2() {
         </ButtonLink>
       </div>
       <div className="mt-10">
-        <Slider {...settings}>
+        <Carousel
+          responsive={responsive}
+          containerClass="carousel-container"
+          itemClass="carousel-item-padding-40-px"
+          centerMode={isMobile}
+        >
           {houseItems.map((item) => (
             <ItemCard
               title={item.title}
@@ -43,7 +53,7 @@ export default function Section2() {
               designer={item.designer}
             />
           ))}
-        </Slider>
+        </Carousel>
       </div>
     </section>
   );
