@@ -6,6 +6,7 @@ import ItemCard from "./ItemCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useMediaQuery } from "react-responsive";
+
 export default function Section2() {
   const isMobile = useMediaQuery({ query: "(max-width: 438px)" });
 
@@ -18,7 +19,6 @@ export default function Section2() {
       breakpoint: { max: 1224, min: 611 },
       items: 3,
     },
-
     tablet: {
       breakpoint: { max: 611, min: 438 },
       items: 2,
@@ -27,6 +27,12 @@ export default function Section2() {
       breakpoint: { max: 438, min: 0 },
       items: 1,
     },
+  };
+
+  // Define custom transition function
+  const customTransition = {
+    transform: `translate3d(-20%, 0px, 0px)`, // Adjust as needed
+    transition: `transform 250ms ease 0s`,
   };
 
   return (
@@ -38,12 +44,14 @@ export default function Section2() {
           <FaChevronCircleRight />
         </ButtonLink>
       </div>
-      <div className="mt-10">
+      <div className="">
         <Carousel
           responsive={responsive}
           containerClass="carousel-container"
           itemClass="carousel-item-padding-40-px"
-          centerMode={isMobile}
+          customTransition="transform 250ms ease 0s" // Apply custom transition
+          customTransitionDuration={500} // Adjust duration as needed
+          customTransitionTimingFunction="ease"
         >
           {houseItems.map((item) => (
             <ItemCard
