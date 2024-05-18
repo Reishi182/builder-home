@@ -5,11 +5,8 @@ import ItemCard from "./ItemCard";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useMediaQuery } from "react-responsive";
 
 export default function Section2() {
-  const isMobile = useMediaQuery({ query: "(max-width: 438px)" });
-
   const responsive = {
     desktop: {
       breakpoint: { max: 2000, min: 1224 },
@@ -29,12 +26,6 @@ export default function Section2() {
     },
   };
 
-  // Define custom transition function
-  const customTransition = {
-    transform: `translate3d(-20%, 0px, 0px)`, // Adjust as needed
-    transition: `transform 250ms ease 0s`,
-  };
-
   return (
     <section className="bg-[#F4F4F4] flex flex-col px-20 py-20">
       <div className="flex justify-between items-center flex-col sm:flex-row">
@@ -49,8 +40,8 @@ export default function Section2() {
           responsive={responsive}
           containerClass="carousel-container"
           itemClass="carousel-item-padding-40-px"
-          customTransition="transform 250ms ease 0s" // Apply custom transition
-          customTransitionDuration={500} // Adjust duration as needed
+          customTransition="transform 250ms ease 0s"
+          customTransitionDuration={500}
           customTransitionTimingFunction="ease"
         >
           {houseItems.map((item) => (

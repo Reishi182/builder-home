@@ -19,7 +19,7 @@ export default function ItemCard({ title, designer, img }) {
             <BsArrowsFullscreen className="text-[2rem]" />
           </span>
           <h1 className="">
-            <span className="block font-light text-sm">Lahan Minimal</span>
+            <span className="block font-light text-base">Lahan Minimal</span>
             <span className="block text-lg font-medium tracking-widest">
               16 m x 7 m
             </span>
