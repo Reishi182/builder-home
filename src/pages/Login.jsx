@@ -39,7 +39,7 @@ export default function Login() {
   return (
     <div className="flex px-12 py-6 h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] w-[50%] rounded-xl  px-10 py-60 hidden md:flex  relative">
+        <div className="bg-[#5E8451] w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex  relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
@@ -113,7 +113,9 @@ export default function Login() {
               <div className="flex flex-col justify-center items-center">
                 <h1 className="flex justify-center space-x-5 text-xl">
                   <span className="text-[#7D7D7D]">Belum punya akun ?</span>
-                  <Link className="text-[#164520] font-bold">Sign Up</Link>
+                  <Link to="/register" className="text-[#164520] font-bold">
+                    Sign Up
+                  </Link>
                 </h1>
               </div>
               <div className="flex items-center">
