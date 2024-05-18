@@ -3,6 +3,7 @@ import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -43,9 +44,16 @@ export default function Register() {
             alt="Person"
           />
         </div>
-        <div className="flex flex-col items-center w-full md:w-[50%] py-6 md:pl-40 pl-0 md:pr-10 pr-0">
+        <div className="flex flex-col items-center w-full md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
             <div className="space-y-8 w-full text-center md:text-start">
+              <button
+                onClick={() => navigate("/")}
+                className="flex text-2xl items-center gap-3 underline -mb-5 text-[#9B9B9B] "
+              >
+                <FaArrowLeftLong />
+                Kembali
+              </button>
               <h1 className="text-2xl">
                 <span className="block">Selamat Datang !</span>
               </h1>

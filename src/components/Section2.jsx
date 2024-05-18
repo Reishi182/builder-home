@@ -2,30 +2,9 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import { houseItems } from "../utils/data";
 import ButtonLink from "./ButtonLink";
 import ItemCard from "./ItemCard";
-
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import ItemCarousel from "./ItemCarousel";
 
 export default function Section2() {
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 2000, min: 1224 },
-      items: 4,
-    },
-    laptop: {
-      breakpoint: { max: 1224, min: 611 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 611, min: 438 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 438, min: 0 },
-      items: 1,
-    },
-  };
-
   return (
     <section className="bg-[#F4F4F4] flex flex-col px-20 py-20">
       <div className="flex justify-between items-center flex-col sm:flex-row">
@@ -35,15 +14,7 @@ export default function Section2() {
           <FaChevronCircleRight />
         </ButtonLink>
       </div>
-
-      <Carousel
-        responsive={responsive}
-        containerClass="carousel-container"
-        customTransition="transform 250ms ease 0s"
-        customTransitionDuration={500}
-        customTransitionTimingFunction="ease"
-        partialVisible={false}
-      >
+      <ItemCarousel>
         {houseItems.map((item) => (
           <ItemCard
             title={item.title}
@@ -52,7 +23,7 @@ export default function Section2() {
             designer={item.designer}
           />
         ))}
-      </Carousel>
+      </ItemCarousel>
     </section>
   );
 }
