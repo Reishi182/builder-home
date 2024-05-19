@@ -8,7 +8,7 @@ import {
 export default function DropdownMenu({ children, data }) {
   return (
     <div className="flex items-center gap-4">
-      <Dropdown placement="bottom-end">
+      <Dropdown placement="bottom">
         <DropdownTrigger>{children}</DropdownTrigger>
         <DropdownMenus aria-label="Profile Actions" variant="flat">
           <DropdownItem key="profile" className="h-14  gap-2">

@@ -6,6 +6,7 @@ import {
   PopoverContent,
   Divider,
 } from "@nextui-org/react";
+import NoNotification from "./NoNotification";
 
 export default function Notification({
   isOpen,
@@ -18,41 +19,59 @@ export default function Notification({
       <Popover
         placement="bottom"
         offset={20}
+        isOpen={isOpen}
+        onOpenChange={(open) => setIsOpen(open)}
         classNames={{ content: [""] }}
         showArrow
       >
         <PopoverTrigger>{children}</PopoverTrigger>
+
         <PopoverContent className="w-[40rem]">
           <div className="px-6 py-6 flex border-b-2 justify-between items-center  border-gray-200 w-full">
             <span className="text-3xl block font-bold">Notifications</span>
             <div className="flex space-x-5 items-center justify-center">
-              <span className="block  text-lg underline">Sudah dibaca</span>
-              <button onClick={(s) => setIsOpen(!s)} className="text-[2rem]">
+              {notifications.length ? (
+                <span className="block  text-lg underline">Sudah dibaca</span>
+              ) : null}
+              <button
+                onClick={() => setIsOpen((s) => !s)}
+                className="text-[2rem]"
+              >
                 <IoCloseSharp color="#D9D9D9" />
               </button>
             </div>
           </div>
 
-          <ul className="px-7 w-full h-full flex flex-col  ">
-            {notifications.map((item) => (
-              <>
-                <motion.li
-                  key={item.message}
-                  transition={{ duration: 0.3, ease: "easeInOut", delay: 0.5 }}
-                  className="text-black py-6  flex items-center space-x-4 "
-                >
-                  <img src="/img/alisa.png" className="w-20 h-20 rounded-xl" />
-
-                  <h1 className="space-y-3">
-                    <span className="block text-2xl">{item.message}</span>
-                    <span className="block text-lg text-[#898989]">
-                      {item.time} minutes ago
-                    </span>
-                  </h1>
-                </motion.li>
-                <Divider />
-              </>
-            ))}
+          <ul className="px-7 w-full h-full flex flex-col">
+            {notifications.length ? (
+              notifications.map((item) => (
+                <>
+                  <motion.li
+                    key={item.message}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                      delay: 0.5,
+                    }}
+                    className="text-black py-6  flex items-center space-x-4"
+                  >
+                    <img
+                      src="/img/alisa.png"
+                      className="w-20 h-20 rounded-xl"
+                    />
+                    <h1 className="space-y-3">
+                      <span className="block text-2xl">{item.message}</span>
+                      <span className="block text-lg text-[#898989]">
+                        {item.time} minutes ago
+                      </span>
+                    </h1>
+                  </motion.li>
+                  <Divider />
+                </>
+              ))
+            ) : (
+              <NoNotification />
+            )}
           </ul>
         </PopoverContent>
       </Popover>

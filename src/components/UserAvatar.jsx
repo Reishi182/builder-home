@@ -8,11 +8,7 @@ import Notification from "./Notification";
 export default function UserAvatar() {
   const [data] = useLocalStorage("loginData", {});
   const [isOpen, setIsOpen] = useState(false);
-  const notifications = [
-    { message: "You have a new message.", time: 10 },
-    { message: "Your order has been shipped.", time: 15 },
-    { message: "New comment on your post.", time: 22 },
-  ];
+  const notifications = [];
 
   return (
     <>
@@ -34,7 +30,7 @@ export default function UserAvatar() {
         </DropdownMenu>
         <h1 className="text-[#404040] font-semibold">
           <span className="block">Halo,</span>
-          <span className="block">amanda caesar</span>
+          <span className="block">{data.name}</span>
         </h1>
       </div>
     </>
