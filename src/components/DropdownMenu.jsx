@@ -11,7 +11,7 @@ export default function DropdownMenu({ children, data }) {
       <Dropdown placement="bottom">
         <DropdownTrigger>{children}</DropdownTrigger>
         <DropdownMenus aria-label="Profile Actions" variant="flat">
-          <DropdownItem key="profile" className="h-14  gap-2">
+          <DropdownItem key="account" className="h-14  gap-2">
             <p className="font-semibold text-xl">Signed in as</p>
             <p className="font-semibold text-xl">{data.email}</p>
           </DropdownItem>
@@ -19,7 +19,7 @@ export default function DropdownMenu({ children, data }) {
             <span className="block text-lg">My Profile</span>
           </DropdownItem>
           <DropdownItem key="logout" color="danger">
-            <span className="block text-lg">Log Out</span>
+            <button className="block text-lg">Log Out</button>
           </DropdownItem>
         </DropdownMenus>
       </Dropdown>

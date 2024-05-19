@@ -6,7 +6,7 @@ export default function NoNotification() {
         <span className="block text-2xl font-bold">
           No Notification Right Now ?
         </span>
-        <span className="block">You’re up-to-date</span>
+        <span className="block text-lg">You’re up-to-date</span>
       </h1>
     </div>
   );

@@ -3,7 +3,6 @@ import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from "./../hooks/useLocalStorage";
-import { useEffect } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function Login() {

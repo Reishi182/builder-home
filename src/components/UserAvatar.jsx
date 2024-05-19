@@ -1,5 +1,5 @@
 import { FaHeart, FaRegBell } from "react-icons/fa";
-import { Avatar, Popover } from "@nextui-org/react";
+import { Avatar } from "@nextui-org/react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import DropdownMenu from "./DropdownMenu";
 import { useState } from "react";
@@ -7,7 +7,9 @@ import Notification from "./Notification";
 
 export default function UserAvatar() {
   const [data] = useLocalStorage("loginData", {});
+
   const [isOpen, setIsOpen] = useState(false);
+
   const notifications = [];
 
   return (
