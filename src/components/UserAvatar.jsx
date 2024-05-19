@@ -1,7 +1,7 @@
 import { FaHeart, FaRegBell } from "react-icons/fa";
 import { Avatar } from "@nextui-org/react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import DropdownMenu from "./DropdownMenu";
+import DropdownUser from "./DropdownUser";
 import { useState } from "react";
 import Notification from "./Notification";
 
@@ -27,9 +27,9 @@ export default function UserAvatar() {
             <FaRegBell color="grey" />
           </button>
         </Notification>
-        <DropdownMenu data={data}>
+        <DropdownUser data={data}>
           <Avatar name="joe" size="lg" as="button" />
-        </DropdownMenu>
+        </DropdownUser>
         <h1 className="text-[#404040] font-semibold">
           <span className="block">Halo,</span>
           <span className="block">{data.name}</span>

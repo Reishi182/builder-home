@@ -1,9 +1,12 @@
-/* eslint-disable react/prop-types */
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { HiOutlineCash } from "react-icons/hi";
+
 export default function ItemCard({ title, designer, img }) {
   return (
-    <div className="flex flex-col mt-10 mr-5 ml-5 bg-[#FEFEFE] rounded-xl ">
+    <div
+      className="flex flex-col mt-10 mr-5 ml-5 bg-[#FEFEFE] rounded-xl"
+      style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+    >
       <img src={img} className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">

@@ -5,7 +5,7 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 
-export default function DropdownMenu({ children, data }) {
+export default function DropdownUser({ children, data }) {
   return (
     <div className="flex items-center gap-4">
       <Dropdown placement="bottom">

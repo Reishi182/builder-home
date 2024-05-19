@@ -5,7 +5,10 @@ import { IoMdMail } from "react-icons/io";
 
 export default function UserCard() {
   return (
-    <div className="flex flex-col bg-[#FEFEFE] w-[80%] rounded-xl mt-20">
+    <div
+      className="flex flex-col bg-[#FEFEFE] w-[80%] rounded-xl mt-20 "
+      style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+    >
       <img src="/img/alisa.png" className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">

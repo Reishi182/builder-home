@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { useMediaQuery } from "react-responsive";
 import { menuItems } from "./../utils/data";
@@ -7,15 +7,15 @@ import MobileNav from "./MobileNav";
 import UserAvatar from "./UserAvatar";
 import ButtonLink from "./ButtonLink";
 import useLocalStorage from "../hooks/useLocalStorage";
-import Notification from "./Notification";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [data] = useLocalStorage("loginData", {});
   const isLogin = Boolean(data.name);
-  console.log(isLogin);
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1024px)",
   });
+  const location = useLocation();
+
   useEffect(() => {
     if (isDesktopOrLaptop) setIsOpen(false);
   }, [isDesktopOrLaptop, setIsOpen]);
@@ -32,12 +32,16 @@ export default function Header() {
           <ul className="lg:flex hidden flex-row  space-x-14 text-[#9e9e9e]  ">
             {menuItems.map((item) => (
               <li key={item.name}>
-                <Link
-                  className="active:text-[#5E8451] active:font-semibold flex font-medium transition-all items-center"
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#5E8451] font-semibold"
+                      : "flex font-medium transition-all items-center"
+                  }
                   to={item.path}
                 >
                   {item.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>

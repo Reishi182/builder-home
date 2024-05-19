@@ -7,13 +7,14 @@ export default function Input({
   error,
   maxLength,
   onBlur,
+  py = "py-6",
 }) {
   return (
-    <div>
-      <div className="space-y-2">
+    <div className="flex w-full">
+      <div className="space-y-2 w-full">
         <label className="text-black text-2xl font-medium">{label}</label>
         <input
-          className={` px-6 py-6 border-[#9B9B9B] text-black ${
+          className={` px-6 ${py} border-[#9B9B9B] text-black ${
             error ? "border-red-500" : ""
           } rounded-xl text-xl text-[#BFBFBF] w-full border-1`}
           type={type}
