@@ -2,15 +2,21 @@ import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useDisclosure } from "@nextui-org/react";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import Modal from "../components/Modal";
+import { IoSendSharp } from "react-icons/io5";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Register() {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const [data, setData, removeData] = useLocalStorage("loginData", {});
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
+    formState: { errors, isValid },
     watch,
   } = useForm({
     mode: "onChange",
@@ -20,14 +26,15 @@ export default function Register() {
   const password = watch("password");
 
   function onSubmit(data) {
-    navigate("/");
     alert(JSON.stringify(data));
+    setData({ email: data.email, password: data.password, name: data.name });
+    onOpen();
   }
 
   return (
     <div className="flex px-12 py-6 h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex  relative">
+        <div className="bg-[#5E8451] w-[50%] h-[110%] rounded-xl  px-10 py-60 hidden md:flex  relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
@@ -65,7 +72,7 @@ export default function Register() {
               </h1>
             </div>
             <div className="space-y-5 w-full">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                 <Input
                   label="Email"
                   placeholder="Email Kamu"
@@ -77,6 +84,14 @@ export default function Register() {
                     },
                   })}
                   error={errors.email}
+                />
+                <Input
+                  label="Nama"
+                  placeholder="Nama Kamu"
+                  register={register("name", {
+                    required: "Nama wajib diisi",
+                  })}
+                  error={errors.name}
                 />
                 <Input
                   label="Password"
@@ -101,14 +116,17 @@ export default function Register() {
                   <Checkbox
                     label="By signing up you agree to our Terms & Condition 
                     and Privacy Policy.*"
-                    register={register("policy")}
+                    register={register("policy", {
+                      required:
+                        "Silakan centang kotak untuk menyetujui kebijakan kami sebelum melanjutkan",
+                    })}
                   />
                 </div>
                 <button
-                  disabled={!isDirty || !isValid}
+                  disabled={!isValid}
                   type="submit"
                   className={` ${
-                    !isDirty || !isValid
+                    !isValid
                       ? "bg-[#D3D3D3] text-[#2A8728]"
                       : "bg-[#248043] text-white"
                   } w-full py-5 px-5  rounded-xl text-2xl`}
@@ -137,6 +155,14 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Modal
+        onClose={onClose}
+        isOpen={isOpen}
+        icon={<IoSendSharp color="blue" />}
+        title="Check Email kamu"
+      >
+        Silakan periksa email kamu untuk melanjutkan pendaftaran
+      </Modal>
     </div>
   );
 }

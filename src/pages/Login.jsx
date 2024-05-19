@@ -14,19 +14,17 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty, isValid },
-    setValue,
+    formState: { errors, isValid },
   } = useForm({
+    reValidateMode: "onChange",
+    mode: "onChange",
+
     defaultValues: {
+      email: data.email && "",
+      passsword: data.password && "",
       rememberMe: checked,
     },
   });
-  useEffect(() => {
-    if (data) {
-      setValue("email", data.email || "", { shouldValidate: true });
-      setValue("password", data.password || "", { shouldValidate: true });
-    }
-  }, [data, setValue]);
 
   function onSubmit(data) {
     if (data.rememberMe) {
@@ -37,12 +35,11 @@ export default function Login() {
     navigate("/");
     alert(JSON.stringify(data));
   }
-  console.log({ isDirty, isValid });
 
   return (
     <div className="flex px-12 py-6 h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex  relative">
+        <div className="bg-[#5E8451] flex-1 w-[50%] h-full rounded-xl px-10 py-60 hidden md:flex relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
@@ -61,7 +58,7 @@ export default function Login() {
         </div>
         <div className="flex flex-col items-center w-full md:w-[50%] py-16 md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
-            <div className="space-y-8 w-full text-center md:text-start">
+            <div className="space-y-5 w-full text-center md:text-start">
               <button
                 onClick={() => navigate("/")}
                 className="flex text-2xl items-center gap-3 underline text-[#9B9B9B] "
@@ -79,8 +76,11 @@ export default function Login() {
                 </span>
               </h1>
             </div>
-            <div className="space-y-10 w-full">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+            <div className="space-y-5 w-full">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-4 flex-1"
+              >
                 <Input
                   label="Email"
                   placeholder="Email Kamu"
@@ -106,13 +106,18 @@ export default function Login() {
                     label="Remember Me"
                     register={register("rememberMe")}
                   />
-                  <Link className="text-[#2083C6] text-xl">Lupa Password?</Link>
+                  <Link
+                    to="/reset_password/1"
+                    className="text-[#2083C6] text-xl"
+                  >
+                    Lupa Password?
+                  </Link>
                 </div>
                 <button
-                  disabled={!isDirty || !isValid}
+                  disabled={!isValid}
                   type="submit"
                   className={` ${
-                    !isDirty || !isValid
+                    !isValid
                       ? "bg-[#D3D3D3] text-[#2A8728]"
                       : "bg-[#248043] text-white"
                   } w-full py-5 px-5  rounded-xl text-2xl`}

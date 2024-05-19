@@ -17,19 +17,19 @@ export default function Footer() {
           </ul>
           <div className="flex space-x-7 ">
             <Icon>
-              <FaFacebookF size={20} color="#95B26F" />
+              <FaFacebookF color="#95B26F" />
             </Icon>
             <Icon>
-              <FaTiktok size={20} color="#95B26F" />
+              <FaTiktok color="#95B26F" />
             </Icon>
             <Icon>
-              <TiSocialInstagram size={20} color="#95B26F" />
+              <TiSocialInstagram color="#95B26F" />
             </Icon>
             <Icon>
-              <FaWhatsapp size={20} color="#95B26F" />
+              <FaWhatsapp color="#95B26F" />
             </Icon>
             <Icon>
-              <SiGmail size={20} color="#95B26F" />
+              <SiGmail color="#95B26F" />
             </Icon>
           </div>
         </div>

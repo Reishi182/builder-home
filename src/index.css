@@ -9,6 +9,11 @@
   font-size: 62.5%;
 }
 
+@media (min-width: 1700px) {
+  :root {
+    font-size: 80%;
+  }
+}
 @media (max-width: 768px) {
   :root {
     font-size: 43.5%;

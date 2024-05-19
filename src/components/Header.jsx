@@ -6,9 +6,13 @@ import { menuItems } from "./../utils/data";
 import MobileNav from "./MobileNav";
 import UserAvatar from "./UserAvatar";
 import ButtonLink from "./ButtonLink";
+import useLocalStorage from "../hooks/useLocalStorage";
+import Notification from "./Notification";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const isLogin = false;
+  const [data] = useLocalStorage("loginData", {});
+  const isLogin = Boolean(data.name);
+  console.log(isLogin);
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1024px)",
   });
@@ -17,7 +21,7 @@ export default function Header() {
   }, [isDesktopOrLaptop, setIsOpen]);
 
   return (
-    <nav className="flex px-[4.4rem]  py-[2rem] relative justify-between lg:py-[2.5rem] text-[1.4rem] shadow-md">
+    <nav className="flex px-10 py-7 relative justify-between  text-[1.4rem] shadow-md">
       <div className="flex gap-[1rem]">
         <div className="lg:hidden flex justify-center items-center">
           <Hamburger size={20} toggled={isOpen} toggle={setIsOpen} />

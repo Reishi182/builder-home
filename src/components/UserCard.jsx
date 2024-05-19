@@ -1,14 +1,11 @@
-import { BsArrowsFullscreen } from "react-icons/bs";
 import { FaStar } from "react-icons/fa6";
 import { HiOutlineCash } from "react-icons/hi";
 import ButtonLink from "./ButtonLink";
-import { Link } from "react-router-dom";
-import { MdMailOutline } from "react-icons/md";
 import { IoMdMail } from "react-icons/io";
 
 export default function UserCard() {
   return (
-    <div className="flex flex-col bg-[#FEFEFE] rounded-xl w-[34rem] mt-20">
+    <div className="flex flex-col bg-[#FEFEFE] w-[80%] rounded-xl mt-20">
       <img src="/img/alisa.png" className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">

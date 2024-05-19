@@ -13,7 +13,7 @@ export default function MobileNav({ isOpen }) {
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="absolute flex bg-white items-center w-full left-0 top-[76px] z-20"
         >
-          <ul className="space-y-8 px-20 py-10 w-full">
+          <ul className="space-y-8 px-20 py-10 w-full ">
             {menuItems.map((item) => (
               <motion.li
                 key={item.name}
@@ -21,7 +21,7 @@ export default function MobileNav({ isOpen }) {
                 whileHover={{ scale: 1.05 }}
               >
                 <Link
-                  className="active:text-[#5E8451] text-[#9e9e9e] active:font-semibold    flex transition-all items-center"
+                  className="active:text-[#5E8451]  text-[#9e9e9e] active:font-semibold    flex transition-all items-center"
                   to={item.path}
                 >
                   {item.name}
