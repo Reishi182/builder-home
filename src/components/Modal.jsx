@@ -10,7 +10,13 @@ import {
 
 export default function Modal({ isOpen, onClose, icon, title, children }) {
   return (
-    <ModalApp size="2xl" backdrop="opaque" isOpen={isOpen} onClose={onClose}>
+    <ModalApp
+      size="2xl"
+      backdrop="opaque"
+      isOpen={isOpen}
+      onClose={onClose}
+      placement="center"
+    >
       <ModalContent className="py-36 px-8">
         <ModalHeader className="flex flex-col space-y-9 items-center">
           <span className="block text-[5rem]">{icon}</span>
