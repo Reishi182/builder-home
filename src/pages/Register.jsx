@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
-import Input from "../components/Input";
-import Checkbox from "../components/Checkbox";
+import useLocalStorage from "../hooks/useLocalStorage";
 import { Link, useNavigate } from "react-router-dom";
 import { useDisclosure } from "@nextui-org/react";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import Modal from "../components/Modal";
+import Checkbox from "../components/Checkbox";
 import { IoSendSharp } from "react-icons/io5";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useForm } from "react-hook-form";
+import Input from "../components/Input";
+import Modal from "../components/Modal";
 
 export default function Register() {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -32,7 +32,7 @@ export default function Register() {
   }
 
   return (
-    <div className="flex px-12 py-6 h-full">
+    <div className="flex px-12 py-6 min-h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
         <div className="bg-[#5E8451] w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex  relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
