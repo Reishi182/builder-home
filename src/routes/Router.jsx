@@ -6,8 +6,9 @@ import Service from "./../pages/Service";
 import Register from "./../pages/Register";
 import ResetPassword from "./../pages/ResetPassword";
 import PageNotFound from "./../pages/PageNotFound";
-import Arsitek from "../pages/Arsitek";
 import Desain from "../pages/Desain";
+import Arsitek from "../features/arsitek/Arsitek";
+import DetailArsitek from "../features/arsitek/DetailArsitek";
 
 export default function Router() {
   return (
@@ -21,6 +22,7 @@ export default function Router() {
             <Route path="desain" element={<Desain />} />
           </Route>
         </Route>
+        <Route path="arsitek/:userId" element={<DetailArsitek />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="reset_password/:step" element={<ResetPassword />} />

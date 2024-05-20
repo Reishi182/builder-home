@@ -6,25 +6,26 @@ import {
   PopoverContent,
   Divider,
 } from "@nextui-org/react";
-import NoNotification from "./NoNotification";
-import { notifications } from "../utils/data";
-export default function Notification({ isOpen, setIsOpen, children }) {
+import NoWishlist from "./NoWishlist";
+import { wishlists } from "../utils/data";
+
+export default function Wishlist({ isOpen, setIsOpen, children }) {
   return (
     <AnimatePresence>
       <Popover
         placement="bottom"
         offset={20}
         isOpen={isOpen}
-        onOpenChange={(open) => setIsOpen(open)}
+        onOpenChange={setIsOpen}
         showArrow
       >
         <PopoverTrigger>{children}</PopoverTrigger>
 
         <PopoverContent className="w-[40rem]">
           <div className="px-6 py-6 flex border-b-2 justify-between items-center  border-gray-200 w-full">
-            <span className="text-3xl block font-bold">Notifications</span>
+            <span className="text-3xl block font-bold">Wishlists</span>
             <div className="flex space-x-5 items-center justify-center">
-              {notifications.length ? (
+              {wishlists.length ? (
                 <span className="block  text-lg underline">Sudah dibaca</span>
               ) : null}
               <button
@@ -36,12 +37,12 @@ export default function Notification({ isOpen, setIsOpen, children }) {
             </div>
           </div>
 
-          <ul className="overflow-auto h-[30rem] w-full px-8 relative  rounded-xl flex flex-col ">
-            {notifications.length ? (
-              notifications.map((item) => (
+          <ul className="overflow-auto h-[30rem] w-full px-8 relative rounded-xl flex flex-col ">
+            {wishlists.length ? (
+              wishlists.map((item) => (
                 <>
                   <motion.li
-                    key={item.avatar}
+                    key={item.message}
                     transition={{
                       duration: 0.3,
                       ease: "easeInOut",
@@ -49,7 +50,10 @@ export default function Notification({ isOpen, setIsOpen, children }) {
                     }}
                     className="text-black py-6  flex items-center space-x-4 "
                   >
-                    <img src={item.avatar} className="w-20 h-20 rounded-xl" />
+                    <img
+                      src="/img/alisa.png"
+                      className="w-20 h-20 rounded-xl"
+                    />
                     <h1 className="space-y-3">
                       <span className="block text-2xl">{item.message}</span>
                       <span className="block text-lg text-[#898989]">
@@ -61,7 +65,7 @@ export default function Notification({ isOpen, setIsOpen, children }) {
                 </>
               ))
             ) : (
-              <NoNotification />
+              <NoWishlist setIsOpen={setIsOpen} />
             )}
           </ul>
         </PopoverContent>

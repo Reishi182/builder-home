@@ -1,28 +1,25 @@
 import { FaHeart, FaRegBell } from "react-icons/fa";
-import { Avatar } from "@nextui-org/react";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { Avatar, Tooltip } from "@nextui-org/react";
 import DropdownUser from "./DropdownUser";
 import { useState } from "react";
 import Notification from "./Notification";
+import Wishlist from "./Wishlist";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 export default function UserAvatar() {
   const [data] = useLocalStorage("loginData", {});
-
   const [isOpen, setIsOpen] = useState(false);
-
-  const notifications = [];
+  const [isOpenWish, setIsOpenWish] = useState(false);
 
   return (
     <>
       <div className="flex flex-row space-x-4 justify-center items-center">
-        <span className="block text-[1.5rem] bg-[#F7F4F4] rounded-full p-4  ">
-          <FaHeart color="grey" />
-        </span>
-        <Notification
-          notifications={notifications}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-        >
+        <Wishlist isOpen={isOpenWish} setIsOpen={setIsOpenWish}>
+          <button className="block text-[1.5rem] bg-[#F7F4F4] rounded-full p-4  ">
+            <FaHeart color="red" />
+          </button>
+        </Wishlist>
+        <Notification isOpen={isOpen} setIsOpen={setIsOpen}>
           <button className="block text-[2rem] bg-[#F7F4F4] rounded-full p-3  ">
             <FaRegBell color="grey" />
           </button>

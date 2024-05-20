@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { useMediaQuery } from "react-responsive";
 import { menuItems } from "./../utils/data";
 import MobileNav from "./MobileNav";
 import UserAvatar from "./UserAvatar";
 import ButtonLink from "./ButtonLink";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useAuthStore } from "../features/Auth/AuthSlice";
+import { Spinner } from "@nextui-org/react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [data] = useLocalStorage("loginData", {});
-  const isLogin = Boolean(data.name);
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1024px)",
   });
-  const location = useLocation();
-
+  const { auth, loading } = useAuthStore((state) => state);
+  console.log(auth);
   useEffect(() => {
     if (isDesktopOrLaptop) setIsOpen(false);
   }, [isDesktopOrLaptop, setIsOpen]);
@@ -49,7 +48,9 @@ export default function Header() {
       </div>
       <MobileNav isOpen={isOpen} />
       <div className="space-x-9 flex justify-center items-center">
-        {isLogin ? (
+        {loading ? (
+          <Spinner />
+        ) : auth ? (
           <UserAvatar />
         ) : (
           <>

@@ -23,8 +23,10 @@ export default function Input({
           onBlur={onBlur}
           {...register}
         />
+        {error && (
+          <p className="text-red-500 text-lg italic">{error.message}</p>
+        )}
       </div>
-      {error && <p className="text-red-500 text-lg italic">{error.message}</p>}
     </div>
   );
 }

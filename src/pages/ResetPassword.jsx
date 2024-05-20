@@ -23,7 +23,7 @@ export default function ResetPassword() {
   return (
     <div className="flex px-12 py-6 h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex  relative">
+        <div className="bg-[url(/img/login.png)] bg-center bg-no-repeat bg-cover  w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex ">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
@@ -33,12 +33,6 @@ export default function ResetPassword() {
               <span className="block">Home </span>
             </h1>
           </div>
-          <div className="absolute w-[41rem] h-[41rem] z-0 bg-[#C5D282] rounded-full -translate-x-1/2 -translate-y-1/2 top-[60%] left-[69%]"></div>
-          <img
-            src="/img/person.png"
-            className="absolute w-[41rem] h-[48rem] z-10 -translate-x-1/2 -translate-y-1/2 top-[61%] left-[83%]"
-            alt="Person"
-          />
         </div>
         <div className="flex flex-col items-center justify-center h-full w-full md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center  flex-col justify-center">

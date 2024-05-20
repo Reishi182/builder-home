@@ -11,7 +11,7 @@ export default function MobileNav({ isOpen }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="absolute flex bg-white items-center w-full left-0 top-[76px] z-20"
+          className="absolute flex bg-white items-center w-full left-0 md:top-[76px] top-[70px] z-20"
         >
           <ul className="space-y-8 px-20 py-10 w-full ">
             {menuItems.map((item) => (

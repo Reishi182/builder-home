@@ -2,12 +2,12 @@ import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "./../hooks/useLocalStorage";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [data, setData, removeData] = useLocalStorage("loginData", {});
+  const [data, setData] = useLocalStorage("loginData", {});
 
   const checked = Boolean(data.email);
   const {
@@ -29,7 +29,7 @@ export default function Login() {
     if (data.rememberMe) {
       setData({ email: data.email, password: data.password });
     } else if (!data.rememberMe) {
-      removeData();
+      window.localStorage.clear();
     }
     navigate("/");
     alert(JSON.stringify(data));
@@ -38,7 +38,7 @@ export default function Login() {
   return (
     <div className="flex px-12 py-6 h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] flex-1 w-[50%] h-full rounded-xl px-10 py-60 hidden md:flex relative">
+        <div className="bg-[url(/img/login.png)] bg-center bg-no-repeat bg-cover flex-1 w-[50%] h-full rounded-xl px-10 py-60 hidden md:flex ">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
@@ -48,14 +48,9 @@ export default function Login() {
               <span className="block">Home </span>
             </h1>
           </div>
-          <div className="absolute w-[41rem] h-[41rem] z-0 bg-[#C5D282] rounded-full -translate-x-1/2 -translate-y-1/2 top-[60%] left-[69%]"></div>
-          <img
-            src="/img/person.png"
-            className="absolute w-[41rem] h-[48rem] z-10 -translate-x-1/2 -translate-y-1/2 top-[61%] left-[83%]"
-            alt="Person"
-          />
         </div>
-        <div className="flex flex-col items-center w-full md:w-[50%] py-16 md:pl-40 pl-0 md:pr-10 pr-0">
+
+        <div className="flex flex-col items-center h-full justify-center w-full md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
             <div className="space-y-5 w-full text-center md:text-start">
               <button

@@ -21,7 +21,7 @@ export default function PageNotFound() {
             className="px-7 w-[13rem] flex items-center text-xl justify-center gap-3 py-3 bg-[#5E8451] text-white rounded-2xl"
           >
             Back to Home
-          </Link>{" "}
+          </Link>
         </div>
       </div>
     </div>

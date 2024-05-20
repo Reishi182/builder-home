@@ -9,7 +9,7 @@ export default function Section2() {
     <section className="bg-[#F4F4F4] flex flex-col px-20 py-20">
       <div className="flex justify-between items-center flex-col sm:flex-row">
         <h1 className="text-[4rem] font-semibold">Rekomendasi Desain</h1>
-        <ButtonLink to="/service">
+        <ButtonLink to="/service/desain">
           Lihat Semua
           <FaChevronCircleRight />
         </ButtonLink>

@@ -3,9 +3,17 @@ import {
   DropdownTrigger,
   DropdownMenu as DropdownMenus,
   DropdownItem,
+  Spinner,
 } from "@nextui-org/react";
-
+import { useAuthStore } from "./../features/Auth/AuthSlice";
 export default function DropdownUser({ children, data }) {
+  const { logout, setLoading } = useAuthStore((state) => state);
+  function handleLogout() {
+    localStorage.clear();
+    setLoading(true);
+    logout();
+    setLoading(false);
+  }
   return (
     <div className="flex items-center gap-4">
       <Dropdown placement="bottom">
@@ -18,7 +26,7 @@ export default function DropdownUser({ children, data }) {
           <DropdownItem key="profile" href="/profile">
             <span className="block text-lg">My Profile</span>
           </DropdownItem>
-          <DropdownItem key="logout" color="danger">
+          <DropdownItem key="logout" color="danger" onPress={handleLogout}>
             <button className="block text-lg">Log Out</button>
           </DropdownItem>
         </DropdownMenus>
