@@ -32,9 +32,9 @@ export default function Register() {
   }
 
   return (
-    <div className="flex px-12 py-6 h-screen">
+    <div className="flex px-12 py-6 h-full">
       <div className="mx-auto w-full flex md:items-start items-center">
-        <div className="bg-[#5E8451] w-[50%] h-[110%] rounded-xl  px-10 py-60 hidden md:flex  relative">
+        <div className="bg-[#5E8451] w-[50%] h-full rounded-xl  px-10 py-60 hidden md:flex  relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
             <h1 className="text-white text-[2rem] tracking-wide">
               <span className="block font-thin">Real Project</span>
@@ -51,7 +51,7 @@ export default function Register() {
             alt="Person"
           />
         </div>
-        <div className="flex flex-col items-center w-full md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
+        <div className="flex h-full items-center w-full md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
             <div className="space-y-8 w-full text-center md:text-start">
               <button
