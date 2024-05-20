@@ -36,7 +36,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex px-12 py-6 h-screen">
+    <div className="flex px-12 py-6 min-h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
         <div className="bg-[#5E8451] flex-1 w-[50%] h-full rounded-xl px-10 py-60 hidden md:flex relative">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">
@@ -55,7 +55,7 @@ export default function Login() {
             alt="Person"
           />
         </div>
-        <div className="flex flex-col items-center w-full md:w-[50%] py-16 md:pl-40 pl-0 md:pr-10 pr-0">
+        <div className="flex flex-col items-center h-full justify-center w-full md:w-[50%] py-16 md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
             <div className="space-y-5 w-full text-center md:text-start">
               <button
