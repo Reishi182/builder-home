@@ -12,7 +12,7 @@ export default function Arsitek() {
       <div>
         <h1 className="text-[#C0702E] text-[2.5rem] font-semibold">Desain</h1>
       </div>
-      <div className="grid lg:grid-cols-4 lg:grid-rows-4 sm:grid-cols-2 md:grid-cols-3   grid-cols-1 ">
+      <div className="grid lg:grid-cols-4 lg:grid-rows-4 sm:grid-cols-2 md:grid-cols-3  place-items-center   grid-cols-1 ">
         {duplicatedItems.map((item, index) => (
           <ItemCard
             title={item.title}
