@@ -11,7 +11,7 @@ export default function Input({
 }) {
   return (
     <div className="flex w-full">
-      <div className="space-y-2 w-full">
+      <div className="space-y-2 w-full ">
         <label className="text-black text-2xl font-medium">{label}</label>
         <input
           className={` px-6 ${py} border-[#9B9B9B] text-black ${
@@ -23,8 +23,9 @@ export default function Input({
           onBlur={onBlur}
           {...register}
         />
+           {error && <p className="text-red-500 text-lg italic">{error.message}</p>}
       </div>
-      {error && <p className="text-red-500 text-lg italic">{error.message}</p>}
+   
     </div>
   );
 }
