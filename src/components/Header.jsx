@@ -26,7 +26,9 @@ export default function Header() {
         </div>
 
         <div className="flex gap-[5rem]  items-center">
-          <img src="/img/logo.png" className="h-[25px] w-[80px]" />
+          <Link to="/">
+            <img src="/img/logo.png" className="h-[25px] w-[80px]" />
+          </Link>
           <ul className="lg:flex hidden flex-row  space-x-14 text-[#9e9e9e]  ">
             {menuItems.map((item) => (
               <li key={item.name}>

@@ -11,7 +11,7 @@ export default function ServiceCard() {
   ];
   return (
     <section className="px-28 py-20">
-      <div className="space-y-9 flex flex-col">
+      <div className="space-y-9 flex flex-col sm:items-start  items-center">
         <div>
           <h1 className="text-[#5E8451] text-[2rem] font-bold">
             Telusuri Pilihan Terbaik untuk Kamu !
