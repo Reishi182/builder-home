@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function ArticleCard() {
   return (
-    <div className="bg-white rounded-xl shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] px-6 py-6 w-[50rem]">
+    <div className="bg-white rounded-xl shadow-custom px-6 py-6 w-[50rem]">
       <div className="flex space-x-10 justify-center items-center">
         <div>
           <img src="/img/arsitek.png" width={400} />

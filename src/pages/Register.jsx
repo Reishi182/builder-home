@@ -45,7 +45,7 @@ export default function Register() {
             </h1>
           </div>
         </div>
-        <div className="flex flex-col items-center h-full w-full md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
+        <div className="flex flex-col items-center h-full w-full md:justify-center justify-normal md:w-[50%]  md:pl-40 pl-0 md:pr-10 pr-0">
           <div className="w-full space-y-6 flex items-center flex-col justify-center">
             <div className="space-y-8 w-full text-center md:text-start">
               <button

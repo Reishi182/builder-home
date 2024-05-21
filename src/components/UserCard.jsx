@@ -3,12 +3,9 @@ import { HiOutlineCash } from "react-icons/hi";
 import ButtonLink from "./ButtonLink";
 import { IoMdMail } from "react-icons/io";
 
-export default function UserCard({ name, role }) {
+export default function UserCard({ name, role, id }) {
   return (
-    <div
-      className="flex flex-col bg-[#FEFEFE] w-[80%] rounded-xl mt-20 "
-      style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-    >
+    <div className="flex flex-col bg-[#FEFEFE] sm:w-full w-[80%] shadow-custom  rounded-xl mt-20 ">
       <img src="/img/alisa.png" className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">
@@ -37,7 +34,7 @@ export default function UserCard({ name, role }) {
           </h1>
         </div>
         <div className="mt-6 flex items-center space-x-4">
-          <ButtonLink>
+          <ButtonLink to={`/about/consult/${id}`}>
             <IoMdMail />
             Send Message
           </ButtonLink>

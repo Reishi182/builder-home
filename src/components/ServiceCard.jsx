@@ -7,7 +7,7 @@ export default function ServiceCard() {
   const tabItems = [
     { name: "Arsitek", path: "arsitek" },
     { name: "Desain", path: "desain" },
-    { name: "Desain/Proyek Kamu", path: "droyek" },
+    { name: "Desain/Proyek Kamu", path: "proyek" },
   ];
   return (
     <section className="px-28 py-20">
@@ -19,7 +19,7 @@ export default function ServiceCard() {
         </div>
         <div className="flex w-full justify-between space-x-14">
           <Input py="py-3" placeholder="Cari Jasa" />
-          <button className="space-x-3  text-white text-xl  font-medium items-center justify-center flex bg-[#5E8451] rounded-xl  w-[100px]">
+          <button className="space-x-3  text-white text-xl  font-medium items-center justify-center flex bg-[#5E8451] rounded-xl  w-[10rem]">
             <span className="block">
               <BiSort />
             </span>

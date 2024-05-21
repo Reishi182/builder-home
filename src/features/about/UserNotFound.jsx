@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function PageNotFound() {
+export default function UserNotFound() {
   const navigate = useNavigate();
+  const { Id } = useParams();
   return (
     <div className="bg-[url(/img/pageNotFound.png)] flex min-h-screen bg-center bg-cover w-full items-center justify-center">
       <div className="flex md:flex-row flex-col-reverse items-center justify-between">
@@ -10,10 +11,10 @@ export default function PageNotFound() {
           <h1 className=" text-[#C0702E] text-center space-y-7">
             <span className="block text-[12rem] font-extrabold">404</span>
             <span className="block text-[3rem] font-semibold">
-              Page Not Found
+              User Not Found
             </span>
             <span className="block text-[1.5rem] font-medium">
-              Sorry, we can’t find the page you’re looking for
+              Sorry, we can’t find user with an id#{Id}
             </span>
           </h1>
           <button

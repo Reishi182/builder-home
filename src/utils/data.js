@@ -68,13 +68,59 @@ export const notifications = [
 
 export const wishlists = [];
 
-export const user = [
-  { id: 1, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 2, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 3, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 4, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 5, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 6, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 7, name: "Alissa Gerrand", role: "Architect & Building Designer" },
-  { id: 8, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+export const users = [
+  {
+    id: 1,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "081234567890",
+  },
+  {
+    id: 2,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "082345678901",
+  },
+  {
+    id: 3,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "083456789012",
+  },
+  {
+    id: 4,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "084567890123",
+  },
+  {
+    id: 5,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "085678901234",
+  },
+  {
+    id: 6,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "086789012345",
+  },
+  {
+    id: 7,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "087890123456",
+  },
+  {
+    id: 8,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "088901234567",
+  },
+  {
+    id: 9,
+    name: "Alissa Gerrand",
+    role: "Architect & Building Designer",
+    phone: "089012345678",
+  },
 ];

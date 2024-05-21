@@ -9,6 +9,8 @@ import PageNotFound from "./../pages/PageNotFound";
 import Desain from "../pages/Desain";
 import Arsitek from "../features/arsitek/Arsitek";
 import DetailArsitek from "../features/arsitek/DetailArsitek";
+import Consult from "../features/about/Consult";
+import About from "../features/about/About";
 
 export default function Router() {
   return (
@@ -21,6 +23,8 @@ export default function Router() {
             <Route path="arsitek" element={<Arsitek />} />
             <Route path="desain" element={<Desain />} />
           </Route>
+          <Route path="about" element={<About />} />
+          <Route path="about/consult/:Id" element={<Consult />} />
         </Route>
         <Route path="arsitek/:userId" element={<DetailArsitek />} />
         <Route path="login" element={<Login />} />
