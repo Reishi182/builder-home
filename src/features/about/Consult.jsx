@@ -24,7 +24,7 @@ export default function Consult() {
   ];
 
   return (
-    <section className="px-24 py-10 w-full pb-24">
+    <section className="px-24 py-10 w-full h-full pb-24">
       <div className="space-y-6">
         <div className="flex md:flex-row items-center justify-between flex-col-reverse">
           <img src="/img/whatsapp.png" className="w-[12rem]" />
