@@ -12,7 +12,6 @@ import { useAuthStore } from "../features/Auth/AuthSlice";
 export default function Register() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [data, setData] = useLocalStorage("loginData", {});
-  const isLogin = Boolean(data);
   const navigate = useNavigate();
   const {
     register,
@@ -29,7 +28,7 @@ export default function Register() {
   function onSubmit(data) {
     setData({ email: data.email, password: data.password, name: data.name });
     onOpen();
-    login(isLogin);
+    login(); // Set auth to true upon successful registration
   }
 
   return (

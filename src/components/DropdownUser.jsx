@@ -9,7 +9,6 @@ import { useAuthStore } from "./../features/Auth/AuthSlice";
 export default function DropdownUser({ children, data }) {
   const { logout, setLoading } = useAuthStore((state) => state);
   function handleLogout() {
-    localStorage.clear();
     setLoading(true);
     logout();
     setLoading(false);

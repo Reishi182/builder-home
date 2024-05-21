@@ -3,7 +3,7 @@ import { HiOutlineCash } from "react-icons/hi";
 import ButtonLink from "./ButtonLink";
 import { IoMdMail } from "react-icons/io";
 
-export default function UserCard() {
+export default function UserCard({ name, role }) {
   return (
     <div
       className="flex flex-col bg-[#FEFEFE] w-[80%] rounded-xl mt-20 "
@@ -13,9 +13,9 @@ export default function UserCard() {
       <div className="px-6 py-4">
         <div className=" border-b-1 ">
           <h1>
-            <span className="font-bold text-3xl block">Allisa Gerrand</span>
+            <span className="font-bold text-3xl block">{name}</span>
             <span className="font-medium text-lg text-[#969696] block ">
-              Architect & Building Designer
+              {role}
             </span>
           </h1>
           <h1 className="mb-3 flex space-x-4">

@@ -4,6 +4,7 @@ import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import { useAuthStore } from "../features/Auth/AuthSlice";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ export default function Login() {
       rememberMe: checked,
     },
   });
+  const { login } = useAuthStore((state) => state);
 
   function onSubmit(data) {
     if (data.rememberMe) {
@@ -33,6 +35,7 @@ export default function Login() {
     }
     navigate("/");
     alert(JSON.stringify(data));
+    login();
   }
 
   return (

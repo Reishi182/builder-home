@@ -68,4 +68,13 @@ export const notifications = [
 
 export const wishlists = [];
 
-export const user = [];
+export const user = [
+  { id: 1, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 2, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 3, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 4, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 5, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 6, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 7, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+  { id: 8, name: "Alissa Gerrand", role: "Architect & Building Designer" },
+];

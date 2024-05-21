@@ -14,7 +14,6 @@ export default function Header() {
     query: "(min-width: 1024px)",
   });
   const { auth, loading } = useAuthStore((state) => state);
-  console.log(auth);
   useEffect(() => {
     if (isDesktopOrLaptop) setIsOpen(false);
   }, [isDesktopOrLaptop, setIsOpen]);
