@@ -39,7 +39,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex px-12 py-6 h-screen">
+    <div className="flex px-12 py-6 min-h-screen">
       <div className="mx-auto w-full flex md:items-start items-center">
         <div className="bg-[url(/img/login.png)] bg-center bg-no-repeat bg-cover flex-1 w-[50%] h-full rounded-xl px-10 py-60 hidden md:flex ">
           <div className="uppercase tracking-wide -space-y-3 relative z-30">

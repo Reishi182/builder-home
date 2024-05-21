@@ -1,13 +1,17 @@
-import { useForm } from "react-hook-form";
-import Input from "../components/Input";
-import Checkbox from "../components/Checkbox";
+import useLocalStorage from "../hooks/useLocalStorage";
 import { Link, useNavigate } from "react-router-dom";
 import { useDisclosure } from "@nextui-org/react";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import Modal from "../components/Modal";
+import Checkbox from "../components/Checkbox";
 import { IoSendSharp } from "react-icons/io5";
+<<<<<<< HEAD
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useAuthStore } from "../features/Auth/AuthSlice";
+=======
+import { useForm } from "react-hook-form";
+import Input from "../components/Input";
+import Modal from "../components/Modal";
+>>>>>>> 65cac121dfeb3cc42f569ebc2a7aabcf3f316e53
 
 export default function Register() {
   const { isOpen, onClose, onOpen } = useDisclosure();
