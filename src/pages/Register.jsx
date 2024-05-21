@@ -1,14 +1,13 @@
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useForm } from "react-hook-form";
+import Input from "../components/Input";
+import Checkbox from "../components/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
 import { useDisclosure } from "@nextui-org/react";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import Checkbox from "../components/Checkbox";
+import Modal from "../components/Modal";
 import { IoSendSharp } from "react-icons/io5";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useAuthStore } from "../features/Auth/AuthSlice";
-import { useForm } from "react-hook-form";
-import Input from "../components/Input";
-import Modal from "../components/Modal";
 
 export default function Register() {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -29,7 +28,7 @@ export default function Register() {
   function onSubmit(data) {
     setData({ email: data.email, password: data.password, name: data.name });
     onOpen();
-    login(); // Set auth to true upon successful registration
+    login();
   }
 
   return (
