@@ -11,6 +11,7 @@ import Arsitek from "../features/arsitek/Arsitek";
 import DetailArsitek from "../features/arsitek/DetailArsitek";
 import Consult from "../features/about/Consult";
 import About from "../features/about/About";
+import Profile from "../features/profile/Profile";
 
 export default function Router() {
   return (
@@ -25,12 +26,13 @@ export default function Router() {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="about/consult/:Id" element={<Consult />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
-        <Route path="arsitek/:userId" element={<DetailArsitek />} />
         <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="reset_password/:step" element={<ResetPassword />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="register" element={<Register />} />
+        <Route path="arsitek/:userId" element={<DetailArsitek />} />
+        <Route path="reset_password/:step" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   );

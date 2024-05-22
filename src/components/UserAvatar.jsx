@@ -25,7 +25,7 @@ export default function UserAvatar() {
           </button>
         </Notification>
         <DropdownUser data={data}>
-          <Avatar name="joe" size="lg" as="button" />
+          <Avatar name={data.name} size="lg" as="button" />
         </DropdownUser>
         <h1 className="text-[#404040] font-semibold">
           <span className="block">Halo,</span>

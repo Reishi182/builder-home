@@ -89,6 +89,7 @@ export default function Register() {
                 />
                 <Input
                   label="Password"
+                  type="password"
                   placeholder="Password kamu"
                   register={register("password", {
                     required: "Password wajib diisi",
@@ -97,6 +98,7 @@ export default function Register() {
                 />
                 <Input
                   label="Confirm Password"
+                  type="password"
                   placeholder="Tulis Kembali passwordmu"
                   register={register("confirmPassword", {
                     required: "Konfirmasi password wajib diisi",
