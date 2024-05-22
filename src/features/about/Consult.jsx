@@ -1,5 +1,4 @@
-import React from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { users } from "../../utils/data";
 import UserNotFound from "./UserNotFound";
 
@@ -7,7 +6,6 @@ export default function Consult() {
   const { Id } = useParams();
   const userId = Number(Id);
   const user = users.find((user) => user.id === userId);
-  const navigate = useNavigate();
 
   // Jika user tidak ditemukan, Anda bisa mengarahkan ke halaman lain atau menampilkan pesan
   if (!user) {

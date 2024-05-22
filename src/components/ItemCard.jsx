@@ -3,7 +3,7 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 import { HiOutlineCash } from "react-icons/hi";
 export default function ItemCard({ title, designer, img }) {
   return (
-    <div className="flex flex-col mt-10 mr-5 ml-5 shadow-custom bg-[#FEFEFE] rounded-xl ">
+    <div className="flex flex-col mt-5 mr-5 ml-5 shadow-custom bg-[#FEFEFE] rounded-xl ">
       <img src={img} className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">
@@ -18,7 +18,7 @@ export default function ItemCard({ title, designer, img }) {
           <span>
             <BsArrowsFullscreen className="text-[2rem]" />
           </span>
-          <h1 className="">
+          <h1>
             <span className="block font-light text-base">Lahan Minimal</span>
             <span className="block text-lg font-medium tracking-widest">
               16 m x 7 m
@@ -29,7 +29,7 @@ export default function ItemCard({ title, designer, img }) {
           <span>
             <HiOutlineCash className="text-[2.3rem]" />
           </span>
-          <h1 className="">
+          <h1>
             <span className="block font-light text-sm"> Biaya Konstruksi</span>
             <span className="block text-lg font-medium tracking-wide">
               Estimasi Biaya Konstruksi

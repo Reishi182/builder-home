@@ -124,3 +124,8 @@ export const users = [
     phone: "089012345678",
   },
 ];
+
+export const duplicatedItems = [...houseItems];
+while (duplicatedItems.length < 16) {
+  duplicatedItems.push(...houseItems.slice(0, 16 - duplicatedItems.length));
+}

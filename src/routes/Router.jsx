@@ -6,7 +6,7 @@ import Service from "./../pages/Service";
 import Register from "./../pages/Register";
 import ResetPassword from "./../pages/ResetPassword";
 import PageNotFound from "./../pages/PageNotFound";
-import Desain from "../pages/Desain";
+import Desain from "../features/desain/Desain";
 import Arsitek from "../features/arsitek/Arsitek";
 import DetailArsitek from "../features/arsitek/DetailArsitek";
 import Consult from "../features/about/Consult";
