@@ -69,7 +69,7 @@ export default function About() {
               Mengapa Memilih Jasa Builder Home Hal Yang Tepat ?{" "}
             </h1>
           </div>
-          <div className="grid grid-cols-1 min-[410px]:grid-cols-2 md:space-y-0 space-y-5 md:grid-cols-3 place-items-center">
+          <div className="grid grid-cols-1 gap-10 min-[410px]:grid-cols-2 md:space-y-0 space-y-5 md:grid-cols-3 place-items-center">
             {cards.map((item, i) => (
               <AboutCard key={i} title={item.title} img={item.img}>
                 {item.text}
@@ -92,18 +92,20 @@ export default function About() {
               </span>
             </span>
           </h1>
-          <div className="flex justify-between items-center space-x-7">
-            <Accordion variant="light">
-              {accord.map((item, i) => (
-                <AccordionItem
-                  key={i}
-                  title={item.title}
-                  className="text-justify"
-                >
-                  {item.text}
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="flex justify-between  items-center space-x-7">
+            <div className="w-[70%]">
+              <Accordion variant="light">
+                {accord.map((item, i) => (
+                  <AccordionItem
+                    key={i}
+                    title={item.title}
+                    className="text-justify"
+                  >
+                    {item.text}
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
             <div className="flex flex-col items-center">
               <img src="/img/worker.png" className="w-[20rem]" />
               <ButtonLink>Hubungi Kami</ButtonLink>

@@ -7,10 +7,22 @@ export default function Section4() {
         <div>
           <h1 className="text-[4rem] font-bold">Jasa Arsitek</h1>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center ">
-          {users.map((item, i) => (
-            <UserCard key={i} name={item.name} role={item.role} id={item.id} />
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-14 lg:grid-cols-3 place-items-center ">
+          <UserCard
+            name={users[0].name}
+            role={users[0].role}
+            id={users[0].id}
+          />
+          <UserCard
+            name={users[1].name}
+            role={users[1].role}
+            id={users[1].id}
+          />
+          <UserCard
+            name={users[2].name}
+            role={users[2].role}
+            id={users[3].id}
+          />
         </div>
       </div>
     </section>
