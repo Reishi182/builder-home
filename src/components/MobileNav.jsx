@@ -28,6 +28,8 @@ export default function MobileNav({ isOpen }) {
                   }
                   to={item.path}
                 >
+                  {item.name}
+                </NavLink>
               </motion.li>
             ))}
           </ul>

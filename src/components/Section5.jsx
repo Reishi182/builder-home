@@ -1,5 +1,4 @@
-import { FaArrowCircleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import ArticleCard from "./ArticleCard";
 import ButtonLink from "./ButtonLink";
 
@@ -18,7 +17,7 @@ export default function Section5() {
           </h1>
           <ButtonLink>
             Lihat Semua
-            <FaArrowCircleRight />
+            <FaLongArrowAltRight />
           </ButtonLink>
         </div>
         <div>

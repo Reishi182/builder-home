@@ -1,4 +1,4 @@
-import { FaChevronCircleRight } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import { houseItems } from "../utils/data";
 import ButtonLink from "./ButtonLink";
 import ItemCard from "./ItemCard";
@@ -11,7 +11,7 @@ export default function Section2() {
         <h1 className="text-[4rem] font-semibold">Rekomendasi Desain</h1>
         <ButtonLink to="/service/desain">
           Lihat Semua
-          <FaChevronCircleRight />
+          <FaLongArrowAltRight />
         </ButtonLink>
       </div>
       <ItemCarousel>
