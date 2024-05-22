@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { menuItems } from "./../utils/data";
-import { Link } from "react-router-dom/dist";
+import { NavLink } from "react-router-dom/dist";
 
 export default function MobileNav({ isOpen }) {
   return (
@@ -20,12 +20,14 @@ export default function MobileNav({ isOpen }) {
                 transition={{ duration: 0.3, ease: "easeInOut", delay: 0.5 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Link
-                  className="active:text-[#5E8451]  text-[#9e9e9e] active:font-semibold    flex transition-all items-center"
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#5E8451] font-semibold"
+                      : "flex font-medium transition-all items-center"
+                  }
                   to={item.path}
                 >
-                  {item.name}
-                </Link>
               </motion.li>
             ))}
           </ul>
