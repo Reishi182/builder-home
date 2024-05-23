@@ -22,7 +22,7 @@ export default function DropdownUser({ children, data }) {
             <p className="font-semibold text-xl">Signed in as</p>
             <p className="font-semibold text-xl">{data.email}</p>
           </DropdownItem>
-          <DropdownItem key="profile" href="/profile">
+          <DropdownItem key="profile" href="account/profile">
             <span className="block text-lg">My Profile</span>
           </DropdownItem>
           <DropdownItem key="logout" color="danger" onPress={handleLogout}>

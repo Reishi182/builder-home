@@ -6,12 +6,14 @@ import Service from "./../pages/Service";
 import Register from "./../pages/Register";
 import ResetPassword from "./../pages/ResetPassword";
 import PageNotFound from "./../pages/PageNotFound";
-import Desain from "../features/desain/Desain";
-import Arsitek from "../features/arsitek/Arsitek";
 import DetailArsitek from "../features/arsitek/DetailArsitek";
 import Consult from "../features/about/Consult";
-import About from "../features/about/About";
-import Profile from "../features/profile/Profile";
+import Account from "../pages/Account";
+import Arsitek from "../pages/Arsitek";
+import Desain from "../pages/Desain";
+import About from "../pages/About";
+import Profile from "../features/account/Profile";
+import MyProject from "../features/account/MyProject";
 
 export default function Router() {
   return (
@@ -26,7 +28,11 @@ export default function Router() {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="about/consult/:Id" element={<Consult />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="account" element={<Account />}>
+            <Route index element={<Navigate replace to="profile" />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="my_project" element={<MyProject />} />
+          </Route>
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />

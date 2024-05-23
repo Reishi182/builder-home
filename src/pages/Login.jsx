@@ -20,8 +20,8 @@ export default function Login() {
     mode: "onChange",
 
     defaultValues: {
-      email: data.email && "",
-      passsword: data.password && "",
+      email: data.email || "",
+      password: data.password || "",
       rememberMe: checked,
     },
   });
@@ -92,6 +92,7 @@ export default function Login() {
                 />
                 <Input
                   label="Kata Sandi"
+                  type="password"
                   placeholder="Password kamu"
                   register={register("password", {
                     required: "Password wajib diisi",

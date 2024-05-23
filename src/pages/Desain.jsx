@@ -1,6 +1,6 @@
-import ItemCard from "./../../components/ItemCard";
-import { useQuerySlice } from "./../../slices/QuerySlice";
-import NoItems from "./NoItems";
+import ItemCard from "./../components/ItemCard";
+import { useQuerySlice } from "./../slices/QuerySlice";
+import NoItems from "./../features/desain/NoItems";
 export default function Arsitek() {
   const filteredItems = useQuerySlice((state) => state.getItems());
   return (

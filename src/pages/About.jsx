@@ -1,6 +1,6 @@
-import { Accordion, AccordionItem, card } from "@nextui-org/react";
-import AboutCard from "../../components/AboutCard";
-import ButtonLink from "../../components/ButtonLink";
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import AboutCard from "./../components/AboutCard";
+import ButtonLink from "./../components/ButtonLink";
 
 export default function About() {
   const cards = [

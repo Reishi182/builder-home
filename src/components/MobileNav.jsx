@@ -23,8 +23,8 @@ export default function MobileNav({ isOpen }) {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "text-[#5E8451] font-semibold"
-                      : "flex font-medium transition-all items-center"
+                      ? "text-[#5E8451] font-semibold transition-all items-center"
+                      : "font-medium transition-all items-center"
                   }
                   to={item.path}
                 >

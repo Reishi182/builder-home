@@ -1,6 +1,6 @@
-import UserCard from "../../components/UserCard";
-import { useQuerySlice } from "../../slices/QuerySlice";
-import NoUsers from "./NoUsers";
+import UserCard from "./../components/UserCard";
+import { useQuerySlice } from "./../slices/QuerySlice";
+import NoUsers from "./../features/arsitek/NoUsers";
 
 export default function Arsitek() {
   const filterUsers = useQuerySlice((state) => state.getUsers());
