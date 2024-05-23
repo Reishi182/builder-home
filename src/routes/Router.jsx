@@ -14,6 +14,8 @@ import Desain from "../pages/Desain";
 import About from "../pages/About";
 import Profile from "../features/account/Profile";
 import MyProject from "../features/account/MyProject";
+import EditProfile from "../features/account/EditProfile";
+import PersonalInfo from "../features/account/PersonalInfo";
 
 export default function Router() {
   return (
@@ -31,10 +33,16 @@ export default function Router() {
           <Route path="account" element={<Account />}>
             <Route index element={<Navigate replace to="profile" />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="my_project" element={<MyProject />} />
+            <Route path="my-project" element={<MyProject />} />
           </Route>
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="account/profile/edit" element={<EditProfile />}>
+          <Route index element={<Navigate replace to="personal-info" />} />
+          <Route path="personal-info" element={<PersonalInfo />} />
+          {/* <Route path="reset_password" element/> */}
+          {/* <Route path="delete_account" element/> */}
+        </Route>
         <Route path="*" element={<PageNotFound />} />
         <Route path="register" element={<Register />} />
         <Route path="arsitek/:userId" element={<DetailArsitek />} />

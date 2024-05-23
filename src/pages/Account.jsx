@@ -4,7 +4,7 @@ import { FaUserAlt } from "react-icons/fa";
 import ProfileButton from "./../components/ProfileButton";
 import { Outlet } from "react-router-dom";
 
-export default function Profile() {
+export default function Account() {
   const [data] = useLocalStorage("loginData", {});
   const items = [
     { label: "Profile", icon: <FaUserAlt />, path: "profile" },

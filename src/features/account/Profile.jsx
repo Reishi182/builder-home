@@ -1,6 +1,7 @@
 import { Avatar, Tooltip } from "@nextui-org/react";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { RiEditFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [data] = useLocalStorage("loginData", {});
@@ -11,9 +12,9 @@ export default function Profile() {
       <div className="flex w-full bg-gradient-to-b py-10 space-y-5  px-10 from-[#e9fad2ee] flex-col to-[#95b26fc5]  rounded-3xl ">
         <div className="flex justify-end">
           <Tooltip showArrow={true} content="Edit Profile" color="default">
-            <button className="text-[2rem]">
+            <Link to="edit" className="text-[2rem]">
               <RiEditFill color="black" />
-            </button>
+            </Link>
           </Tooltip>
         </div>
         <div className="space-y-11 flex h-full flex-col">
@@ -31,7 +32,7 @@ export default function Profile() {
           </div>
           <div className="bg-[#F2F4F6] w-full space-y-4 rounded-3xl px-10 py-10">
             <div className="text-[1.3rem]  min-[396px]:flex-row flex flex-col w-full justify-between min-[396px]:items-center items-start min font-semibold">
-              <span className="block">Telepohone</span>
+              <span className="block">Telephone</span>
               <span className="block font-normal">0812-6638-3379</span>
             </div>
             <div className="text-[1.3rem]  h-auto  min-[396px]:flex-row flex flex-col w-full justify-between min-[396px]:items-center items-start min font-semibold">

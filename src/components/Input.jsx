@@ -10,6 +10,8 @@ export default function Input({
   maxLength,
   onBlur,
   py = "py-6",
+  min,
+  max,
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -29,6 +31,8 @@ export default function Input({
             type={showPassword ? "text" : type}
             maxLength={maxLength}
             placeholder={placeholder}
+            min={min}
+            max={max}
             onBlur={onBlur}
             {...register}
           />
