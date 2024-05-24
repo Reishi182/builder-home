@@ -10,7 +10,7 @@ export default function EditProfile() {
   ];
   return (
     <div className="w-full flex ">
-      <div className="bg-[#F7F7F7] w-[30rem] h-screen">
+      <div className="bg-[#F7F7F7] w-[30rem] ">
         <div className="flex flex-col space-y-4 px-10 py-14">
           <button
             onClick={() => navigate(-1)}
