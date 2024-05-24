@@ -17,6 +17,7 @@ import MyProject from "../features/account/MyProject";
 import EditProfile from "../features/account/EditProfile";
 import PersonalInfo from "../features/account/PersonalInfo";
 import ResetPassword from "../features/account/ResetPassword";
+import DeleteAccount from "../features/account/DeleteAccount";
 
 export default function Router() {
   return (
@@ -42,7 +43,7 @@ export default function Router() {
           <Route index element={<Navigate replace to="personal-info" />} />
           <Route path="personal-info" element={<PersonalInfo />} />
           <Route path="reset_password" element={<ResetPassword />} />
-          {/* <Route path="delete_account" element/> */}
+          <Route path="delete_account" element={<DeleteAccount />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
         <Route path="register" element={<Register />} />

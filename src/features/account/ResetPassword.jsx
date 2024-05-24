@@ -5,7 +5,7 @@ import Input from "../../components/Input";
 export default function ResetPassword() {
   const [data] = useLocalStorage("loginData", {});
   return (
-    <div className="flex flex-col py-12 px-24 w-full space-y-10 ">
+    <div className="flex flex-col py-12 px-24 w-full space-y-10 items-center ">
       <h1 className="text-[3rem] font-semibold text-start">Reset Password</h1>
 
       <form className="sm:w-[70%] w-full space-y-4">
