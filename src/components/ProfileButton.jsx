@@ -7,7 +7,7 @@ export default function ProfileButton({ icon, children, path }) {
       className={({ isActive }) =>
         isActive
           ? "bg-[#5E8451] text-white py-4 px-10 rounded-3xl flex items-center space-x-5"
-          : "py-4 px-10 rounded-3xl text-black bg-[#ECDEF5] flex items-center space-x-5"
+          : "py-4 px-10 rounded-3xl text-black bg-[#ECDEF5] hover:text-white hover:bg-[#5E8451]  flex items-center space-x-5"
       }
     >
       <span className="block text-xl active:text-white">{icon}</span>

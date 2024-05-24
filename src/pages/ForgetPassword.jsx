@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
-export default function ResetPassword() {
+export default function ForgetPassword() {
   const navigate = useNavigate();
   const state = useParams();
   const step = Number(state.step);

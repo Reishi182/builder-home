@@ -1,6 +1,8 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 
 export default function EditProfile() {
+  const navigate = useNavigate();
   const lists = [
     { title: "Info Pribadi", path: "personal-info" },
     { title: "Reset Password", path: "reset_password" },
@@ -9,7 +11,14 @@ export default function EditProfile() {
   return (
     <div className="w-full flex ">
       <div className="bg-[#F7F7F7] w-[30rem] h-screen">
-        <div className="flex flex-col space-y-4 px-10 py-20">
+        <div className="flex flex-col space-y-4 px-10 py-14">
+          <button
+            onClick={() => navigate(-1)}
+            className="text-xl text-[#5E8451] flex items-center space-x-2 underline"
+          >
+            <FaArrowLeftLong />
+            <span className="inline-block">Kembali</span>
+          </button>
           {lists.map((item) => (
             <NavLink
               key={item.title}

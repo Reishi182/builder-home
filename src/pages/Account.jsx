@@ -13,6 +13,7 @@ export default function Account() {
     { label: "Transaction", icon: <FaUserAlt />, path: "transaction" },
     { label: "Logout", icon: <FaUserAlt />, path: "logout" },
   ];
+
   return (
     <section className=" sm:px-20 px-5 py-20">
       <div className="flex flex-col sm:flex-row">
@@ -23,12 +24,16 @@ export default function Account() {
               {data.name}
             </span>
           </div>
-          <div className=" space-y-4">
-            {items.map((item, i) => (
-              <ProfileButton key={i} icon={item.icon} path={item.path}>
-                {item.label}
-              </ProfileButton>
-            ))}
+          <div className="overflow-x-auto whitespace-nowrap">
+            <ul className="flex sm:flex-col flex-row sm:space-x-0 space-y-0 sm:space-y-5 space-x-4 p-4">
+              {items.map((item, index) => (
+                <li key={index} className="inline-block">
+                  <ProfileButton icon={item.icon} path={item.path}>
+                    {item.label}
+                  </ProfileButton>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
         <Outlet />

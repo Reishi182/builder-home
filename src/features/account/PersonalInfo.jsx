@@ -23,7 +23,7 @@ export default function PersonalInfo() {
           </button>
         </div>
       </div>
-      <form className="w-[70%] space-y-4">
+      <form className="sm:w-[70%] w-full space-y-4">
         <Input py="py-4" label="Your Name" />
         <div className="space-y-2 w-full">
           <label className="text-black text-2xl font-medium">Description</label>
@@ -33,7 +33,6 @@ export default function PersonalInfo() {
           />
         </div>
         <Input py="py-4" label="Phone Number" />
-
         <Input py="py-4" label="Email" />
         <Input py="py-4" label="Gender" />
         <button

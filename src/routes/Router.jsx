@@ -4,7 +4,7 @@ import Home from "./../pages/Home";
 import Login from "./../pages/Login";
 import Service from "./../pages/Service";
 import Register from "./../pages/Register";
-import ResetPassword from "./../pages/ResetPassword";
+import ForgetPassword from "./../pages/ForgetPassword";
 import PageNotFound from "./../pages/PageNotFound";
 import DetailArsitek from "../features/arsitek/DetailArsitek";
 import Consult from "../features/about/Consult";
@@ -16,6 +16,7 @@ import Profile from "../features/account/Profile";
 import MyProject from "../features/account/MyProject";
 import EditProfile from "../features/account/EditProfile";
 import PersonalInfo from "../features/account/PersonalInfo";
+import ResetPassword from "../features/account/ResetPassword";
 
 export default function Router() {
   return (
@@ -40,13 +41,13 @@ export default function Router() {
         <Route path="account/profile/edit" element={<EditProfile />}>
           <Route index element={<Navigate replace to="personal-info" />} />
           <Route path="personal-info" element={<PersonalInfo />} />
-          {/* <Route path="reset_password" element/> */}
+          <Route path="reset_password" element={<ResetPassword />} />
           {/* <Route path="delete_account" element/> */}
         </Route>
         <Route path="*" element={<PageNotFound />} />
         <Route path="register" element={<Register />} />
         <Route path="arsitek/:userId" element={<DetailArsitek />} />
-        <Route path="reset_password/:step" element={<ResetPassword />} />
+        <Route path="reset_password/:step" element={<ForgetPassword />} />
       </Routes>
     </BrowserRouter>
   );
