@@ -3,15 +3,26 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import { FaUserAlt } from "react-icons/fa";
 import ProfileButton from "./../components/ProfileButton";
 import { Outlet } from "react-router-dom";
+import { BsCart4, BsFillHouseAddFill } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
+import { MdOutlineForum } from "react-icons/md";
 
 export default function Account() {
   const [data] = useLocalStorage("loginData", {});
   const items = [
     { label: "Profile", icon: <FaUserAlt />, path: "profile" },
-    { label: "My Project", icon: <FaUserAlt />, path: "my_project" },
-    { label: "Forum", icon: <FaUserAlt />, path: "forum" },
-    { label: "Transaction", icon: <FaUserAlt />, path: "transaction" },
-    { label: "Logout", icon: <FaUserAlt />, path: "logout" },
+    {
+      label: "My Project",
+      icon: <BsFillHouseAddFill />,
+      path: "my-project",
+    },
+    {
+      label: "Forum",
+      icon: <MdOutlineForum />,
+      path: "forum",
+    },
+    { label: "Transaction", icon: <BsCart4 />, path: "transaction" },
+    { label: "Logout", icon: <FiLogOut />, path: "logout" },
   ];
 
   return (

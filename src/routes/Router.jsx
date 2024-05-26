@@ -1,23 +1,22 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import AppLayout from "./../components/AppLayout";
+import About from "../pages/About";
 import Home from "./../pages/Home";
+import Desain from "../pages/Desain";
 import Login from "./../pages/Login";
+import Arsitek from "../pages/Arsitek";
+import Account from "../pages/Account";
 import Service from "./../pages/Service";
 import Register from "./../pages/Register";
-import ForgetPassword from "./../pages/ForgetPassword";
-import PageNotFound from "./../pages/PageNotFound";
-import DetailArsitek from "../features/arsitek/DetailArsitek";
-import Consult from "../features/about/Consult";
-import Account from "../pages/Account";
-import Arsitek from "../pages/Arsitek";
-import Desain from "../pages/Desain";
-import About from "../pages/About";
 import Profile from "../features/account/Profile";
+import AppLayout from "./../components/AppLayout";
+import PageNotFound from "./../pages/PageNotFound";
 import MyProject from "../features/account/MyProject";
+import ForgetPassword from "./../pages/ForgetPassword";
 import EditProfile from "../features/account/EditProfile";
 import PersonalInfo from "../features/account/PersonalInfo";
 import ResetPassword from "../features/account/ResetPassword";
 import DeleteAccount from "../features/account/DeleteAccount";
+import DetailArsitek from "../features/arsitek/DetailArsitek";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 export default function Router() {
   return (
@@ -25,13 +24,13 @@ export default function Router() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
+          <Route path="service/arsitek/:userId" element={<DetailArsitek />} />
           <Route path="service" element={<Service />}>
             <Route index element={<Navigate replace to="arsitek" />} />
-            <Route path="arsitek" element={<Arsitek />} />
+            <Route path="arsitek" element={<Arsitek />}></Route>
             <Route path="desain" element={<Desain />} />
           </Route>
           <Route path="about" element={<About />} />
-          <Route path="about/consult/:Id" element={<Consult />} />
           <Route path="account" element={<Account />}>
             <Route index element={<Navigate replace to="profile" />} />
             <Route path="profile" element={<Profile />} />
@@ -47,7 +46,6 @@ export default function Router() {
         </Route>
         <Route path="*" element={<PageNotFound />} />
         <Route path="register" element={<Register />} />
-        <Route path="arsitek/:userId" element={<DetailArsitek />} />
         <Route path="reset_password/:step" element={<ForgetPassword />} />
       </Routes>
     </BrowserRouter>

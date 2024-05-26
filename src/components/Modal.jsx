@@ -3,9 +3,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
 } from "@nextui-org/react";
 
 export default function Modal({ isOpen, onClose, icon, title, children }) {

@@ -12,16 +12,19 @@ export default function Section4() {
             name={users[0].name}
             role={users[0].role}
             id={users[0].id}
+            phone={users[0].phone}
           />
           <UserCard
             name={users[1].name}
             role={users[1].role}
             id={users[1].id}
+            phone={users[1].phone}
           />
           <UserCard
             name={users[2].name}
             role={users[2].role}
-            id={users[3].id}
+            id={users[2].id}
+            phone={users[2].phone}
           />
         </div>
       </div>

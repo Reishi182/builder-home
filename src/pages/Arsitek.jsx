@@ -4,7 +4,6 @@ import NoUsers from "./../features/arsitek/NoUsers";
 
 export default function Arsitek() {
   const filterUsers = useQuerySlice((state) => state.getUsers());
-  console.log(filterUsers);
   return (
     <div className="flex flex-col w-full">
       <h1 className="text-[#C0702E] text-[3rem] md:text-start text-center font-semibold">

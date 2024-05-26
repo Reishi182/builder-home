@@ -1,11 +1,15 @@
 import { FaStar } from "react-icons/fa6";
 import { HiOutlineCash } from "react-icons/hi";
-import ButtonLink from "./ButtonLink";
 import { IoMdMail } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
-export default function UserCard({ name, role, id }) {
+export default function UserCard({ name, role, id, phone }) {
+  const navigate = useNavigate();
   return (
-    <div className="flex flex-col bg-[#FEFEFE] sm:w-full w-[80%] shadow-custom  rounded-xl mt-20 ">
+    <div
+      className="flex flex-col bg-[#FEFEFE] sm:w-full w-[80%] shadow-custom  rounded-xl mt-20 "
+      onClick={() => navigate(`/service/arsitek/${id}`)}
+    >
       <img src="/img/alisa.png" className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">
@@ -26,7 +30,7 @@ export default function UserCard({ name, role, id }) {
           <span>
             <HiOutlineCash size={20} color="#969696" />
           </span>
-          <h1 className="">
+          <h1>
             <span className="block font-light text-sm"> Verified License</span>
             <span className="block text-lg text-[#969696] font-medium tracking-wide">
               $100 - $1500
@@ -34,10 +38,13 @@ export default function UserCard({ name, role, id }) {
           </h1>
         </div>
         <div className="mt-6 flex items-center space-x-4">
-          <ButtonLink to={`/about/consult/${id}`}>
+          <a
+            href={`https://wa.me/${phone}`}
+            className="px-7 flex items-center text-xl justify-center gap-3 py-3 bg-[#5E8451] text-white rounded-xl"
+          >
             <IoMdMail />
-            Send Message
-          </ButtonLink>
+            <span className="block">Send Message</span>
+          </a>
         </div>
       </div>
     </div>

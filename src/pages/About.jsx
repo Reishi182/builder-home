@@ -5,17 +5,17 @@ import ButtonLink from "./../components/ButtonLink";
 export default function About() {
   const cards = [
     {
-      img: "star",
+      img: "icon/star",
       title: "Keahlian Profesional",
       text: "Memiliki keahlian dan pengalaman dalam merancang dan membangun rumah, sehingga dapat memberikan hasil yang berkualitas dan sesuai dengan standar.",
     },
     {
-      img: "wand",
+      img: "icon/wand",
       title: "Kemudahan Proses",
       text: "Menggunakan jasa Builder Home, Anda dapat menghindari ribetnya proses perencanaan dan konstruksi rumah karena mereka akan mengelola semua tahap tersebut.",
     },
     {
-      img: "torch",
+      img: "icon/torch",
       title: "Desain yang Sesuai",
       text: "Membantu  dalam merancang desain rumah yang sesuai dengan kebutuhan dan gaya hidup Anda, serta memberikan saran-saran yang berguna berdasarkan pengalaman yang profesional.",
     },
