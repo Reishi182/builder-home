@@ -3,7 +3,7 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 import { HiOutlineCash } from "react-icons/hi";
 export default function ItemCard({ title, designer, img }) {
   return (
-    <div className="flex flex-col mt-5 mr-5 ml-5 shadow-custom bg-[#FEFEFE] rounded-xl ">
+    <div className="flex flex-col m-5 shadow-custom bg-[#FEFEFE] rounded-xl ">
       <img src={img} className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">

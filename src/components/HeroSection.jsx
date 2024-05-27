@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <section className="bg-[url(/img/bgHero.png)] bg-center bg-cover ">
       <div className="flex  ">
-        <div className="px-20 py-24 w-full z-0 flex flex-col lg:items-start items-center ">
+        <div className="sm:px-20 px-10 py-16 sm:py-24 w-full z-0 flex flex-col lg:items-start items-center ">
           <h1 className="text-[#5E8451] sm:text-[6rem] text-[4.6rem] lg:text-start text-center font-semibold text-wrap ">
             <span className="block">Temukan Desain</span>
             <span className="block">Rumah Impianmu!</span>

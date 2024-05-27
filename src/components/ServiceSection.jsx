@@ -1,7 +1,7 @@
 export default function ServiceSection() {
   return (
     <section className="bg-[url(/img/service.png)]  bg-cover bg-center relative">
-      <div className="flex lg:py-0 py-20 px-28 items-center lg:justify-between justify-center ">
+      <div className="flex lg:py-0 py-20 sm:px-28 px-10 items-center lg:justify-between justify-center ">
         <div className="space-y-9 ">
           <h1 className="text-[#C0702E] text-[3.5rem] lg:text-start text-center font-semibold">
             <span className="sm:block inline">

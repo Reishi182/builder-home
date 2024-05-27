@@ -125,6 +125,12 @@ export const users = [
   },
 ];
 
+export const projects = [
+  { id: 1, projectName: "Project Of Mosque Square ", location: "Bali" },
+  { id: 2, projectName: "Project Of Mosque Square ", location: "Bali" },
+  { id: 3, projectName: "Project Of Mosque Square ", location: "Bali" },
+];
+
 export const duplicatedItems = [...houseItems];
 while (duplicatedItems.length < 16) {
   duplicatedItems.push(...houseItems.slice(0, 16 - duplicatedItems.length));

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { users } from "../../utils/data";
+import { projects, users } from "../../utils/data";
 import ProjectCard from "../../components/ProjectCard";
 
 export default function DetailArsitek() {
@@ -36,10 +36,15 @@ export default function DetailArsitek() {
       <section className="px-20 py-20">
         <div className="space-y-5">
           <h1 className="text-[#C0702E] font-bold text-4xl">Project</h1>
-          <div className="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid place-items-center gap-24">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
+          <div className="min-[850px]:grid-cols-3 min-[410px]:grid-cols-2 grid-cols-1 grid place-items-center gap-10 sm:gap-24">
+            {projects.map((project, i) => (
+              <ProjectCard
+                name={project.name}
+                key={i}
+                id={project.id}
+                location={project.location}
+              />
+            ))}
           </div>
         </div>
       </section>

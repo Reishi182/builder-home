@@ -47,7 +47,7 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <MobileNav isOpen={isOpen} />
+      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="space-x-9 flex justify-center items-center">
         {loading ? (
           <Spinner />

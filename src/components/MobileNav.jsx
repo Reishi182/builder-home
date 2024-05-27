@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { menuItems } from "./../utils/data";
 import { NavLink } from "react-router-dom/dist";
 
-export default function MobileNav({ isOpen }) {
+export default function MobileNav({ isOpen, setIsOpen }) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -19,12 +19,13 @@ export default function MobileNav({ isOpen }) {
                 key={item.name}
                 transition={{ duration: 0.3, ease: "easeInOut", delay: 0.5 }}
                 whileHover={{ scale: 1.05 }}
+                onClick={() => setIsOpen((s) => !s)}
               >
                 <NavLink
                   className={({ isActive }) =>
                     isActive
                       ? "text-[#5E8451] font-semibold transition-all items-center"
-                      : "font-medium transition-all items-center"
+                      : "font-medium  text-[#9e9e9e] transition-all items-center"
                   }
                   to={item.path}
                 >

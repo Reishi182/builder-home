@@ -13,14 +13,14 @@ export default function ServiceCard() {
   ];
 
   return (
-    <section className="px-28  py-20">
+    <section className="sm:px-28 px-10 py-16 sm:py-20">
       <div className="space-y-9 flex flex-col  sm:items-start  items-center">
         <div>
           <h1 className="text-[#5E8451] text-[2rem] font-bold">
             Telusuri Pilihan Terbaik untuk Kamu !
           </h1>
         </div>
-        <div className="flex w-full justify-between space-x-14">
+        <div className="flex w-full justify-between sm:space-x-14 space-x-8">
           <Input
             py="py-3"
             placeholder="Cari Jasa"
@@ -33,7 +33,7 @@ export default function ServiceCard() {
             <span className="block">Sort By</span>
           </button>
         </div>
-        <div className="space-x-5 flex ">
+        <div className="space-x-5 flex  ">
           {tabItems.map((item) => (
             <Tab to={item.path} key={item.path}>
               {item.name}
