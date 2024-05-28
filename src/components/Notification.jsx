@@ -38,10 +38,10 @@ export default function Notification({ isOpen, setIsOpen, children }) {
 
           <ul className="overflow-auto h-[30rem] w-full px-8 relative  rounded-xl flex flex-col ">
             {notifications.length ? (
-              notifications.map((item) => (
+              notifications.map((item, i) => (
                 <>
                   <motion.li
-                    key={item.avatar}
+                    key={i}
                     transition={{
                       duration: 0.3,
                       ease: "easeInOut",

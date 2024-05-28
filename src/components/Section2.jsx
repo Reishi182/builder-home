@@ -15,10 +15,11 @@ export default function Section2() {
         </ButtonLink>
       </div>
       <ItemCarousel>
-        {houseItems.map((item) => (
+        {houseItems.map((item, i) => (
           <ItemCard
             title={item.title}
-            key={item.img}
+            id={item.id}
+            key={i}
             img={item.img}
             designer={item.designer}
           />

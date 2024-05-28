@@ -13,6 +13,7 @@ export default function Arsitek() {
           {filteredItems.map((item, index) => (
             <ItemCard
               title={item.title}
+              id={item.id}
               key={index}
               img={item.img}
               designer={item.designer}

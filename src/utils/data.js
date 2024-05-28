@@ -8,29 +8,43 @@ export const menuItems = [
 
 export const houseItems = [
   {
+    id: 1,
     title: "Korean Modern Indah",
     designer: "Indah NW",
     img: "/img/House/house1.png",
+    rating: 5,
   },
   {
+    id: 2,
+
     title: "Japan Modern Sakura",
     designer: "Indah NW",
     img: "/img/House/house2.png",
+    rating: 5,
   },
   {
+    id: 3,
+
     title: "France Modern Zahra",
     designer: "Indah NW",
     img: "/img/House/house3.png",
+    rating: 5,
   },
   {
+    id: 4,
+
     title: "Italia Modern Vincenzo",
     designer: "Indah NW",
     img: "/img/House/house4.png",
+    rating: 5,
   },
   {
+    id: 5,
+
     title: "Italia Modern Vincenzo",
     designer: "Indah NW",
     img: "/img/House/house4.png",
+    rating: 5,
   },
 ];
 export const notifications = [

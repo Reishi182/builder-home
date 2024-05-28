@@ -18,6 +18,7 @@ import DeleteAccount from "../features/account/DeleteAccount";
 import DetailArsitek from "../features/arsitek/DetailArsitek";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import DetailProject from "../features/arsitek/DetailProject";
+import DetailDesain from "../features/desain/DetailDesain";
 
 export default function Router() {
   return (
@@ -26,6 +27,7 @@ export default function Router() {
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="service/arsitek/:userId" element={<DetailArsitek />} />
+          <Route path="service/desain/:itemId" element={<DetailDesain />} />
           <Route
             path="service/arsitek/:userId/project/:projectId"
             element={<DetailProject />}

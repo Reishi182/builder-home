@@ -13,6 +13,7 @@ export default function Register() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [data, setData] = useLocalStorage("loginData", {});
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
