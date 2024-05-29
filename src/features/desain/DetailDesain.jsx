@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Stars from "./../../components/Stars";
 import { houseItems } from "./../../utils/data";
 import ButtonTab from "../../components/ButtonTab";
-import { act, useState } from "react";
+import ItemCarousel from "../../components/ItemCarousel";
+import { useState } from "react";
 import List from "../../components/List";
 export default function DetailDesain() {
   const [active, setIsActive] = useState("Konsep");
@@ -22,6 +23,13 @@ export default function DetailDesain() {
     { name: "Kamar Mandi", spec: "2 Kamar Mandi" },
     { name: "Gaya Desain", spec: "Modern Klasik" },
   ];
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 0 },
+      items: 1,
+    },
+  };
   return (
     <div className="flex flex-col">
       <div className="flex flex-col space-y-6 bg-gradient-to-r from-[#e9fad2ee] to-[#95b26f5e] px-20 py-10 ">
@@ -91,9 +99,9 @@ export default function DetailDesain() {
             </ButtonTab>
           ))}
         </div>
-        <div className="flex space-x-12 ">
+        <div className="flex flex-col items-center justify-center space-x-0 space-y-10 min-[550px]:flex-row min-[550px]:justify-between min-[550px]:space-x-20 min-[550px]:space-y-0 ">
           {active === "Konsep" || active === "Denah" ? (
-            <div className="flex   flex-col space-y-3 rounded-2xl bg-[#F7F7F7] px-8 py-10">
+            <div className="flex    flex-col space-y-3 rounded-2xl bg-[#F7F7F7] px-8 py-10">
               <div className="flex w-full flex-col border-b-1 border-gray-200 pb-6">
                 <span className="block font-medium">
                   Biaya Konstruksi Mulai Dari
@@ -114,9 +122,30 @@ export default function DetailDesain() {
               </div>
             </div>
           ) : (
-            <div className="flex h-[30vh]  bg-[#694141]"></div>
+            <div className="flex h-[30vh] bg-[#694141]">s</div>
           )}
-          <div className="flex   bg-[#F7F7F7]"></div>
+          <div className=" flex w-[25rem] flex-col   space-y-4  ">
+            <h1 className="text-2xl font-semibold text-[#C0702E]">
+              Keterangan Gambar{" "}
+              {active === "Konsep" || active === "Spesifikasi" ? "" : "Denah"}
+            </h1>
+            <div className="flex w-full  flex-col bg-[#F7F7F7]">
+              <ItemCarousel responsive={responsive}>
+                <img
+                  src={
+                    active === "Konsep" || active === "Spesifikasi"
+                      ? item.img
+                      : "/img/denah.png"
+                  }
+                />
+              </ItemCarousel>
+              <h1 className="py-3 text-center font-semibold text-[#5E8451]">
+                {active === "Konsep" && "Desain Ekstrerior"}
+                {active === "Denah" && `Denah ${item.title}`}
+                {active === "Spesifikasi" && "Spesifikasi Bahan Bangunan"}
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
       <div></div>

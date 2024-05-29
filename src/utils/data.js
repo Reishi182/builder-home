@@ -1,7 +1,6 @@
 export const menuItems = [
   { name: "Beranda", path: "/" },
   { name: "Service", path: "/service" },
-  { name: "Transaction", path: "/transaction" },
   { name: "Forum Komunitas", path: "/forum" },
   { name: "About Us", path: "/about" },
 ];

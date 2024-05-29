@@ -5,16 +5,34 @@ import ItemCard from "./ItemCard";
 import ItemCarousel from "./ItemCarousel";
 
 export default function Section2() {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 2000, min: 1224 },
+      items: 4,
+    },
+    laptop: {
+      breakpoint: { max: 1224, min: 611 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 611, min: 438 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 438, min: 0 },
+      items: 1,
+    },
+  };
   return (
-    <section className="bg-[#F4F4F4] flex flex-col sm:px-20 px-5  py-10 sm:py-20">
-      <div className="flex justify-between items-center flex-col sm:flex-row">
+    <section className="flex flex-col bg-[#F4F4F4] px-5 py-10  sm:px-20 sm:py-20">
+      <div className="flex flex-col items-center justify-between sm:flex-row">
         <h1 className="text-[4rem] font-semibold">Rekomendasi Desain</h1>
         <ButtonLink to="/service/desain">
           Lihat Semua
           <FaLongArrowAltRight />
         </ButtonLink>
       </div>
-      <ItemCarousel>
+      <ItemCarousel responsive={responsive}>
         {houseItems.map((item, i) => (
           <ItemCard
             title={item.title}

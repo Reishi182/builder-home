@@ -26,17 +26,17 @@ export default function Account() {
   ];
 
   return (
-    <section className=" sm:px-20 px-5 py-20">
+    <section className=" px-5 py-20 sm:px-20">
       <div className="flex flex-col sm:flex-row">
-        <div className="bg-[#F7F7F7] flex sm:flex-col flex-row justify-center sm:justify-normal items-center px-10  py-16 sm:space-y-14 space-y-0 space-x-10 md:space-x-0    rounded-2xl">
+        <div className="flex flex-row items-center justify-center space-x-10 space-y-0 rounded-2xl bg-[#F7F7F7]  px-10 py-16 sm:flex-col sm:justify-normal sm:space-y-14    md:space-x-0">
           <div className="flex flex-col items-center space-y-3">
-            <Avatar name={data.name} className="w-36 h-36 text-large" />
+            <Avatar name={data.name} className="h-36 w-36 text-large" />
             <span className="block text-[1.5rem] font-semibold">
               {data.name}
             </span>
           </div>
           <div className="overflow-x-auto whitespace-nowrap">
-            <ul className="flex sm:flex-col flex-row sm:space-x-0 space-y-0 sm:space-y-5 space-x-4 p-4">
+            <ul className="flex flex-row space-x-4 space-y-0 p-4 sm:flex-col sm:space-x-0 sm:space-y-5">
               {items.map((item, index) => (
                 <li key={index} className="inline-block">
                   <ProfileButton icon={item.icon} path={item.path}>
