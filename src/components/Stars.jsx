@@ -1,17 +1,5 @@
 import { useState, useEffect } from "react";
 
-// CSS styling for stars
-const starStyle = {
-  fontSize: "2em",
-  color: "grey",
-  cursor: "pointer",
-};
-
-const yellowStarStyle = {
-  ...starStyle,
-  color: "#FBE418",
-};
-
 const Stars = ({ totalStars, rating }) => {
   const [stars, setStars] = useState([]);
 
@@ -20,12 +8,16 @@ const Stars = ({ totalStars, rating }) => {
   }, [totalStars, rating]);
 
   return (
-    <div>
+    <div className="flex items-center space-x-1">
       {stars.map((isYellow, index) => (
-        <span key={index} style={isYellow ? yellowStarStyle : starStyle}>
+        <span
+          key={index}
+          className={`cursor-pointer text-2xl ${isYellow ? "text-yellow-300" : "text-gray-400"}`}
+        >
           ★
         </span>
       ))}
+      <span className="ml-2 text-lg text-gray-800">{rating.toFixed(1)}</span>
     </div>
   );
 };

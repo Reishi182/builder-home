@@ -37,16 +37,16 @@ export default function About() {
 
   return (
     <>
-      <section className="bg-[url(/img/service.png)] py-24 bg-cover bg-center relative">
-        <div className="flex lg:py-0  px-28 items-center lg:justify-between justify-center ">
+      <section className="relative bg-[url(/img/service.png)] bg-cover bg-center py-24">
+        <div className="flex items-center  justify-center px-28 lg:justify-between lg:py-0 ">
           <div className="space-y-12">
-            <h1 className="text-[#C0702E] text-[3.5rem] lg:text-start text-center font-semibold">
-              <span className="sm:block inline">
+            <h1 className="text-center text-[3.5rem] font-semibold text-[#C0702E] lg:text-start">
+              <span className="inline sm:block">
                 Selamat Datang di Builder{" "}
               </span>
               <span className="inline sm:block">Home </span>
             </h1>
-            <h1 className="text-2xl lg:text-start text-center">
+            <h1 className="text-center text-2xl lg:text-start">
               <span className="inline sm:block ">
                 Setiap orang memiliki hak untuk memiliki rumah impian, untuk itu
                 wujudkan{" "}
@@ -55,21 +55,21 @@ export default function About() {
                 impian rumah Anda bersama Builder Home.{" "}
               </span>
             </h1>
-            <h1 className="text-2xl lg:text-start text-center">
+            <h1 className="text-center text-2xl lg:text-start">
               <span className="block">Dapatkan Jasa Kami Segera !</span>
             </h1>
           </div>
-          <img src="/img/about.png" className="w-[30%] lg:block hidden" />
+          <img src="/img/about.png" className="hidden w-[30%] lg:block" />
         </div>
       </section>
-      <section className=" py-20 px-20">
+      <section className=" px-20 py-20">
         <div className="space-y-20">
-          <div className="flex-col flex items-center">
-            <h1 className="text-[#C0702E] text-[2rem] font-medium">
+          <div className="flex flex-col items-center">
+            <h1 className="text-[2rem] font-medium text-[#C0702E]">
               Mengapa Memilih Jasa Builder Home Hal Yang Tepat ?{" "}
             </h1>
           </div>
-          <div className="grid grid-cols-1 gap-10 min-[410px]:grid-cols-2 md:space-y-0 space-y-5 md:grid-cols-3 place-items-center">
+          <div className="grid grid-cols-1 place-items-center gap-10 space-y-5 min-[410px]:grid-cols-2 md:grid-cols-3 md:space-y-0">
             {cards.map((item, i) => (
               <AboutCard key={i} title={item.title} img={item.img}>
                 {item.text}
@@ -81,18 +81,18 @@ export default function About() {
       <section className="bg-gray-50  px-20 py-10">
         <div className="flex flex-col">
           <h1 className="space-y-10 ">
-            <span className="block text-[#C0702E] text-[2rem] font-bold">
+            <span className="block text-[2rem] font-bold text-[#C0702E]">
               Apa yang dapat kami bantu?
             </span>
             <span className="text-xl">
               Jika kamu memiliki pertanyaan yang belum terjawab, silahkan
               kirimkan pesan ke kami
-              <span className="sm:block inline">
+              <span className="inline sm:block">
                 melalui tombol Hubungi Kami di sudut kanan bawah layar.
               </span>
             </span>
           </h1>
-          <div className="flex justify-between  items-center space-x-7">
+          <div className="flex items-center  justify-between space-x-7">
             <div className="w-[70%]">
               <Accordion variant="light">
                 {accord.map((item, i) => (

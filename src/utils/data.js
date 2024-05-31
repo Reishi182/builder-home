@@ -12,38 +12,39 @@ export const houseItems = [
     designer: "Indah NW",
     img: "/img/House/house1.png",
     rating: 5,
+    price: 100000000,
   },
   {
     id: 2,
-
     title: "Japan Modern Sakura",
     designer: "Indah NW",
     img: "/img/House/house2.png",
     rating: 5,
+    price: 100000000,
   },
   {
     id: 3,
-
     title: "France Modern Zahra",
     designer: "Indah NW",
     img: "/img/House/house3.png",
     rating: 5,
+    price: 100000000,
   },
   {
     id: 4,
-
     title: "Italia Modern Vincenzo",
     designer: "Indah NW",
     img: "/img/House/house4.png",
     rating: 5,
+    price: 100000000,
   },
   {
     id: 5,
-
     title: "Italia Modern Vincenzo",
     designer: "Indah NW",
     img: "/img/House/house4.png",
     rating: 5,
+    price: 100000000,
   },
 ];
 export const notifications = [

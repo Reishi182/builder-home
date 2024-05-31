@@ -26,8 +26,8 @@ export default function Account() {
   ];
 
   return (
-    <section className=" px-5 py-20 sm:px-20">
-      <div className="flex flex-col sm:flex-row">
+    <section className="  ">
+      <div className="flex h-auto flex-col py-0 pl-0 sm:flex-row sm:py-20 sm:pl-20  min-[680px]:h-[100vh]">
         <div className="flex flex-row items-center justify-center space-x-10 space-y-0 rounded-2xl bg-[#F7F7F7]  px-10 py-16 sm:flex-col sm:justify-normal sm:space-y-14    md:space-x-0">
           <div className="flex flex-col items-center space-y-3">
             <Avatar name={data.name} className="h-36 w-36 text-large" />
