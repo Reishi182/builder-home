@@ -17,7 +17,7 @@ export default function Transaction() {
   }
 
   return (
-    <div className="sm: mt-10 flex w-full flex-col space-y-5  pl-20 pr-20 sm:px-0 sm:pl-20 sm:pr-10 min-[680px]:mt-0">
+    <div className=" flex h-[73vh] w-full flex-col space-y-5 py-20 pl-20 pr-20  sm:h-screen sm:px-0 sm:py-0 sm:pl-20 sm:pr-10 min-[680px]:mt-0">
       <h1 className="text-3xl font-bold text-[#C0702E]">Transaction</h1>
       <div className="flex space-x-10">
         {lists.map((item, i) => (

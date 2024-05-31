@@ -22,7 +22,7 @@ export default function TransactionCard({
             </h1>
           </div>
         </div>
-        <div className="flex flex-col items-center space-y-8">
+        <div className="flex flex-col items-center space-y-4 min-[323px]:space-y-8">
           <button
             onClick={onClick}
             className="rounded-lg bg-[#e8afaf96] px-5 py-2.5 font-semibold text-[#F42C2C]"
