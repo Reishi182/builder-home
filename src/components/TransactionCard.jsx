@@ -5,6 +5,7 @@ export default function TransactionCard({
   onClick = () => {},
   handleDelete,
   item,
+  handleNavigate,
 }) {
   const { title, designer, price, rating, img, status, date } = item;
 
@@ -38,7 +39,7 @@ export default function TransactionCard({
                 Hapus Wishlist
               </button>
               <button
-                onClick={onClick}
+                onClick={handleNavigate}
                 className="rounded-lg bg-[#EEFFEE] px-5 py-2.5 font-semibold text-[#009500]"
               >
                 Lanjut Pembayaran
