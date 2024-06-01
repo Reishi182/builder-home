@@ -1,6 +1,7 @@
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Loading from "../components/Loading";
+import Payment from "../pages/Payment";
 
 const About = lazy(() => import("../pages/About"));
 const Home = lazy(() => import("../pages/Home"));
@@ -49,6 +50,10 @@ export default function Router() {
               <Route path="my-project" element={<MyProject />} />
               <Route path="transaction" element={<Transaction />} />
             </Route>
+            <Route
+              path="account/transaction/:paymentId"
+              element={<Payment />}
+            />
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="account/profile/edit" element={<EditProfile />}>

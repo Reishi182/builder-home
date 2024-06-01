@@ -8,7 +8,7 @@ const Stars = ({ totalStars, rating }) => {
   }, [totalStars, rating]);
 
   return (
-    <div className="flex items-center space-x-1">
+    <div className="flex items-end space-x-1">
       {stars.map((isYellow, index) => (
         <span
           key={index}
@@ -17,7 +17,9 @@ const Stars = ({ totalStars, rating }) => {
           ★
         </span>
       ))}
-      <span className="ml-2 text-lg text-gray-800">{rating.toFixed(1)}</span>
+      <span className="ml-2 text-medium text-gray-800">
+        {rating.toFixed(1)}
+      </span>
     </div>
   );
 };

@@ -7,7 +7,7 @@ export default function Profile() {
   const [data] = useLocalStorage("loginData", {});
 
   return (
-    <div className="flex w-full flex-col space-y-14 py-10  sm:px-20 md:py-0 ">
+    <div className="flex w-full flex-col space-y-14 py-20 pl-20 pr-20 sm:py-0 sm:pl-20 sm:pr-10    ">
       <h1 className="text-3xl font-bold text-[#C0702E]">My Profile</h1>
       <div className="flex w-full flex-col space-y-5 rounded-3xl  bg-gradient-to-b from-[#e9fad2ee] to-[#95b26fc5] px-10  py-10 ">
         <div className="flex justify-end">
