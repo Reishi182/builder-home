@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Loading from "../components/Loading";
 import Payment from "../pages/Payment";
+import ProtectedRoute from "../features/Auth/ProtectedRoute";
 
 const About = lazy(() => import("../pages/About"));
 const Home = lazy(() => import("../pages/Home"));
@@ -30,7 +31,13 @@ export default function Router() {
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Home />} />
             <Route path="service/arsitek/:userId" element={<DetailArsitek />} />
             <Route path="service/desain/:itemId" element={<DetailDesain />} />

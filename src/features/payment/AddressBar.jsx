@@ -4,7 +4,7 @@ import { RiPencilFill } from "react-icons/ri";
 export default function AddressBar() {
   const [data] = useLocalStorage("loginData", {});
   return (
-    <div className="flex flex-col space-y-8 border-b-1 border-[#525252] px-8 pb-16">
+    <div className="flex flex-col space-y-8 border-b-1.5 border-[#636262] px-8 pb-16">
       <div className="flex items-center justify-between">
         <h1 className="w-[80%] space-y-3">
           <span className="block text-xl font-bold">Home Address</span>

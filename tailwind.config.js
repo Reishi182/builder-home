@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        yesteryear: ["Yesteryear", "cursive"],
+      },
       boxShadow: {
         custom: "rgba(0, 0, 0, 0.15) 0px 2px 8px;",
       },

@@ -4,17 +4,22 @@ import { HiOutlineCash } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 export default function ItemCard({ title, designer, img, id }) {
   const navigate = useNavigate();
+
+  function handleNavigate() {
+    window.scrollTo(0, 0);
+    navigate(`/service/desain/${id}`);
+  }
   return (
     <div
-      className="flex flex-col m-5 shadow-custom bg-[#FEFEFE] rounded-xl "
-      onClick={() => navigate(`/service/desain/${id}`)}
+      className="m-5 flex flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
+      onClick={handleNavigate}
     >
       <img src={img} className="rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">
           <h1>
-            <span className="font-bold text-2xl block">{title}</span>
-            <span className="font-medium text-base block mb-4">
+            <span className="block text-2xl font-bold">{title}</span>
+            <span className="mb-4 block text-base font-medium">
               Design By {designer}
             </span>
           </h1>
@@ -24,7 +29,7 @@ export default function ItemCard({ title, designer, img, id }) {
             <BsArrowsFullscreen className="text-[2rem]" />
           </span>
           <h1>
-            <span className="block font-light text-base">Lahan Minimal</span>
+            <span className="block text-base font-light">Lahan Minimal</span>
             <span className="block text-lg font-medium tracking-widest">
               16 m x 7 m
             </span>
@@ -35,7 +40,7 @@ export default function ItemCard({ title, designer, img, id }) {
             <HiOutlineCash className="text-[2.3rem]" />
           </span>
           <h1>
-            <span className="block font-light text-sm"> Biaya Konstruksi</span>
+            <span className="block text-sm font-light"> Biaya Konstruksi</span>
             <span className="block text-lg font-medium tracking-wide">
               Estimasi Biaya Konstruksi
             </span>

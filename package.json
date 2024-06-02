@@ -16,7 +16,7 @@
     "@tanstack/react-query-devtools": "4",
     "@uidotdev/usehooks": "^2.4.1",
     "autoprefixer": "^10.4.19",
-    "axios": "^1.6.8",
+    "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.1.9",

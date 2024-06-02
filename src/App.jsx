@@ -29,9 +29,9 @@ export default function App() {
               duration: 5000,
             },
             style: {
-              fontSize: "16px",
-              maxWidth: "500px",
-              padding: "16px 24px",
+              fontSize: "1.6rem",
+              maxWidth: "50rem",
+              padding: "1.6rem 2.4rem",
             },
           }}
         />

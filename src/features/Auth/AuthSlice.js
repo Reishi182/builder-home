@@ -6,13 +6,12 @@ export const useAuthStore = create(
     (set) => ({
       auth: false,
       loading: false,
-      login: () => set({ auth: true }),
+      isAuth: () => set({ auth: true }),
       logout: () => set({ auth: false }),
-      setLoading: (load) => set({ loading: load }),
     }),
     {
       name: "auth-storage",
       getStorage: () => localStorage,
-    }
-  )
+    },
+  ),
 );

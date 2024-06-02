@@ -13,6 +13,7 @@ export default function Wishlist() {
     setItems(updatedItems);
   }
   function handleNavigate(id) {
+    window.scrollTo(0, 0);
     navigate(`${id}`);
   }
 
