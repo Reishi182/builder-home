@@ -32,7 +32,7 @@ export default function DetailDesain() {
       <div className="flex flex-col space-y-6 bg-gradient-to-r from-[#e9fad2ee] to-[#95b26f5e] px-20 py-10 ">
         <div className="flex items-center justify-between ">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/service/desain")}
             className="flex items-center space-x-2 text-xl font-semibold"
           >
             <FaArrowLeftLong /> <span className="block">Kembali</span>

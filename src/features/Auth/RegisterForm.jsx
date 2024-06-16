@@ -3,34 +3,27 @@ import Input from "../../components/Input";
 import Checkbox from "../../components/Checkbox";
 import { useForm } from "react-hook-form";
 import { useRegister } from "./useRegister";
-import { Select, Spinner } from "@nextui-org/react";
+import { Spinner } from "@nextui-org/react";
 import CustomSelect from "../../components/CustomSelect";
 
-export default function RegisterForm({ onOpen }) {
+export default function RegisterForm() {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    reset,
-    watch,
   } = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
   });
-  const password = watch("password");
   const { isLoading, signup } = useRegister();
   function onSubmit({ username, email, password, passwordConfirmation, role }) {
-    signup(
-      {
-        username,
-        email,
-        password,
-        passwordConfirmation,
-        role,
-      },
-      { onSuccess: onOpen },
-    );
-    console.log(role);
+    signup({
+      username,
+      email,
+      password,
+      passwordConfirmation,
+      role,
+    });
   }
   const options = [
     { value: "User", label: "User" },
@@ -74,9 +67,6 @@ export default function RegisterForm({ onOpen }) {
           placeholder="Tulis Kembali passwordmu"
           register={register("passwordConfirmation", {
             required: "Konfirmasi password wajib diisi",
-            validate: (value) =>
-              value === password ||
-              "Password dan konfirmasi password tidak sama",
           })}
           error={errors.confirmPassword}
         />

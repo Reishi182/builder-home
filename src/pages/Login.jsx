@@ -1,18 +1,17 @@
 import HzLayout from "../components/HzLayout";
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeftLong } from "react-icons/fa6";
 import LoginForm from "../features/Auth/LoginForm";
-import { useAuthStore } from "../features/Auth/AuthSlice";
 import { useEffect } from "react";
+import { useLogin } from "../features/Auth/useLogin";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function Login() {
-  const { auth } = useAuthStore((state) => state);
-
+  const { isAuthenticated } = useLogin();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth) navigate("/", { replace: true });
-  }, [auth, navigate]);
+    if (isAuthenticated) navigate("/", { replace: true });
+  }, [isAuthenticated, navigate]);
 
   return (
     <div className="flex min-h-screen px-12 py-6">

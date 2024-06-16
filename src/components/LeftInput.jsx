@@ -9,7 +9,7 @@ export default function Input({
   error,
   maxLength,
   onBlur,
-  py = "py-6",
+  py = "py-4",
   min,
   defaultValue,
   max,
@@ -22,11 +22,13 @@ export default function Input({
 
   return (
     <div className="flex w-full">
-      <div className="w-full space-y-2">
-        <label className="text-2xl font-medium text-black">{label}</label>
-        <div className="relative">
+      <div className="flex w-full items-center">
+        <div className="w-[14rem]">
+          <label className="text-2xl font-medium text-black">{label}</label>
+        </div>
+        <div className="relative flex w-full">
           <input
-            className={` px-6 ${py} border-[#9B9B9B] text-black ${
+            className={`px-6 ${py} border-[#9B9B9B] text-black ${
               error ? "border-red-500" : ""
             } w-full rounded-xl border-1 text-xl text-[#BFBFBF]`}
             type={showPassword ? "text" : type}
@@ -48,10 +50,8 @@ export default function Input({
             </button>
           )}
         </div>
-        {error && (
-          <p className="text-lg italic text-red-500">{error.message}</p>
-        )}
       </div>
+      {error && <p className="text-lg italic text-red-500">{error.message}</p>}
     </div>
   );
 }

@@ -3,9 +3,9 @@ import { useQuerySlice } from "../../slices/QuerySlice";
 export default function NoItems() {
   const item = useQuerySlice((state) => state.query);
   return (
-    <div className="flex items-center justify-center w-full flex-col ">
-      <img src="/img/notFound.png" className="w-[30rem]" />
-      <h1 className="font-semibold text-[3rem] text-center text-[#C0702E]">
+    <div className="flex w-full flex-col items-center justify-center ">
+      <img src="/img/icon/notFound.png" className="w-[30rem]" />
+      <h1 className="text-center text-[3rem] font-semibold text-[#C0702E]">
         Cannot Find Design {`'${item}'`}
       </h1>
     </div>

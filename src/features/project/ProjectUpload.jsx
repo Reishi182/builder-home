@@ -1,0 +1,64 @@
+import { useState } from "react";
+import { IoClose } from "react-icons/io5";
+
+export default function ProjectUpload({ register }) {
+  const [previews, setPreviews] = useState([]);
+
+  function handleFileChange(e) {
+    const files = Array.from(e.target.files);
+    const newFiles = files.map((file) => URL.createObjectURL(file));
+    setPreviews((prev) => [...prev, ...newFiles]);
+  }
+  function handleRemove(ind) {
+    setPreviews((prev) => prev.filter((_, i) => i !== ind));
+  }
+
+  return (
+    <>
+      <span className="block text-[1.5rem] font-semibold">
+        Input Projet Portofolio
+      </span>
+      <div className="flex w-full flex-col gap-1 ">
+        <div className="flex w-full flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-slate-300 bg-[#F8F8FF] p-12  text-slate-700 dark:border-slate-700 dark:text-slate-300">
+          <div className="group text-xl font-semibold">
+            Drag file here or click the button below
+          </div>
+          <label
+            htmlFor="fileInput"
+            className="cursor-pointer rounded-2xl bg-[#6C63BF] px-8 py-4 text-xl  text-white group-focus-within:underline"
+          >
+            <input
+              id="fileInput"
+              type="file"
+              accept="image/*"
+              multiple
+              className="sr-only"
+              aria-describedby="validFileFormats"
+              {...register}
+              onChange={handleFileChange}
+            />
+            Upload File
+          </label>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-4">
+          {previews.map((src, index) => (
+            <div key={index} className="relative">
+              <img
+                src={src}
+                alt={`preview-${index}`}
+                className="h-24 w-24 rounded-md border-1 object-cover"
+              />
+              <button
+                type="button"
+                onClick={() => handleRemove(index)}
+                className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white"
+              >
+                <IoClose />
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}

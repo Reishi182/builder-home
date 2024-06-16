@@ -2,6 +2,7 @@ export default function CustomSelect({
   options,
   label,
   register,
+  defaultValue,
   name,
   ...props
 }) {
@@ -17,6 +18,7 @@ export default function CustomSelect({
           {...props}
           {...register(name)}
           {...props}
+          defaultValue={defaultValue}
         >
           {options.map((option, index) => (
             <option key={index} value={option.value}>

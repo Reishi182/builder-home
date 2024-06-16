@@ -1,10 +1,10 @@
 import { Avatar, Tooltip } from "@nextui-org/react";
-import { useLocalStorage } from "@uidotdev/usehooks";
 import { RiEditFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useCurrentUser } from "../Auth/useCurrentUser";
 
 export default function Profile() {
-  const [data] = useLocalStorage("loginData", {});
+  const { user } = useCurrentUser();
 
   return (
     <div className="flex w-full flex-col space-y-14 py-20 pl-20 pr-20 sm:py-0 sm:pl-20 sm:pr-10    ">
@@ -20,13 +20,13 @@ export default function Profile() {
         <div className="flex h-full flex-col space-y-11">
           <div className="flex w-full  flex-col  items-center space-y-4 rounded-3xl bg-[#F2F4F6] py-5 pb-20 ">
             <Avatar
-              name={data.name}
+              name={user?.username}
               className="h-36 w-36 text-large"
               isBordered
               color="default"
             />
             <span className="block text-[1.5rem] font-semibold">
-              {data.name}
+              {user?.username}
             </span>
             <span className="block text-[1.3rem]">Pencari Jasa Arsitek</span>
           </div>
@@ -37,7 +37,7 @@ export default function Profile() {
             </div>
             <div className="flex  h-auto  w-full flex-col items-start justify-between text-[1.3rem] font-semibold min-[396px]:flex-row min-[396px]:items-center">
               <span className="block">Email</span>
-              <span className="block font-normal">{data.email}</span>
+              <span className="block font-normal">{user?.email}</span>
             </div>
             <div className="flex  h-auto  w-full flex-col items-start justify-between text-[1.3rem] font-semibold min-[396px]:flex-row  min-[396px]:items-center">
               <span className="block">Gender</span>

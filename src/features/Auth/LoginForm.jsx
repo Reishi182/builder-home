@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useLogin } from "./useLogin";
-import { useAuthStore } from "./AuthSlice";
 import { Spinner } from "@nextui-org/react";
 
 export default function LoginForm() {
   const [data, setData] = useLocalStorage("loginData", {});
-  const { isAuth, auth } = useAuthStore((state) => state);
   const checked = Boolean(data.email);
   const {
     register,
@@ -33,7 +31,7 @@ export default function LoginForm() {
     } else if (!rememberMe) {
       window.localStorage.clear();
     }
-    login({ email, password }, { onSuccess: isAuth() });
+    login({ email, password });
   }
   return (
     <>
@@ -61,7 +59,7 @@ export default function LoginForm() {
         />
         <div className="flex items-center justify-between">
           <Checkbox label="Remember Me" register={register("rememberMe")} />
-          <Link to="/reset_password/1" className="text-xl text-[#2083C6]">
+          <Link to="/reset_password" className="text-xl text-[#2083C6]">
             Lupa Password?
           </Link>
         </div>

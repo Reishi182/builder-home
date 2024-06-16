@@ -8,8 +8,8 @@ export function useRegister() {
   const { isLoading, mutate: signup } = useMutation({
     mutationFn: signupApi,
     onSuccess: () => {
-      // navigate("/", { replace: true });
-      toast.success("Berhasil Login");
+      navigate("/login", { replace: true });
+      toast.success("Silahkan Login!");
     },
     onError: (err) => {
       toast.error(err.message);

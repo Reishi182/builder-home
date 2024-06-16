@@ -1,24 +1,18 @@
-import { useDisclosure } from "@nextui-org/react";
-import { FaArrowLeftLong } from "react-icons/fa6";
-import Modal from "../components/Modal";
-import { IoSendSharp } from "react-icons/io5";
-
 import HzLayout from "../components/HzLayout";
 import { useNavigate } from "react-router-dom";
 import RegisterForm from "../features/Auth/RegisterForm";
-import { useAuthStore } from "../features/Auth/AuthSlice";
 import { useEffect } from "react";
+import { useLogin } from "../features/Auth/useLogin";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function Register() {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-
-  const { auth } = useAuthStore((state) => state);
+  const { isAuthenticated } = useLogin();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth) navigate("/", { replace: true });
-  }, [auth, navigate]);
+    if (isAuthenticated) navigate("/", { replace: true });
+  }, [isAuthenticated, navigate]);
   return (
     <div className="flex min-h-screen px-12 py-6">
       <div className="mx-auto flex w-full items-center md:items-start">
@@ -44,19 +38,11 @@ export default function Register() {
               </h1>
             </div>
             <div className="w-full space-y-5">
-              <RegisterForm onOpen={onOpen} />
+              <RegisterForm />
             </div>
           </div>
         </div>
       </div>
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        icon={<IoSendSharp color="blue" />}
-        title="Check Email kamu"
-      >
-        Silakan periksa email kamu untuk melanjutkan pendaftaran
-      </Modal>
     </div>
   );
 }

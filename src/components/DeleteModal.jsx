@@ -4,8 +4,11 @@ import {
   ModalHeader,
   ModalBody,
 } from "@nextui-org/react";
+import { useAuthStore } from "../features/Auth/AuthSlice";
 
 export default function DeleteModal({ isOpen, onClose }) {
+  const { logout } = useAuthStore((state) => state);
+
   return (
     <ModalApp
       size="2xl"
@@ -14,8 +17,8 @@ export default function DeleteModal({ isOpen, onClose }) {
       onClose={onClose}
       placement="center"
     >
-      <ModalContent className="py-36 px-8">
-        <ModalHeader className="flex flex-col space-y-3 items-center">
+      <ModalContent className="px-8 py-36">
+        <ModalHeader className="flex flex-col items-center space-y-3">
           <img src="/img/logout.png" className="w-[25rem]" />
           <span className="block text-[2rem] text-[#C0702E]">
             Keluar dari Akun Builder Home{" "}
@@ -24,11 +27,13 @@ export default function DeleteModal({ isOpen, onClose }) {
             Kamu yakin mau keluar dari akun ini ?{" "}
           </span>
         </ModalHeader>
-        <ModalBody className="flex items-center flex-row justify-between mt-5 text-white *:rounded-lg text-[1.2rem]">
-          <button onClick={() => onClose()} className="py-4 px-14 bg-[#74916B]">
+        <ModalBody className="mt-5 flex flex-row items-center justify-between text-[1.2rem] text-white *:rounded-lg">
+          <button onClick={() => onClose()} className="bg-[#74916B] px-14 py-4">
             No
           </button>
-          <button className="px-14 py-4 bg-[#F42C2C]">Yes</button>
+          <button onClick={() => logout()} className="bg-[#F42C2C] px-14 py-4">
+            Yes
+          </button>
         </ModalBody>
       </ModalContent>
     </ModalApp>
