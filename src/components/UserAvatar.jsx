@@ -1,19 +1,16 @@
 import { FaHeart, FaRegBell } from "react-icons/fa";
-import { Avatar } from "@nextui-org/react";
+import { Avatar, Spinner } from "@nextui-org/react";
 import DropdownUser from "./DropdownUser";
 import { useState } from "react";
 import Notification from "./Notification";
 import Wishlist from "./Wishlist";
-import { useLocalStorage } from "@uidotdev/usehooks";
 import { useCurrentUser } from "../features/Auth/useCurrentUser";
 
 export default function UserAvatar() {
-  const [data] = useLocalStorage("loginData", {});
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useCurrentUser();
-  console.log(user);
+  const { user, isLoading } = useCurrentUser();
   const [isOpenWish, setIsOpenWish] = useState(false);
-
+  if (isLoading) return <Spinner />;
   return (
     <>
       <div className="flex flex-row items-center justify-center space-x-4">
@@ -27,12 +24,12 @@ export default function UserAvatar() {
             <FaRegBell color="grey" />
           </button>
         </Notification>
-        <DropdownUser data={data}>
-          <Avatar name={user?.username} size="lg" as="button" />
+        <DropdownUser>
+          <Avatar src={user.avatar} size="lg" as="button" />
         </DropdownUser>
         <h1 className="font-semibold text-[#404040]">
           <span className="block">Halo,</span>
-          <span className="block">{user?.username}</span>
+          <span className="block">{user.username}</span>
         </h1>
       </div>
     </>

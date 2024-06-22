@@ -6,9 +6,11 @@ import { BsCart4, BsFillHouseAddFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { MdOutlineForum } from "react-icons/md";
 import { useCurrentUser } from "../features/Auth/useCurrentUser";
+import Loading from "../components/Loading";
 
 export default function Account() {
-  const { user } = useCurrentUser();
+  const { user, isLoading } = useCurrentUser();
+
   const items = [
     { label: "Profile", icon: <FaUserAlt />, path: "profile" },
     {
@@ -25,14 +27,15 @@ export default function Account() {
     { label: "Logout", icon: <FiLogOut />, path: "logout" },
   ];
 
+  if (isLoading) return <Loading />;
   return (
     <section className=" ">
       <div className="flex h-auto flex-col py-0 pl-0 sm:flex-row sm:py-20 sm:pl-20  ">
         <div className="flex flex-row items-center justify-center space-x-10 space-y-0 rounded-2xl bg-[#F7F7F7]  px-10 py-16 sm:flex-col sm:justify-normal sm:space-y-14    md:space-x-0">
           <div className="flex flex-col items-center space-y-3">
-            <Avatar name={user?.username} className="h-36 w-36 text-large" />
+            <Avatar src={user.avatar} className="h-36 w-36 text-large" />
             <span className="block text-[1.5rem] font-semibold">
-              {user?.username}
+              {user.username}
             </span>
           </div>
           <div className="overflow-x-auto whitespace-nowrap">

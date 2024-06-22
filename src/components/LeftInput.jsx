@@ -21,12 +21,12 @@ export default function Input({
   };
 
   return (
-    <div className="flex w-full">
-      <div className="flex w-full items-center">
+    <div className="flex w-full flex-col">
+      <div className="flex w-full items-center justify-center">
         <div className="w-[14rem]">
           <label className="text-2xl font-medium text-black">{label}</label>
         </div>
-        <div className="relative flex w-full">
+        <div className="relative flex w-full flex-col">
           <input
             className={`px-6 ${py} border-[#9B9B9B] text-black ${
               error ? "border-red-500" : ""
@@ -40,18 +40,11 @@ export default function Input({
             onBlur={onBlur}
             {...register}
           />
-          {type === "password" && (
-            <button
-              className="absolute inset-y-0 right-0 flex items-center pr-3 text-3xl"
-              onClick={togglePasswordVisibility}
-              type="button"
-            >
-              {showPassword ? <FiEyeOff /> : <FiEye />}
-            </button>
+          {error && (
+            <p className="text-lg italic text-red-500">{error.message}</p>
           )}
         </div>
       </div>
-      {error && <p className="text-lg italic text-red-500">{error.message}</p>}
     </div>
   );
 }

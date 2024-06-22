@@ -14,7 +14,6 @@ export default function Header() {
     query: "(min-width: 1024px)",
   });
   const { isLoading, isAuthenticated } = useLogin();
-  console.log(isAuthenticated);
   useEffect(() => {
     if (isDesktopOrLaptop) setIsOpen(false);
   }, [isDesktopOrLaptop, setIsOpen]);

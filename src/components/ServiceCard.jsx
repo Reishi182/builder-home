@@ -5,7 +5,7 @@ import Tab from "./Tab";
 import { useQuerySlice } from "./../slices/QuerySlice";
 
 export default function ServiceCard() {
-  const setQuery = useQuerySlice((state) => state.setQuery);
+  const { setQuery, query } = useQuerySlice((state) => state);
   const tabItems = [
     { name: "Arsitek", path: "arsitek" },
     { name: "Desain", path: "desain" },
@@ -13,27 +13,28 @@ export default function ServiceCard() {
   ];
 
   return (
-    <section className="sm:px-28 px-10 py-16 sm:py-20">
-      <div className="space-y-9 flex flex-col  sm:items-start  items-center">
+    <section className="px-10 py-16 sm:px-28 sm:py-20">
+      <div className="flex flex-col items-center  space-y-9  sm:items-start">
         <div>
-          <h1 className="text-[#5E8451] text-[2rem] font-bold">
+          <h1 className="text-[2rem] font-bold text-[#5E8451]">
             Telusuri Pilihan Terbaik untuk Kamu !
           </h1>
         </div>
-        <div className="flex w-full justify-between sm:space-x-14 space-x-8">
+        <div className="flex w-full justify-between space-x-8 sm:space-x-14">
           <Input
             py="py-3"
             placeholder="Cari Jasa"
+            defaultValue={query}
             register={{ onChange: (e) => setQuery(e.target.value) }}
           />
-          <button className="space-x-3  text-white text-xl  font-medium items-center justify-center flex bg-[#5E8451] rounded-xl  w-[10rem]">
+          <button className="flex  w-[10rem] items-center  justify-center space-x-3 rounded-xl bg-[#5E8451] text-xl font-medium  text-white">
             <span className="block">
               <BiSort />
             </span>
             <span className="block">Sort By</span>
           </button>
         </div>
-        <div className="space-x-5 flex  ">
+        <div className="flex space-x-5  ">
           {tabItems.map((item) => (
             <Tab to={item.path} key={item.path}>
               {item.name}
