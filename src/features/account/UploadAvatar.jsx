@@ -7,7 +7,7 @@ export default function UploadAvatar({ setAvatar }) {
   }
 
   const options = {
-    apiKey: PUBLIC_APIKEY,
+    apiKey: process.env.PUBLIC_APIKEY,
     maxFileCount: 1,
     mimeTypes: ["image/jpeg"],
     path: { folderPath: "/Avatar" },
