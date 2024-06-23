@@ -1,16 +1,16 @@
 import { UploadButton } from "@bytescale/upload-widget-react";
 
-export default function UploadAvatar({ setAvatar, setImage }) {
+export default function UploadAvatar({ setAvatar }) {
   function handleImage(file) {
     if (!file) return;
     setAvatar(file[0].fileUrl);
-    console.log(file);
   }
 
   const options = {
-    apiKey: "public_kW15c83A7L8z5uDziaFvnigExVRU",
+    apiKey: PUBLIC_APIKEY,
     maxFileCount: 1,
     mimeTypes: ["image/jpeg"],
+    path: { folderPath: "/Avatar" },
   };
 
   return (

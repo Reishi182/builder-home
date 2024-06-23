@@ -1,14 +1,19 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProjectForm from "./ProjectForm";
 import { useEffect } from "react";
 import { useCurrentUser } from "../Auth/useCurrentUser";
+import Loading from "../../components/Loading";
 
 export default function UploadProject() {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (user.role !== "Arsitek") return navigate(-1, { replace: true });
-  // }, []);
+  const { user, isLoading } = useCurrentUser();
+  useEffect(() => {
+    if (user) {
+      if (user.role !== "Arsitek") return navigate(-1, { replace: true });
+    }
+  }, [user, user.role, navigate]);
+  if (isLoading) return <Loading />;
   return (
     <>
       <section className=" flex h-[50vh] flex-col bg-gradient-to-l from-[#e9fad2af] to-[#95b26f67] px-20 py-20 ">

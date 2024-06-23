@@ -10,7 +10,7 @@ export default function UserAvatar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isLoading } = useCurrentUser();
   const [isOpenWish, setIsOpenWish] = useState(false);
-  if (isLoading) return <Spinner />;
+  // if (isLoading) return <Spinner />;
   return (
     <>
       <div className="flex flex-row items-center justify-center space-x-4">
@@ -25,11 +25,11 @@ export default function UserAvatar() {
           </button>
         </Notification>
         <DropdownUser>
-          <Avatar src={user.avatar} size="lg" as="button" />
+          <Avatar src={user?.avatar || ""} size="lg" as="button" />
         </DropdownUser>
         <h1 className="font-semibold text-[#404040]">
           <span className="block">Halo,</span>
-          <span className="block">{user.username}</span>
+          <span className="block">{user?.username || ""}</span>
         </h1>
       </div>
     </>

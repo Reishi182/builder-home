@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { UploadButton } from "@bytescale/upload-widget-react";
 import { IoClose } from "react-icons/io5";
-
-export default function ProjectUpload({ register }) {
-  const [previews, setPreviews] = useState([]);
-
-  function handleFileChange(e) {
-    const files = Array.from(e.target.files);
-    const newFiles = files.map((file) => URL.createObjectURL(file));
+export default function ProjectUpload({ previews, setPreviews, user }) {
+  function handleFileChange(files) {
+    const newFiles = files.map((file) => file.fileUrl);
     setPreviews((prev) => [...prev, ...newFiles]);
   }
   function handleRemove(ind) {
     setPreviews((prev) => prev.filter((_, i) => i !== ind));
   }
+
+  const options = {
+    apiKey: PUBLIC_APIKEY,
+    maxFileCount: 20,
+    mimeTypes: ["image/jpeg"],
+    path: { folderPath: `/Project-img/${user}/` },
+    locale: {
+      addAnoterImageBtn: "Add another Image",
+      cancelBtn: "cancel",
+      uploadImageMultiBtn: "Upload Images",
+      maxImagesReachedPrefix: "Maximum number of images:",
+      removeBtn: "remove",
+    },
+  };
 
   return (
     <>
@@ -20,7 +30,21 @@ export default function ProjectUpload({ register }) {
       </span>
       <div className="flex w-full flex-col gap-1 ">
         <div className="flex w-full flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-slate-300 bg-[#F8F8FF] p-12  text-slate-700 dark:border-slate-700 dark:text-slate-300">
-          <div className="group text-xl font-semibold">
+          <UploadButton
+            options={options}
+            onComplete={(files) => handleFileChange(files)}
+          >
+            {({ onClick }) => (
+              <button
+                onClick={onClick}
+                className="cursor-pointer rounded-2xl bg-[#6C63BF] px-8 py-4 text-xl  text-white group-focus-within:underline"
+              >
+                Upload File
+              </button>
+            )}
+          </UploadButton>
+
+          {/* <div className="group text-xl font-semibold">
             Drag file here or click the button below
           </div>
           <label
@@ -38,7 +62,7 @@ export default function ProjectUpload({ register }) {
               onChange={handleFileChange}
             />
             Upload File
-          </label>
+          </label> */}
         </div>
         <div className="mt-4 flex flex-wrap gap-4">
           {previews.map((src, index) => (

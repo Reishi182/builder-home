@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useAuthStore } from "../features/Auth/AuthSlice";
 
-const apiClient = axios.create({
-  baseURL: "http://localhost:3000/app/v1",
+const userApi = axios.create({
+  baseURL: "https://builderhome-base-production.up.railway.app/api/v1/users",
 });
 
-apiClient.interceptors.request.use(
+userApi.interceptors.request.use(
   (config) => {
     const { token } = useAuthStore.getState();
     if (token) {
@@ -18,4 +18,19 @@ apiClient.interceptors.request.use(
   },
 );
 
-export default apiClient;
+const projectApi = axios.create({
+  baseURL: "https://builderhome-base-production.up.railway.app/api/v1/projects",
+});
+projectApi.interceptors.request.use(
+  (config) => {
+    const { token } = useAuthStore.getState();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+export { userApi, projectApi };

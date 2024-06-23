@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import { useUpdateUser } from "../Auth/useUpdateUser";
 import { useCurrentUser } from "../Auth/useCurrentUser";
 import UploadAvatar from "./UploadAvatar";
-import { uploadAvatar } from "../../services/apiUser";
 
 const PersonalInfo = () => {
   const { user, isLoading } = useCurrentUser();
@@ -33,17 +32,18 @@ const PersonalInfo = () => {
   useEffect(() => {
     if (user) {
       reset({
-        username: user?.username || "",
-        description: user?.description || "",
-        phone: user?.phone || "",
-        email: user?.email || "",
-        gender: user?.gender || "Male",
+        username: user.username || "",
+        description: user.description || "",
+        phone: user.phone || "",
+        email: user.email || "",
+        gender: user.gender || "Male",
       });
+      setAvatar(user.avatar);
     }
   }, [user, reset]);
 
   const onSubmit = async (data) => {
-    update({ data: { ...data, avatar }, id: user?.id });
+    update({ data: { ...data, avatar }, id: user.id });
   };
 
   if (isLoading) return <Loading />;

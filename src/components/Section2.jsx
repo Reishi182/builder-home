@@ -1,10 +1,14 @@
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { houseItems } from "../utils/data";
 import ButtonLink from "./ButtonLink";
 import ItemCard from "./ItemCard";
 import ItemCarousel from "./ItemCarousel";
-
+import { useProjects } from "../features/project/useProjects";
+import { Spinner } from "@nextui-org/react";
+import NoItems from "./../features/desain/NoItems";
 export default function Section2() {
+  const { projects, isLoading } = useProjects();
+  console.log(projects);
+  if (isLoading) return <Spinner />;
   const responsive = {
     desktop: {
       breakpoint: { max: 2000, min: 1224 },
@@ -32,17 +36,15 @@ export default function Section2() {
           <FaLongArrowAltRight />
         </ButtonLink>
       </div>
-      <ItemCarousel responsive={responsive}>
-        {houseItems.map((item, i) => (
-          <ItemCard
-            title={item.title}
-            id={item.id}
-            key={i}
-            img={item.img}
-            designer={item.designer}
-          />
-        ))}
-      </ItemCarousel>
+      {projects.length > 0 ? (
+        <ItemCarousel responsive={responsive}>
+          {projects.map((item, index) => (
+            <ItemCard project={item} key={index} />
+          ))}
+        </ItemCarousel>
+      ) : (
+        <NoItems />
+      )}
     </section>
   );
 }

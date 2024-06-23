@@ -3,18 +3,26 @@ import { BiSort } from "react-icons/bi";
 import Input from "./Input";
 import Tab from "./Tab";
 import { useQuerySlice } from "./../slices/QuerySlice";
+import { useCurrentUser } from "../features/Auth/useCurrentUser";
 
 export default function ServiceCard() {
   const { setQuery, query } = useQuerySlice((state) => state);
-  const tabItems = [
+  const { user, isLoading } = useCurrentUser();
+
+  // Define tab items conditionally based on user role
+  let tabItems = [
     { name: "Arsitek", path: "arsitek" },
     { name: "Desain", path: "desain" },
-    { name: "Desain/Proyek Kamu", path: "proyek" },
   ];
+
+  // Add "Desain/Proyek Kamu" tab only if user role is "Arsitek"
+  if (user && user.role === "Arsitek") {
+    tabItems.push({ name: "Desain/Proyek Kamu", path: "proyek" });
+  }
 
   return (
     <section className="px-10 py-16 sm:px-28 sm:py-20">
-      <div className="flex flex-col items-center  space-y-9  sm:items-start">
+      <div className="flex flex-col items-center space-y-9 sm:items-start">
         <div>
           <h1 className="text-[2rem] font-bold text-[#5E8451]">
             Telusuri Pilihan Terbaik untuk Kamu !
@@ -27,14 +35,14 @@ export default function ServiceCard() {
             defaultValue={query}
             register={{ onChange: (e) => setQuery(e.target.value) }}
           />
-          <button className="flex  w-[10rem] items-center  justify-center space-x-3 rounded-xl bg-[#5E8451] text-xl font-medium  text-white">
+          <button className="flex w-[10rem] items-center justify-center space-x-3 rounded-xl bg-[#5E8451] text-xl font-medium text-white">
             <span className="block">
               <BiSort />
             </span>
             <span className="block">Sort By</span>
           </button>
         </div>
-        <div className="flex space-x-5  ">
+        <div className="flex space-x-5">
           {tabItems.map((item) => (
             <Tab to={item.path} key={item.path}>
               {item.name}

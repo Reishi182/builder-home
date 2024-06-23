@@ -1,12 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCurrentUser } from "../features/Auth/useCurrentUser";
+import { useEffect } from "react";
+import Loading from "../components/Loading";
 
 export default function Project() {
+  const { user, isLoading } = useCurrentUser();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user || user.role !== "Arsitek") {
+      navigate(-1, { replace: true });
+    }
+  }, [user, navigate]);
+
+  if (isLoading) return <Loading />;
+  console;
   return (
     <div className="w-full">
       <h1 className="text-center text-3xl font-bold text-[#C0702E] min-[715px]:text-start">
         Desain/Project Kamu
       </h1>
-      <div className="flex w-full flex-col items-center justify-center min-[715px]:flex-row  min-[715px]:justify-between">
+      <div className="flex w-full flex-col items-center justify-center space-x-10 min-[715px]:flex-row  min-[715px]:justify-between">
         <div className="flex flex-col items-center">
           <div className="space-y-10 border-b-1  border-[#5E8451] py-10">
             <img src="/img/img2.jpg" className="w-[50rem]" />
@@ -22,7 +35,7 @@ export default function Project() {
             mengundang minat mereka pada layanan yang Kamu tawarkan.
           </h1>
         </div>
-        <div className="flex  flex-col items-center justify-center space-y-10 rounded-3xl px-28 py-44 shadow-custom">
+        <div className="flex  flex-col items-center justify-center space-y-10 rounded-3xl px-16 py-44 shadow-custom min-[849px]:px-28">
           <h1 className="flex flex-col items-center space-y-3">
             <span className="text-2xl font-bold">You Can Upload a File</span>
             <span className="font-semibold text-[#7D7D7D]">

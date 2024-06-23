@@ -2,25 +2,27 @@
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { HiOutlineCash } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-export default function ItemCard({ title, designer, img, id }) {
+export default function ItemCard({ project }) {
   const navigate = useNavigate();
 
   function handleNavigate() {
     window.scrollTo(0, 0);
-    navigate(`/service/desain/${id}`);
+    navigate(`/service/desain/${project.project_id}`);
   }
   return (
     <div
       className="m-5 flex flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
       onClick={handleNavigate}
     >
-      <img src={img} className="rounded-lg" />
+      <img src={project.image_cover} className="h-80 rounded-lg" />
       <div className="px-6 py-4">
         <div className=" border-b-1 ">
           <h1>
-            <span className="block text-2xl font-bold">{title}</span>
-            <span className="mb-4 block text-base font-medium">
-              Design By {designer}
+            <span className="block text-2xl font-bold">
+              {project.projectName}
+            </span>
+            <span className="mb-4 block text-base font-normal ">
+              Design By {project.username}
             </span>
           </h1>
         </div>

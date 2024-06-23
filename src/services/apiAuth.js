@@ -1,9 +1,4 @@
-import apiClient from "../utils/axios";
-
-export async function getUsers() {
-  const res = await apiClient.get("/users");
-  return res.data;
-}
+import { userApi } from "../utils/axios";
 
 export async function signup({
   username,
@@ -13,7 +8,7 @@ export async function signup({
   role,
 }) {
   try {
-    const response = await apiClient.post("/users/signup", {
+    const response = await userApi.post("/signup", {
       username,
       email,
       password,
@@ -28,7 +23,7 @@ export async function signup({
 }
 
 export async function login({ email, password }) {
-  const response = await apiClient.post("/users/login", {
+  const response = await userApi.post("/login", {
     email,
     password,
   });
@@ -36,11 +31,11 @@ export async function login({ email, password }) {
 }
 
 export async function forgetPassword({ email }) {
-  const response = await apiClient.post("/users/forgotPassword", { email });
+  const response = await userApi.post("/forgotPassword", { email });
   return response.data;
 }
 export async function resetPassword({ token, password, passwordConfirmation }) {
-  const response = await apiClient.patch(`/users/resetPassword/${token}`, {
+  const response = await userApi.patch(`/resetPassword/${token}`, {
     password,
     passwordConfirmation,
   });
@@ -48,7 +43,7 @@ export async function resetPassword({ token, password, passwordConfirmation }) {
 }
 export async function validateToken(token) {
   try {
-    const response = await apiClient.get(`/users/resetPassword/${token}`);
+    const response = await userApi.get(`/resetPassword/${token}`);
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -56,5 +51,20 @@ export async function validateToken(token) {
     } else {
       return { status: "error", message: "Network Error" };
     }
+  }
+}
+
+export async function changePassword(id, data) {
+  try {
+    const response = await userApi.patch(`/changePassword/${id}`, {
+      oldPassword: data.oldPassword,
+      password: data.password,
+      passwordConfirmation: data.passwordConfirmation,
+    });
+    return response.data;
+  } catch (error) {
+    const errorMessage =
+      error.response.data.message || "Failed to changed password";
+    throw new Error(errorMessage);
   }
 }

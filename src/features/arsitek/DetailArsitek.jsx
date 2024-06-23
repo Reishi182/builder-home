@@ -1,36 +1,38 @@
 import { useParams } from "react-router-dom";
-import { projects, users } from "../../utils/data";
+import { projects } from "../../utils/data";
 import ProjectCard from "../../components/ProjectCard";
-
+import { useUser } from "./../Auth/useUser";
+import { Spinner } from "@nextui-org/react";
+import { formatCurrency } from "./../../utils/helpers";
 export default function DetailArsitek() {
   const { userId } = useParams();
   const id = parseInt(userId);
-
-  const user = users.find((user) => user.id === id);
-
+  const { user, isLoading } = useUser(id);
+  if (isLoading) return <Spinner />;
   return (
     <>
-      {/* firs section */}
-      <section className="h-[60vh] bg-[url(/img/alissa.png)] bg-cover bg-center bg-no-repeat " />
-      {/* Second section */}
+      <section
+        className={`h-[60vh] bg-cover bg-center bg-no-repeat`}
+        style={{
+          backgroundImage: `url(${user.avatar || "https://placehold.co/600x400"})`,
+        }}
+      />
       <section className="bg-[#F4F4F4]  px-14 py-7">
         <h1 className="space-y-4">
           <span className="block text-3xl font-bold text-[#C0702E]">
-            {user.name}
+            {user.username}
           </span>
-          <span className="block text-xl font-medium text-[#726C6C]">
-            {user.role}
-          </span>
+          <span className="block text-xl font-medium text-[#726C6C]"></span>
           <span className="block   text-lg font-semibold">
-            Halo, saya merupakan seorang arsitek yang sudah berpengalaman
+            {user.description ||
+              `Halo, saya merupakan seorang arsitek yang sudah berpengalaman
             menyelesaikan beberapa project Pembuatan arsitektur rumah. Saat ini,
             saya sudah membuat banyak kebutuhan klien, mulai dari kebutuhan
             arsitektur. Saya siap melayani Anda dengan memberikan hasil yang
-            terbaik. Segera konsultasikan kebutuhan Anda!
+            terbaik. Segera konsultasikan kebutuhan Anda!`}
           </span>
         </h1>
       </section>
-      {/* Third */}
       <section className="px-20 py-20">
         <div className="space-y-5">
           <h1 className="text-4xl font-bold text-[#C0702E]">Project</h1>
@@ -62,7 +64,9 @@ export default function DetailArsitek() {
               <span className="block text-xl font-bold ">
                 Harga Jasa Mulai Dari :
               </span>
-              <span className="block text-lg">Rp 100.000.000,00</span>
+              <span className="block text-lg">
+                {formatCurrency(user.price)}
+              </span>
             </h1>
           </div>
           <h1>

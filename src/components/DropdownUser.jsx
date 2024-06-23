@@ -21,7 +21,7 @@ export default function DropdownUser({ children }) {
         <DropdownMenus aria-label="Profile Actions" variant="flat">
           <DropdownItem key="account" className="h-14  gap-2">
             <p className="text-xl font-semibold">Signed in as</p>
-            <p className="text-xl font-semibold">{user.email}</p>
+            <p className="text-xl font-semibold">{user?.email || ""}</p>
           </DropdownItem>
           <DropdownItem key="profile" href="/account/profile">
             <span className="block text-lg">My Profile</span>

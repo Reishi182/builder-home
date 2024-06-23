@@ -6,19 +6,45 @@ import LeftInput from "../../components/LeftInput";
 import TextArea from "../../components/TextArea";
 import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../../components/Modal";
-import { useDisclosure } from "@nextui-org/react";
+import { useCurrentUser } from "./../Auth/useCurrentUser";
+import { Spinner, useDisclosure } from "@nextui-org/react";
+import { useRef, useState } from "react";
+import { useCreateProject } from "./useCreateProject";
 
 export default function ProjectForm() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const navigate = useNavigate();
+  const [image, setImage] = useState("/img/imagePlace.png");
+
+  const { user } = useCurrentUser();
+  const [previews, setPreviews] = useState([]);
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm({});
+    watch,
+  } = useForm({
+    defaultValues: {
+      projectName: "dsadad",
+      price: 313213123,
+      year_built: 2003,
+      location: 31313132,
+      description: "dakdaksdnsaj",
+      handphone: "213131",
+    },
+  });
+
+  const formRef = useRef();
+
+  const { createProject, isLoading } = useCreateProject();
+
   function onSubmit(data) {
-    navigate("/service/proyek");
-    onOpen();
+    createProject({
+      ...data,
+      images: previews,
+      image_cover: image,
+      user_id: user.user_id,
+    });
   }
 
   return (
@@ -26,8 +52,9 @@ export default function ProjectForm() {
       <form
         className="px-10 py-20 min-[314px]:px-20"
         onSubmit={handleSubmit(onSubmit)}
+        ref={formRef}
       >
-        <ImageUploader register={register("cover")} />
+        <ImageUploader user={user.user_id} image={image} setImage={setImage} />
         <div className="space-y-5">
           <Input
             py="py-5"
@@ -43,43 +70,42 @@ export default function ProjectForm() {
             label="Project Price"
             type="number"
             placeholder="Your Project Price ...."
-            register={register("projectPrice", {
+            register={register("price", {
               required: "Project Price is required",
             })}
-            error={errors.projectPrice}
+            error={errors.price}
           />
           <h1 className="text-2xl font-medium text-black">Project Detail</h1>
           <LeftInput
-            label="Owner"
-            placeholder="Owner Name ...."
-            register={register("owner", { required: "Owner Name is required" })}
-            error={errors.owner}
+            label="Year Built"
+            placeholder="Year Build ...."
+            register={register("year_built", {
+              required: "Year Built is required",
+            })}
+            error={errors.year_built}
           />
           <LeftInput
-            label="Room Area"
-            placeholder="Your Room Area ...."
-            register={register("roomArea", {
-              required: "Room Area is required",
+            label="Location"
+            placeholder="Your Location ...."
+            register={register("location", {
+              required: "Location is required",
             })}
-            error={errors.roomArea}
+            error={errors.location}
           />
-          <LeftInput
-            label="Condition"
-            placeholder="Condition"
-            register={register("condition", {
-              required: "Condition is required",
-            })}
-            error={errors.condition}
-          />
+
           <TextArea
             label="Project Description"
             placeholder="Your Project Description ...."
-            register={register("projectDescription", {
+            register={register("description", {
               required: "Project Description is required",
             })}
-            error={errors.projectDescription}
+            error={errors.description}
           />
-          <ProjectUpload register={register("projectImg")} />
+          <ProjectUpload
+            previews={previews}
+            setPreviews={setPreviews}
+            user={user.user_id}
+          />
           <h1 className="text-2xl font-medium text-black">
             Social Media Detail
           </h1>
@@ -106,8 +132,8 @@ export default function ProjectForm() {
             <button type="reset" className="bg-[#C5D282]">
               Cancel
             </button>
-            <button type="submit" className="bg-[#74916B]">
-              Save
+            <button type="submit" disabled={isLoading} className="bg-[#74916B]">
+              {isLoading ? <Spinner /> : "Save"}
             </button>
           </div>
         </div>

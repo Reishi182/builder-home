@@ -3,12 +3,12 @@ import { HiOutlineCash } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-export default function UserCard({ name, role, id, phone }) {
+export default function UserCard({ user }) {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
     window.scrollTo(0, 0);
-    navigate(`/service/arsitek/${id}`);
+    navigate(`/service/arsitek/${user.id}`);
   };
 
   const handleSendMessageClick = (event) => {
@@ -18,15 +18,19 @@ export default function UserCard({ name, role, id, phone }) {
   return (
     <div
       onClick={handleCardClick}
-      className="flex flex-col bg-[#FEFEFE] sm:w-full w-[80%] shadow-custom rounded-xl mt-20 cursor-pointer"
+      className="mt-20 flex w-[80%] cursor-pointer flex-col rounded-xl bg-[#FEFEFE] shadow-custom sm:w-full"
     >
-      <img src="/img/alisa.png" className="rounded-lg" alt={`${name}`} />
+      <img
+        src={user.avatar || "https://placehold.co/600x400"}
+        className="rounded-lg"
+        alt={`${user.username}`}
+      />
       <div className="px-6 py-4">
         <div className="border-b-1">
           <h1>
-            <span className="font-bold text-3xl block">{name}</span>
-            <span className="font-medium text-lg text-[#969696] block">
-              {role}
+            <span className="block text-3xl font-bold">{user.username}</span>
+            <span className="block text-lg font-medium text-[#969696]">
+              Architect & Building Designer{" "}
             </span>
           </h1>
           <h1 className="mb-3 flex space-x-4">
@@ -41,17 +45,17 @@ export default function UserCard({ name, role, id, phone }) {
             <HiOutlineCash size={20} color="#969696" />
           </span>
           <h1>
-            <span className="block font-light text-sm">Verified License</span>
-            <span className="block text-lg text-[#969696] font-medium tracking-wide">
+            <span className="block text-sm font-light">Verified License</span>
+            <span className="block text-lg font-medium tracking-wide text-[#969696]">
               $100 - $1500
             </span>
           </h1>
         </div>
         <div className="mt-6 flex items-center space-x-4">
           <a
-            href={`https://wa.me/${phone}`}
+            href={`https://wa.me/${user.phone}`}
             onClick={handleSendMessageClick}
-            className="px-7 flex items-center text-xl justify-center gap-3 py-3 bg-[#5E8451] text-white rounded-xl"
+            className="flex items-center justify-center gap-3 rounded-xl bg-[#5E8451] px-7 py-3 text-xl text-white"
           >
             <IoMdMail />
             <span className="block">Send Message</span>
