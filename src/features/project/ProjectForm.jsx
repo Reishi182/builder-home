@@ -4,41 +4,60 @@ import ProjectUpload from "./ProjectUpload";
 import Input from "../../components/Input";
 import LeftInput from "../../components/LeftInput";
 import TextArea from "../../components/TextArea";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useProject } from "./useProject";
 import Modal from "../../components/Modal";
 import { useCurrentUser } from "./../Auth/useCurrentUser";
 import { Spinner, useDisclosure } from "@nextui-org/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCreateProject } from "./useCreateProject";
+import { useEditProject } from "./useEditProject";
 
 export default function ProjectForm() {
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const navigate = useNavigate();
-  const [image, setImage] = useState("/img/imagePlace.png");
+
+  const { projectId } = useParams();
+  const isEditing = Boolean(projectId);
+  const { project, isLoading } = useProject(projectId);
 
   const { user } = useCurrentUser();
-  const [previews, setPreviews] = useState([]);
   const {
     handleSubmit,
     register,
     formState: { errors },
-    watch,
   } = useForm({
-    defaultValues: {
-      projectName: "dsadad",
-      price: 313213123,
-      year_built: 2003,
-      location: 31313132,
-      description: "dakdaksdnsaj",
-      handphone: "213131",
-    },
+    defaultValues: isEditing
+      ? {
+          projectName: project?.projectName,
+          price: project?.price,
+          year_built: project?.year_built,
+          location: project?.location,
+          description: project?.description,
+          handphone: project?.phone,
+        }
+      : {},
   });
 
+  const [image, setImage] = useState(
+    isEditing ? project?.image_cover : "/img/imagePlace.png",
+  );
+  const [previews, setPreviews] = useState(isEditing ? project.images : []);
   const formRef = useRef();
 
-  const { createProject, isLoading } = useCreateProject();
-
+  const { createProject } = useCreateProject();
+  const { update } = useEditProject();
   function onSubmit(data) {
+    if (isEditing) {
+      return update({
+        data: {
+          ...data,
+          images: previews,
+          image_cover: image,
+          user_id: user.user_id,
+        },
+        id: projectId,
+      });
+    }
     createProject({
       ...data,
       images: previews,
@@ -118,9 +137,7 @@ export default function ProjectForm() {
             label="Handphone"
             placeholder="Your Phone Number ...."
             type="number"
-            register={register("handphone", {
-              required: "Phone Number is required",
-            })}
+            register={register("handphone")}
             error={errors.handphone}
           />
           <LeftInput

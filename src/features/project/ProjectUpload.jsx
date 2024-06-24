@@ -12,7 +12,7 @@ export default function ProjectUpload({ previews, setPreviews, user }) {
   const options = {
     apiKey: import.meta.env.VITE_PUBLIC_APIKEY,
     maxFileCount: 20,
-    mimeTypes: ["image/jpeg"],
+    mimeTypes: ["image/*"],
     path: { folderPath: `/Project-img/${user}/` },
     locale: {
       addAnoterImageBtn: "Add another Image",

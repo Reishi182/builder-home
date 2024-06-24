@@ -45,11 +45,11 @@ export default function ForgetPassword() {
             <div className="flex w-full flex-col items-center  justify-center space-y-6">
               <div className="w-full space-y-8 text-center md:text-start">
                 <button
-                  onClick={() => navigate(-1)}
+                  onClick={() => navigate("/login")}
                   className="-mb-5 flex items-center gap-3 text-2xl text-[#9B9B9B] underline "
                 >
                   <FaArrowLeftLong />
-                  Kembali
+                  Kembali ke halaman Login
                 </button>
 
                 <h1 className="text-2xl">

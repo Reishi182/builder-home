@@ -57,7 +57,7 @@ export default function Router() {
               element={<UploadProject />}
             />
             <Route
-              path="proyek/upload-proyek/:projectId"
+              path="service/proyek/upload-proyek/:projectId"
               element={<UploadProject />}
             />
 

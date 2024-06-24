@@ -9,10 +9,11 @@ export default function UploadProject() {
   const navigate = useNavigate();
   const { user, isLoading } = useCurrentUser();
   useEffect(() => {
-    if (user) {
-      if (user.role !== "Arsitek") return navigate(-1, { replace: true });
+    if (user && user.role && user.role !== "Arsitek") {
+      navigate(-1, { replace: true });
     }
-  }, [user, user.role, navigate]);
+  }, [user, navigate]);
+
   if (isLoading) return <Loading />;
   return (
     <>

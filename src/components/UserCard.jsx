@@ -18,7 +18,7 @@ export default function UserCard({ user }) {
   return (
     <div
       onClick={handleCardClick}
-      className="mt-20 flex w-[80%] cursor-pointer flex-col rounded-xl bg-[#FEFEFE] shadow-custom sm:w-full"
+      className="mt-20 flex w-[37rem]  cursor-pointer flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
     >
       <img
         src={user.avatar || "https://placehold.co/600x400"}

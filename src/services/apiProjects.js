@@ -12,11 +12,12 @@ export async function createProject(data) {
 }
 
 export async function getProject(id) {
+  if (!id) return;
   try {
     const res = await projectApi.get(`/${id}`);
     return res.data.data.project;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 }
 
@@ -25,16 +26,25 @@ export async function getAllProject() {
     const res = await projectApi.get(``);
     return res.data.data.projects;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
+  }
+}
+export async function getAllUserProject(id) {
+  try {
+    const res = await projectApi.get(`/userProjects/${id}`);
+    return res.data.data.projects;
+  } catch (err) {
+    throw new Error(err.response.data.message);
   }
 }
 
-export async function updateProject(id, data) {
+export async function updateProject(data, id) {
+  console.log(data);
   try {
     const res = await projectApi.patch(`${id}`, data);
     return res.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 }
 
@@ -43,6 +53,6 @@ export async function deleteProject(id) {
     const res = await projectApi.delete(`${id}`);
     return res.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 }

@@ -24,6 +24,7 @@ export default function ForgetPasswordToken() {
         return;
       } else {
         toast.error("Token is Invalid or exp");
+        navigate("/reset_password");
       }
     };
 
