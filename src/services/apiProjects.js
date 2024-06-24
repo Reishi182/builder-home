@@ -2,10 +2,7 @@ import { projectApi } from "../utils/axios";
 
 export async function createProject(data) {
   try {
-    const res = await projectApi.post(
-      "http://localhost:3000/api/v1/projects",
-      data,
-    );
+    const res = await projectApi.post("", data);
     return res.data;
   } catch (err) {
     const errorMessage =

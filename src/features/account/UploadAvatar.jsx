@@ -7,7 +7,7 @@ export default function UploadAvatar({ setAvatar }) {
   }
 
   const options = {
-    apiKey: import.meta.env.VITE_PUBLIC_KEY,
+    apiKey: import.meta.env.VITE_PUBLIC_APIKEY,
     maxFileCount: 1,
     mimeTypes: ["image/jpeg"],
     path: { folderPath: "/Avatar" },

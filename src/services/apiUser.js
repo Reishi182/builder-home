@@ -5,14 +5,22 @@ export async function getUsers() {
   return res.data.data.users;
 }
 export async function deleteUser(id) {
-  const res = await userApi.delete(`/${id}`);
+  try {
+    const res = await userApi.delete(`/${id}`);
 
-  return res.data;
+    return res.data;
+  } catch (err) {
+    throw new Error(err.response.data.message);
+  }
 }
 export async function getUser(id) {
-  const res = await userApi.get(`/${id}`);
+  try {
+    const res = await userApi.get(`/${id}`);
 
-  return res.data.data.user;
+    return res.data.data.user;
+  } catch (err) {
+    throw new Error(err.response.data.message);
+  }
 }
 export async function updateUser(data, id) {
   try {
