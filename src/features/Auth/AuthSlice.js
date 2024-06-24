@@ -1,9 +1,9 @@
+import toast from "react-hot-toast";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { jwtDecode } from "jwt-decode";
 export const useAuthStore = create(
   persist(
-    (set, get) => ({
+    (set) => ({
       auth: null,
       token: "",
       user: "",
@@ -11,15 +11,10 @@ export const useAuthStore = create(
       logout: () => {
         set({ user: "", token: "" });
         localStorage.removeItem("auth-expiry");
+        toast.error("Session is Over, please login again");
       },
       setUser: (user) => set({ user }),
       setToken: (token) => {
-        const decodedToken = jwtDecode(token);
-        const currentDate = new Date();
-        const exp = decodedToken.exp * 1000 < currentDate.getTime();
-        if (exp) {
-          set({ user: "", token: "" });
-        }
         set({ token: token });
       },
       setResetToken: (token) => set({ resetToken: token }),

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAuthStore } from "../features/Auth/AuthSlice";
 
 const userApi = axios.create({
-  baseURL: "https://builderhome-base-production.up.railway.app/api/v1/users",
+  baseURL: `${import.meta.env.VITE_BASE_URL}/api/v1/users`,
 });
 
 userApi.interceptors.request.use(
@@ -19,7 +19,7 @@ userApi.interceptors.request.use(
 );
 
 const projectApi = axios.create({
-  baseURL: "https://builderhome-base-production.up.railway.app/api/v1/projects",
+  baseURL: `${import.meta.env.VITE_BASE_URL}/api/v1/projects`,
 });
 projectApi.interceptors.request.use(
   (config) => {

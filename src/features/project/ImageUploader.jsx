@@ -8,7 +8,7 @@ export default function ImageUploader({ user, setImage, image }) {
     setImage(file[0].fileUrl);
   };
   const options = {
-    apiKey: process.env.PUBLIC_APIKEY,
+    apiKey: import.meta.env.VITE_PUBLIC_KEY,
     maxFileCount: 1,
     mimeTypes: ["image/jpeg"],
     path: { folderPath: `/Project-img/${user}/cover` },

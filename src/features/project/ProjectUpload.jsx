@@ -10,7 +10,7 @@ export default function ProjectUpload({ previews, setPreviews, user }) {
   }
 
   const options = {
-    apiKey: process.env.PUBLIC_APIKEY,
+    apiKey: import.meta.env.VITE_PUBLIC_KEY,
     maxFileCount: 20,
     mimeTypes: ["image/jpeg"],
     path: { folderPath: `/Project-img/${user}/` },

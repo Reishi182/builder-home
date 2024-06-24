@@ -14,7 +14,6 @@ export default function DetailDesain() {
   const [searchParams] = useSearchParams();
   const id = Number(itemId);
   const { project, isLoading } = useProject(id);
-  console.log(project);
   const list = [
     { value: "konsep", label: "Konsep" },
     { value: "denah", label: "Denah" },

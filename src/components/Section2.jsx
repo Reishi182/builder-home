@@ -7,7 +7,6 @@ import { Spinner } from "@nextui-org/react";
 import NoItems from "./../features/desain/NoItems";
 export default function Section2() {
   const { projects, isLoading } = useProjects();
-  console.log(projects);
   if (isLoading) return <Spinner />;
   const responsive = {
     desktop: {
