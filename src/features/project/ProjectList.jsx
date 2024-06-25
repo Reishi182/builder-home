@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
-import { useAuthStore } from "../Auth/AuthSlice";
 import ProjectCard from "./ProjectCard";
 import { useUserProjects } from "./useUserProjects";
 export default function ProjectList() {
-  const { user } = useAuthStore((state) => state);
-  const { userProjects, isLoading } = useUserProjects(user);
+  const { userProjects, isLoading } = useUserProjects();
   if (isLoading) return <Loading />;
   return (
     <div className="flex flex-col">

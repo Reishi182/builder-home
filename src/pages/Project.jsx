@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../features/Auth/AuthSlice";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ProjectSection from "../features/project/ProjectSection";
@@ -8,21 +7,20 @@ import { useUserProjects } from "../features/project/useUserProjects";
 import toast from "react-hot-toast";
 
 export default function Project() {
-  const { user } = useAuthStore((state) => state);
   const {
     userProjects,
     isLoading: isProjectLoading,
-    isError,
-  } = useUserProjects(user);
+    error,
+  } = useUserProjects();
   const [projectsLoaded, setProjectsLoaded] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isError) {
+    if (error) {
       toast.error("Something is Wrong ");
       navigate(-1, { replace: true });
     }
-  }, [isError, userProjects, navigate]);
+  }, [error, userProjects, navigate]);
 
   useEffect(() => {
     if (!isProjectLoading && userProjects !== undefined) {
