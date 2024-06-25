@@ -2,10 +2,17 @@ import { formatCurrency } from "./../../utils/helpers";
 import Stars from "./../../components/Stars";
 import { useDeleteProject } from "./useDeleteProject";
 import { useNavigate } from "react-router-dom";
+
 export default function ProjectUserCard({ project }) {
   const { projectName, username, price, image_cover, project_id } = project;
   const { deleteUserProject } = useDeleteProject();
   const navigate = useNavigate();
+
+  const handleDeleteProject = (event, projectId) => {
+    event.stopPropagation();
+    deleteUserProject(projectId);
+  };
+
   return (
     <div
       className="flex w-full border-1 border-gray-100 bg-[#FCFCFC] px-14 py-8"
@@ -25,7 +32,7 @@ export default function ProjectUserCard({ project }) {
         </div>
         <div className="flex flex-col items-center space-y-4 min-[323px]:space-y-8">
           <button
-            onClick={() => deleteUserProject(project_id)}
+            onClick={(event) => handleDeleteProject(event, project_id)}
             className="rounded-lg bg-[#e8afaf96] px-5 py-2.5 font-semibold text-[#F42C2C]"
           >
             Hapus Project

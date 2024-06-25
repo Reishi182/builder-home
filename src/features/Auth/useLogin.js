@@ -16,7 +16,7 @@ export function useLogin() {
       setUser(data.user.id);
       navigate("/");
       toast.success(`Welcome Back ${data.user.username}`);
-      queryClient.setQueryData(["user"], data.user);
+      queryClient.setQueryData([`${data.user.username}`], data.user.id);
     },
     onError: (err) => {
       toast.error(err.response.data.message);
