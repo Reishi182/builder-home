@@ -3,11 +3,11 @@ import ButtonLink from "./ButtonLink";
 import ItemCard from "./ItemCard";
 import ItemCarousel from "./ItemCarousel";
 import { useProjects } from "../features/project/useProjects";
-import { Spinner } from "@nextui-org/react";
 import NoItems from "./../features/desain/NoItems";
+import Loading from "./Loading";
 export default function Section2() {
   const { projects, isLoading } = useProjects();
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Loading />;
 
   if (!projects.length) return <NoItems />;
   const responsive = {

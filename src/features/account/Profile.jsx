@@ -1,11 +1,12 @@
-import { Avatar, Spinner, Tooltip } from "@nextui-org/react";
+import { Avatar, Tooltip } from "@nextui-org/react";
+import Loading from "../../components/Loading";
 import { RiEditFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useCurrentUser } from "../Auth/useCurrentUser";
 
 export default function Profile() {
-  const { user, isLoading } = useCurrentUser();
-  if (isLoading) return <Spinner />;
+  const { user, isLoading, error } = useCurrentUser();
+  if (isLoading) return <Loading />;
   return (
     <div className="flex w-full flex-col space-y-14 py-20 pl-20 pr-20 sm:py-0 sm:pl-20 sm:pr-10    ">
       <h1 className="text-3xl font-bold text-[#C0702E]">My Profile</h1>

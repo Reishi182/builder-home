@@ -19,6 +19,7 @@ export async function getUser(id) {
 
     return res.data.data.user;
   } catch (err) {
+    if (err) return;
     throw new Error(err.response.data.message);
   }
 }

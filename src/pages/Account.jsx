@@ -4,7 +4,6 @@ import ProfileButton from "./../components/ProfileButton";
 import { Outlet } from "react-router-dom";
 import { BsCart4, BsFillHouseAddFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
-import { MdOutlineForum } from "react-icons/md";
 import { useCurrentUser } from "../features/Auth/useCurrentUser";
 import Loading from "../components/Loading";
 
@@ -18,11 +17,7 @@ export default function Account() {
       icon: <BsFillHouseAddFill />,
       path: "my-project",
     },
-    {
-      label: "Forum",
-      icon: <MdOutlineForum />,
-      path: "forum",
-    },
+
     { label: "Transaction", icon: <BsCart4 />, path: "transaction" },
     { label: "Logout", icon: <FiLogOut />, path: "logout" },
   ];

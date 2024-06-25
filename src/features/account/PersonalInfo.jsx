@@ -10,10 +10,9 @@ import { useCurrentUser } from "../Auth/useCurrentUser";
 import UploadAvatar from "./UploadAvatar";
 
 const PersonalInfo = () => {
-  const { user, isLoading } = useCurrentUser();
+  const { user, isLoading, error } = useCurrentUser();
   const { update, isLoading: isUpdating } = useUpdateUser();
   const [avatar, setAvatar] = useState(null);
-
   const options = [
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" },

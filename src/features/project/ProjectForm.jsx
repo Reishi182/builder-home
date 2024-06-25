@@ -9,43 +9,52 @@ import { useProject } from "./useProject";
 import Modal from "../../components/Modal";
 import { useCurrentUser } from "./../Auth/useCurrentUser";
 import { Spinner, useDisclosure } from "@nextui-org/react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useCreateProject } from "./useCreateProject";
 import { useEditProject } from "./useEditProject";
+import Loading from "../../components/Loading";
 
 export default function ProjectForm() {
   const { isOpen, onClose } = useDisclosure();
 
   const { itemId } = useParams();
   const isEditing = Boolean(itemId);
-  const { project, isLoading } = useProject();
-
+  const { project, isLoading } = useProject(itemId);
   const { user } = useCurrentUser();
+
   const {
     handleSubmit,
     register,
     formState: { errors },
+    reset, // Added reset to reset form values
   } = useForm({
-    defaultValues: isEditing
-      ? {
-          projectName: project?.projectName,
-          price: project?.price,
-          year_built: project?.year_built,
-          location: project?.location,
-          description: project?.description,
-          handphone: project?.phone,
-        }
-      : {},
+    defaultValues: {},
   });
-
-  const [image, setImage] = useState(
-    isEditing ? project?.image_cover : "/img/imagePlace.png",
-  );
-  const [previews, setPreviews] = useState(isEditing ? project.images : []);
+  console.log(project);
+  const [image, setImage] = useState("/img/imagePlace.png");
+  const [previews, setPreviews] = useState([]);
   const formRef = useRef();
+
+  useEffect(() => {
+    if (isEditing && project) {
+      reset({
+        projectName: project.projectName,
+        price: project.price,
+        year_built: project.year_built,
+        location: project.location,
+        description: project.description,
+        handphone: project.handphone,
+        linkedin: project.linkedin,
+        instagram: project.instagram,
+      });
+      setImage(project.image_cover);
+      setPreviews(project.images || []);
+    }
+  }, [isEditing, project, reset]);
 
   const { createProject } = useCreateProject();
   const { update } = useEditProject();
+
   function onSubmit(data) {
     if (isEditing) {
       return update({
@@ -55,7 +64,7 @@ export default function ProjectForm() {
           image_cover: image,
           user_id: user.user_id,
         },
-        id: projectId,
+        id: itemId,
       });
     }
     createProject({
@@ -65,6 +74,8 @@ export default function ProjectForm() {
       user_id: user.user_id,
     });
   }
+
+  if (isLoading) return <Loading />;
 
   return (
     <>

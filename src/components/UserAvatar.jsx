@@ -5,12 +5,15 @@ import { useState } from "react";
 import Notification from "./Notification";
 import Wishlist from "./Wishlist";
 import { useCurrentUser } from "../features/Auth/useCurrentUser";
+import { useAuthStore } from "../features/Auth/AuthSlice";
 
 export default function UserAvatar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, isLoading } = useCurrentUser();
+  const { user, isLoading, error } = useCurrentUser();
   const [isOpenWish, setIsOpenWish] = useState(false);
-  // if (isLoading) return <Spinner />;
+  const { logout } = useAuthStore((state) => state);
+  if (error) return logout();
+  if (isLoading) return <Spinner />;
   return (
     <>
       <div className="flex flex-row items-center justify-center space-x-4">

@@ -1,12 +1,12 @@
 import UserCard from "./UserCard";
 import { useUsers } from "../features/Auth/useUsers";
 import NoUsers from "./../features/arsitek/NoUsers";
-import { Spinner } from "@nextui-org/react";
+import Loading from "./Loading";
 
 export default function Section4() {
   const { users, isLoading } = useUsers();
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Loading />;
 
   const userItem =
     users.length > 3 ? users.slice(0, 3) : users.slice(0, users.length);

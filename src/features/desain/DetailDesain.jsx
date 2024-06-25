@@ -2,13 +2,12 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Stars from "./../../components/Stars";
 import ItemCarousel from "../../components/ItemCarousel";
-import PageNotFound from "./../../pages/PageNotFound";
 import Deskripsi from "./Deskripsi";
 import DetailDeskripsi from "./DetailDeskripsi";
 import Konsep from "./Konsep";
 import Spesifikasi from "./Spesifikasi";
 import { useProject } from "../project/useProject";
-import { Spinner } from "@nextui-org/react";
+import Loading from "../../components/Loading";
 export default function DetailDesain() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -26,8 +25,7 @@ export default function DetailDesain() {
       items: 1,
     },
   };
-  if (!project) return <PageNotFound />;
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Loading />;
   return (
     <div className="flex flex-col">
       <div className="flex flex-col space-y-6 bg-gradient-to-r from-[#e9fad2ee] to-[#95b26f5e] px-20 py-10 ">

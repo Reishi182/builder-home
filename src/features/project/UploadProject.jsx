@@ -8,12 +8,12 @@ import Loading from "../../components/Loading";
 export default function UploadProject() {
   const navigate = useNavigate();
   const { user, isLoading } = useCurrentUser();
-  useEffect(() => {
-    if (user && user.role && user.role !== "Arsitek") {
-      navigate(-1, { replace: true });
+useEffect(() => {
+  if (user && user.role && user.role !== "Arsitek") {
+    navigate(-1, { replace: true });
     }
   }, [user, navigate]);
-
+    
   if (isLoading) return <Loading />;
   return (
     <>

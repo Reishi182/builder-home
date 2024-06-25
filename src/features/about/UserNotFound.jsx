@@ -1,25 +1,25 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function UserNotFound() {
+export default function useAuthStoreFound() {
   const navigate = useNavigate();
-  const { Id } = useParams();
+  const { userId } = useParams();
   return (
-    <div className="bg-[url(/img/pageNotFound.png)] flex min-h-screen bg-center bg-cover w-full items-center justify-center">
-      <div className="flex md:flex-row flex-col-reverse items-center justify-between">
+    <div className="flex min-h-screen w-full items-center justify-center bg-[url(/img/pageNotFound.png)] bg-cover bg-center">
+      <div className="flex flex-col-reverse items-center justify-between md:flex-row">
         <img src="/img/notFound.png" className="w-[50rem]" />
-        <div className="flex items-center flex-col space-y-9">
-          <h1 className=" text-[#C0702E] text-center space-y-7">
+        <div className="flex flex-col items-center space-y-9">
+          <h1 className=" space-y-7 text-center text-[#C0702E]">
             <span className="block text-[12rem] font-extrabold">404</span>
             <span className="block text-[3rem] font-semibold">
               User Not Found
             </span>
             <span className="block text-[1.5rem] font-medium">
-              Sorry, we can’t find user with an id#{Id}
+              Sorry, we can’t find user with an id#{userId}
             </span>
           </h1>
           <button
             onClick={() => navigate(-1)}
-            className="px-7 w-[13rem] flex items-center text-xl justify-center gap-3 py-3 bg-[#5E8451] text-white rounded-2xl"
+            className="flex w-[13rem] items-center justify-center gap-3 rounded-2xl bg-[#5E8451] px-7 py-3 text-xl text-white"
           >
             Back to Home
           </button>
