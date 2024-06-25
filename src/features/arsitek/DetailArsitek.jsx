@@ -1,14 +1,13 @@
-import { useParams } from "react-router-dom";
 import { projects } from "../../utils/data";
 import ProjectCard from "../../components/ProjectCard";
 import { useUser } from "./../Auth/useUser";
+import PageNotFound from "./../../pages/PageNotFound";
 import { Spinner } from "@nextui-org/react";
 import { formatCurrency } from "./../../utils/helpers";
 export default function DetailArsitek() {
-  const { userId } = useParams();
-  const id = parseInt(userId);
-  const { user, isLoading } = useUser(id);
+  const { user, isLoading } = useUser();
   if (isLoading) return <Spinner />;
+  if (!user) return <PageNotFound />;
   return (
     <>
       <section

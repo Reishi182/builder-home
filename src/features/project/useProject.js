@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProject } from "../../services/apiProjects";
-import { useAuthStore } from "../Auth/AuthSlice";
+import { useParams } from "react-router-dom";
 
-export function useProject(projectId) {
-  const { user } = useAuthStore((state) => state);
+export function useProject() {
+  const { itemId } = useParams();
+
   const { isLoading, data: project } = useQuery({
-    queryKey: ["project", { user }],
-    queryFn: () => getProject(projectId),
+    queryKey: ["project", itemId],
+    queryFn: () => getProject(itemId),
+    retry: false,
   });
 
   return { isLoading, project };

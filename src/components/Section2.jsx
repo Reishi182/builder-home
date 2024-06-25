@@ -8,6 +8,8 @@ import NoItems from "./../features/desain/NoItems";
 export default function Section2() {
   const { projects, isLoading } = useProjects();
   if (isLoading) return <Spinner />;
+
+  if (!projects.length) return <NoItems />;
   const responsive = {
     desktop: {
       breakpoint: { max: 2000, min: 1224 },

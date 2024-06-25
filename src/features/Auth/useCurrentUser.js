@@ -4,10 +4,15 @@ import { useAuthStore } from "./AuthSlice";
 
 export function useCurrentUser() {
   const { user: userId } = useAuthStore((state) => state);
-  const { isLoading, data: user } = useQuery({
-    queryKey: ["user"],
+  const {
+    isLoading,
+    data: user,
+    error,
+  } = useQuery({
+    queryKey: ["user", userId],
     queryFn: () => getUser(userId),
+    retry: false,
   });
 
-  return { isLoading, user };
+  return { isLoading, user, error };
 }

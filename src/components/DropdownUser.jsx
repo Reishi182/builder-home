@@ -7,12 +7,14 @@ import {
 } from "@nextui-org/react";
 import { useAuthStore } from "./../features/Auth/AuthSlice";
 import { useCurrentUser } from "../features/Auth/useCurrentUser";
+import PageNotFound from "../pages/PageNotFound";
 export default function DropdownUser({ children }) {
-  const { isLoading, user } = useCurrentUser();
+  const { isLoading, user, error } = useCurrentUser();
   const { logout } = useAuthStore((state) => state);
   function handleLogout() {
     logout();
   }
+  if (!user) return <PageNotFound />;
   if (isLoading) return <Spinner />;
   return (
     <div className="flex items-center gap-4">

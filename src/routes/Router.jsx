@@ -57,14 +57,14 @@ export default function Router() {
               element={<UploadProject />}
             />
             <Route
-              path="service/proyek/upload-proyek/:projectId"
+              path="service/proyek/upload-proyek/:itemId"
               element={<UploadProject />}
             />
 
             <Route path="service/arsitek/:userId" element={<DetailArsitek />} />
             <Route path="service/desain/:itemId" element={<DetailDesain />} />
             <Route
-              path="service/arsitek/:userId/project/:projectId"
+              path="service/arsitek/:userId/project/:itemId"
               element={<DetailProject />}
             />
 

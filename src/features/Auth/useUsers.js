@@ -9,6 +9,7 @@ export function useUsers() {
   } = useQuery({
     queryKey: ["users"],
     queryFn: getUsers,
+    retry: false,
   });
 
   return { isLoading, error, users };

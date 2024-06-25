@@ -1,7 +1,8 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Stars from "./../../components/Stars";
 import ItemCarousel from "../../components/ItemCarousel";
+import PageNotFound from "./../../pages/PageNotFound";
 import Deskripsi from "./Deskripsi";
 import DetailDeskripsi from "./DetailDeskripsi";
 import Konsep from "./Konsep";
@@ -10,10 +11,8 @@ import { useProject } from "../project/useProject";
 import { Spinner } from "@nextui-org/react";
 export default function DetailDesain() {
   const navigate = useNavigate();
-  const { itemId } = useParams();
   const [searchParams] = useSearchParams();
-  const id = Number(itemId);
-  const { project, isLoading } = useProject(id);
+  const { project, isLoading } = useProject();
   const list = [
     { value: "konsep", label: "Konsep" },
     { value: "denah", label: "Denah" },
@@ -27,6 +26,7 @@ export default function DetailDesain() {
       items: 1,
     },
   };
+  if (!project) return <PageNotFound />;
   if (isLoading) return <Spinner />;
   return (
     <div className="flex flex-col">

@@ -9,16 +9,16 @@ import { useProject } from "./useProject";
 import Modal from "../../components/Modal";
 import { useCurrentUser } from "./../Auth/useCurrentUser";
 import { Spinner, useDisclosure } from "@nextui-org/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useCreateProject } from "./useCreateProject";
 import { useEditProject } from "./useEditProject";
 
 export default function ProjectForm() {
-  const { isOpen, onClose, onOpen } = useDisclosure();
+  const { isOpen, onClose } = useDisclosure();
 
-  const { projectId } = useParams();
-  const isEditing = Boolean(projectId);
-  const { project, isLoading } = useProject(projectId);
+  const { itemId } = useParams();
+  const isEditing = Boolean(itemId);
+  const { project, isLoading } = useProject();
 
   const { user } = useCurrentUser();
   const {

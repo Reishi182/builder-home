@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { BiSort } from "react-icons/bi";
+import Loading from "./../components/Loading";
 import Input from "./Input";
 import Tab from "./Tab";
 import { useQuerySlice } from "./../slices/QuerySlice";
@@ -9,13 +10,12 @@ export default function ServiceCard() {
   const { setQuery, query } = useQuerySlice((state) => state);
   const { user, isLoading } = useCurrentUser();
 
-  // Define tab items conditionally based on user role
   let tabItems = [
     { name: "Arsitek", path: "arsitek" },
     { name: "Desain", path: "desain" },
   ];
 
-  // Add "Desain/Proyek Kamu" tab only if user role is "Arsitek"
+  if (isLoading) return <Loading />;
   if (user && user.role === "Arsitek") {
     tabItems.push({ name: "Desain/Proyek Kamu", path: "proyek" });
   }
