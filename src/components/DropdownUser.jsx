@@ -7,12 +7,14 @@ import {
 } from "@nextui-org/react";
 import { useAuthStore } from "./../features/Auth/AuthSlice";
 import { useCurrentUser } from "../features/Auth/useCurrentUser";
+import { useNavigate } from "react-router-dom";
 export default function DropdownUser({ children }) {
   const { isLoading, user } = useCurrentUser();
   const { logout } = useAuthStore((state) => state);
-
+  const navigate = useNavigate();
   function handleLogout() {
     logout();
+    navigate("/login");
   }
   if (isLoading) return <Spinner />;
   return (

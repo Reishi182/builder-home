@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function AboutCard({ img, title, children }) {
   return (
     <div className="h-auto w-auto  rounded-xl px-8  py-20 shadow-custom ">

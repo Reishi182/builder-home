@@ -12,13 +12,13 @@ export default function Account() {
 
   const items = [
     { label: "Profile", icon: <FaUserAlt />, path: "profile" },
-    {
-      label: "My Project",
-      icon: <BsFillHouseAddFill />,
-      path: "my-project",
-    },
-
-    { label: "Transaction", icon: <BsCart4 />, path: "transaction" },
+    user?.role === "Arsitek"
+      ? {
+          label: "My Project",
+          icon: <BsFillHouseAddFill />,
+          path: "my-project",
+        }
+      : { label: "Transaction", icon: <BsCart4 />, path: "transaction" },
     { label: "Logout", icon: <FiLogOut />, path: "logout" },
   ];
 

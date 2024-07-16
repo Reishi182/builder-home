@@ -7,7 +7,7 @@ export default function NoTransaction() {
       <h1 className="text-lg">
         <span className="block">Yah! Anda belum punya pilihan apapun. </span>
         <h1>
-          <Link className="font-semibold" to="/service">
+          <Link className="font-semibold" to="/service/desain">
             Klik disini{" "}
           </Link>
           <span> untuk mencari desain rumah idaman Anda sekarang.</span>

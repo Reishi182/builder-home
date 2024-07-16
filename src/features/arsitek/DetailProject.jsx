@@ -4,7 +4,6 @@ import { useProject } from "../project/useProject";
 export default function DetailProject() {
   const { project, isLoading } = useProject();
   if (isLoading) return <Spinner />;
-  console.log(project);
   return (
     <section className="w-full px-10 py-10 sm:px-20">
       <div className="flex flex-col space-y-10">

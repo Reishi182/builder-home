@@ -8,9 +8,14 @@ import Konsep from "./Konsep";
 import Spesifikasi from "./Spesifikasi";
 import { useProject } from "../project/useProject";
 import Loading from "../../components/Loading";
+import { useCurrentUser } from "./../Auth/useCurrentUser";
+import toast from "react-hot-toast";
+import { useAddWishlist } from "../wishlist/useAddWishlist";
+import { useWishlist } from "../wishlist/useWishlist";
 export default function DetailDesain() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { user } = useCurrentUser();
   const { project, isLoading } = useProject();
   const list = [
     { value: "konsep", label: "Konsep" },
@@ -24,6 +29,26 @@ export default function DetailDesain() {
       items: 1,
     },
   };
+  const { wishlist } = useWishlist();
+  const { addWish } = useAddWishlist();
+  const findWishlist = wishlist?.wishlists?.find(
+    (wish) => wish?.wishlistId === project?.project_id,
+  );
+  function addItem() {
+    if (!user) {
+      toast.error("You're Not Logged In");
+    }
+
+    addWish({
+      wishlistId: project.project_id,
+      user_id: user.id,
+      projectName: project.projectName,
+      designer: project.username,
+      price: project.price,
+      image: project.image_cover,
+    });
+  }
+
   if (isLoading) return <Loading />;
   return (
     <div className="flex flex-col">
@@ -35,15 +60,14 @@ export default function DetailDesain() {
           >
             <FaArrowLeftLong /> <span className="block">Kembali</span>
           </button>
-          <div className="space-x-6 text-white *:rounded-lg *:bg-[#5E8451] *:px-3 *:py-2">
-            <button>Tambah Favorit</button>
-            <a
-              href={`https://wa.me/${project.handphone}`}
-              className="rounded-lg bg-[#5E8451] px-14 py-2 text-center text-white"
-            >
-              Hubungi Kami
-            </a>
-          </div>
+          {user?.role !== "Arsitek" && (
+            <div className="space-x-6 text-white *:rounded-lg *:bg-[#5E8451] *:px-3 *:py-2">
+              {!findWishlist && (
+                <button onClick={addItem}>Tambah Favorit</button>
+              )}
+              <a href={`https://wa.me/62${project.handphone}`}>Hubungi Kami</a>
+            </div>
+          )}
         </div>
         <div className="space-y-2">
           <h1 className="text-3xl font-bold">{project.projectName}</h1>

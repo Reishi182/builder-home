@@ -12,7 +12,7 @@ import { useRef, useState, useEffect } from "react";
 import { useCreateProject } from "./useCreateProject";
 import { useEditProject } from "./useEditProject";
 import Loading from "../../components/Loading";
-import { useUser } from "../Auth/useUser";
+import { useCurrentUser } from "../Auth/useCurrentUser";
 
 export default function ProjectForm() {
   const { isOpen, onClose } = useDisclosure();
@@ -20,7 +20,7 @@ export default function ProjectForm() {
   const { itemId } = useParams();
   const isEditing = Boolean(itemId);
   const { project, isLoading } = useProject(itemId);
-  const { user, isLoading: isUserLoading } = useUser();
+  const { user, isLoading: isUserLoading } = useCurrentUser();
 
   const {
     handleSubmit,
@@ -32,8 +32,6 @@ export default function ProjectForm() {
   } = useForm({
     defaultValues: {},
   });
-
-  console.log(project);
 
   const [image, setImage] = useState("/img/imagePlace.png");
   const [previews, setPreviews] = useState([]);
@@ -80,7 +78,7 @@ export default function ProjectForm() {
           ...data,
           images: previews,
           image_cover: image,
-          user_id: user.user_id,
+          user_id: user.id,
         },
         id: itemId,
       });
@@ -129,14 +127,7 @@ export default function ProjectForm() {
             error={errors.price}
           />
           <h1 className="text-2xl font-medium text-black">Project Detail</h1>
-          <LeftInput
-            label="Year Built"
-            placeholder="Year Build ...."
-            register={register("year_built", {
-              required: "Year Built is required",
-            })}
-            error={errors.year_built}
-          />
+
           <LeftInput
             label="Location"
             placeholder="Your Location ...."

@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa6";
 import { HiOutlineCash } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-
+import { formatCurrency } from "../utils/helpers";
 export default function UserCard({ user }) {
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ export default function UserCard({ user }) {
   return (
     <div
       onClick={handleCardClick}
-      className="mt-20 flex w-[37rem]  cursor-pointer flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
+      className="mt-20 flex w-[30rem]  cursor-pointer flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
     >
       <img
         src={user.avatar || "https://placehold.co/600x400"}
@@ -47,7 +47,7 @@ export default function UserCard({ user }) {
           <h1>
             <span className="block text-sm font-light">Verified License</span>
             <span className="block text-lg font-medium tracking-wide text-[#969696]">
-              $100 - $1500
+              {`${formatCurrency(10000000)} - ${formatCurrency(30000000)}`}
             </span>
           </h1>
         </div>

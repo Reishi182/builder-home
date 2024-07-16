@@ -33,4 +33,19 @@ projectApi.interceptors.request.use(
     return Promise.reject(error);
   },
 );
-export { userApi, projectApi };
+const wishApi = axios.create({
+  baseURL: `${import.meta.env.VITE_BASE_URL}/api/v1/wishlist`,
+});
+wishApi.interceptors.request.use(
+  (config) => {
+    const { token } = useAuthStore.getState();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+export { userApi, projectApi, wishApi };

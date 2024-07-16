@@ -14,7 +14,7 @@ export default function HeroSection() {
   function handleSearch() {
     if (!search) return;
     setQuery(search);
-    navigate("service");
+    navigate("service/desain");
   }
 
   return (
