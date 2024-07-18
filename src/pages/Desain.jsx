@@ -6,10 +6,10 @@ import { useQuerySlice } from "../slices/QuerySlice";
 export default function Arsitek() {
   const { projects, isLoading } = useProjects();
   const { query } = useQuerySlice((state) => state);
-
+  console.log(projects);
   const filteredProject = query
-    ? projects.filter((user) =>
-        user.username.toLowerCase().includes(query.toLowerCase()),
+    ? projects.filter((project) =>
+        project.projectName.toLowerCase().includes(query.toLowerCase()),
       )
     : projects;
   if (isLoading) return <Spinner />;
