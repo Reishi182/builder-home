@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FaStar } from "react-icons/fa6";
 import { HiOutlineCash } from "react-icons/hi";
 import { IoMdMail } from "react-icons/io";
@@ -53,7 +54,7 @@ export default function UserCard({ user }) {
         </div>
         <div className="mt-6 flex items-center space-x-4">
           <a
-            href={`https://wa.me/${user.phone}`}
+            href={`https://wa.me/62${user.phone}`}
             onClick={handleSendMessageClick}
             className="flex items-center justify-center gap-3 rounded-xl bg-[#5E8451] px-7 py-3 text-xl text-white"
           >

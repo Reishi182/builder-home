@@ -75,7 +75,7 @@ export default function DetailArsitek() {
                 Tambah Favorit
               </button>
               <a
-                href={`https://wa.me/${user.phone}`}
+                href={`https://wa.me/62${user.phone}`}
                 className="rounded-lg bg-[#5E8451] px-14 py-2 text-center text-white"
               >
                 Hubungi Kami

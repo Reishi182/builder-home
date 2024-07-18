@@ -19,7 +19,7 @@ export default function Arsitek() {
         Desain
       </h1>
       {filteredProject.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 place-items-center gap-1 md:grid-cols-2 md:place-items-baseline  lg:grid-cols-3">
           {filteredProject.map((item, index) => (
             <ItemCard project={item} key={index} />
           ))}
