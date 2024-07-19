@@ -11,7 +11,7 @@ export default function ItemCard({ project }) {
   }
   return (
     <div
-      className="m-5 mx-3 flex  flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
+      className="m-5 mx-3 flex w-[30rem] flex-col rounded-xl bg-[#FEFEFE] shadow-custom "
       onClick={handleNavigate}
     >
       <img src={project.image_cover} className="h-80 rounded-lg" />

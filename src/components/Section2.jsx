@@ -20,11 +20,11 @@ export default function Section2() {
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 611, min: 438 },
+      breakpoint: { max: 611, min: 365 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 438, min: 0 },
+      breakpoint: { max: 365, min: 0 },
       items: 1,
     },
   };

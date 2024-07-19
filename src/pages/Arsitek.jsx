@@ -19,7 +19,7 @@ export default function Arsitek() {
         Arsitek
       </h1>
       {filteredUsers.length > 0 ? (
-        <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2  lg:grid-cols-3">
+        <div className="flex flex-wrap items-center justify-center gap-10 ">
           {filteredUsers.map((item, i) => (
             <UserCard key={i} user={item} />
           ))}

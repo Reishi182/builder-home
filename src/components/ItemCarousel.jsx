@@ -9,7 +9,7 @@ export default function ItemCarousel({ children, responsive = {} }) {
       customTransition="transform 250ms ease 0s"
       customTransitionDuration={500}
       customTransitionTimingFunction="ease"
-      partialVisible={false}
+      partialVisible={true}
     >
       {children}
     </Carousel>

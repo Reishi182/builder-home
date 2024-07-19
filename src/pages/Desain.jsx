@@ -1,4 +1,4 @@
-import ItemCard from "./../components/ItemCard";
+import ItemDesignCard from "./../components/ItemDesignCard";
 import { useProjects } from "./../features/project/useProjects";
 import NoItems from "./../features/desain/NoItems";
 import { Spinner } from "@nextui-org/react";
@@ -19,9 +19,9 @@ export default function Arsitek() {
         Desain
       </h1>
       {filteredProject.length > 0 ? (
-        <div className="grid grid-cols-1 place-items-center gap-1 md:grid-cols-2 md:place-items-baseline  lg:grid-cols-3">
+        <div className="flex flex-wrap items-center justify-center gap-10 ">
           {filteredProject.map((item, index) => (
-            <ItemCard project={item} key={index} />
+            <ItemDesignCard project={item} key={index} />
           ))}
         </div>
       ) : (
